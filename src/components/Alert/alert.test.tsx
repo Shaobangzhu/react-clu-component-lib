@@ -1,6 +1,7 @@
-import React from 'react'
-import { render, screen, fireEvent } from '@testing-library/react'
-import Alert, { AlertProps } from './alert'
+import React from 'react';
+import '@testing-library/jest-dom';
+import { render, screen, fireEvent } from '@testing-library/react';
+import Alert, { AlertProps } from './alert';
 
 const testProps: AlertProps = {
     title: 'title',
