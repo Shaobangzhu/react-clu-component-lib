@@ -7,13 +7,6 @@ const testProps: AlertProps = {
     onClose: jest.fn()
 }
 
-const typeProps: AlertProps = {
-    ...testProps,
-    type: 'success',
-    description: 'success desc',
-    closable: false
-}
-
 describe('test Alert Component', () => {
     it('should render the correct default Alert', () => {
         render(<Alert {...testProps}/>)
