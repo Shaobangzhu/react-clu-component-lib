@@ -1,35 +1,25 @@
 import React from "react";
-import Alert, { AlertType } from "./components/Alert/alert.tsx";
+import Menu from "./components/Menu/menu.tsx";
+import MenuItem from "./components/Menu/menuItem.tsx";
 
 const App: React.FC = () => {
-  const handleClose = () => {
-    console.log("Alert closed!");
-  };
+
 
   return (
-    <div className="App" style={{ padding: "20px" }}>
-      <h2>Alert Component Demo</h2>
-
-      <Alert
-        title="Success!"
-        description="Data saved successfully."
-        type="success"
-        onClose={handleClose}
-      />
-
-      <Alert
-        title="Warning!"
-        description="Be careful with your next action."
-        type="warning"
-      />
-
-      <Alert
-        title="Danger!"
-        description="This is a danger alert."
-        type="danger"
-      />
-
-      <Alert title="Default Alert" />
+    <div className="App">
+      <header className="App-header">
+        <Menu defaultIndex={0}>
+          <MenuItem>
+            cool link 1
+          </MenuItem>
+          <MenuItem>
+            cool link 2
+          </MenuItem>
+          <MenuItem>
+            cool link 3
+          </MenuItem>
+        </Menu>
+      </header>
     </div>
   );
 };
