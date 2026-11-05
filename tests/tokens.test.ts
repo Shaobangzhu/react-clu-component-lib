@@ -53,6 +53,10 @@ describe('built consumer CSS contract', () => {
     const light = tokens('[data-clu-theme]');
     for (const name of ['surface-canvas', 'text', 'accent', 'stroke', 'success', 'warning', 'error', 'unknown', 'space-4', 'font-sans', 'font-size-md', 'numeric', 'radius-md', 'focus-width', 'shadow-overlay', 'motion-normal']) expect(light[name]).toBeDefined();
   });
+  it('ships scoped table overflow and numeric alignment styles', () => {
+    expect(css).toMatch(/\.clu-table-scroll[^{}]*\{[^}]*overflow:\s*auto/);
+    expect(css).toMatch(/\.clu-table-cell\[data-numeric="true"\][^{}]*\{[^}]*text-align:\s*end;[^}]*font-variant-numeric:\s*var\(--clu-numeric\)/);
+  });
   it('includes scoped preference fallbacks and opt-in keyboard focus', () => {
     expect(css).toContain('prefers-reduced-motion: reduce');
     expect(css).toContain('prefers-contrast: more');
