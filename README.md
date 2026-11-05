@@ -1,6 +1,6 @@
 # CLU Component Library
 
-CLU is a planned React 19 component library for data-dense operational applications. This repository currently implements **P01–P03: the foundation, scoped semantic tokens, and nine public display primitives**. Form, data and overlay components remain planned.
+CLU is a planned React 19 component library for data-dense operational applications. This repository currently implements **P01–P04: the foundation, scoped semantic tokens, nine display primitives and six form primitives**. Data and overlay components remain planned.
 
 Implemented here: an ESM Vite library build with declarations and an explicit CSS export, strict TypeScript, ESLint, Vitest/React Testing Library, Tailwind CSS v4 build infrastructure, local/static Storybook, and scoped light/dark design tokens. The package is private and unpublished. There is no public Storybook URL yet.
 
@@ -58,3 +58,5 @@ CLU owns reusable UI semantics and generic interactions. Delivery, GIS, finance,
 Review the token gallery under **Foundations / Semantic tokens** in Storybook. Interactive follows the local Theme toolbar; fixed Light/Dark and Compare stories support predictable review. Themes never mutate the document. For a bare consumer check, run `npm run build`, serve the repository with a static server, and open `examples/theme-smoke/`.
 
 Public display exports: Button, IconButton, Card, Badge, StatusIndicator, StatCard, Alert, Skeleton and EmptyState. See [API contracts and accessibility notes](docs/display-primitives.md), [P03 verification](docs/p03-verification.md) and [P03 PR draft](docs/p03-pr.md). Components require explicit CSS import and a theme host; the package remains unpublished.
+
+Public form exports: Field, Input, Textarea, Select, Checkbox and SegmentedControl. Read the [native form API and accessibility contract](docs/form-controls.md), [P04 verification](docs/p04-verification.md) and [PR draft](docs/p04-pr.md). The Forms stories include a synthetic delivery metadata example; DGI integration and domain validation remain consumer work.

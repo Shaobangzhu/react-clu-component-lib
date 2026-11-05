@@ -33,14 +33,26 @@ See [token contract](docs/design-tokens.md) and [P02 evidence](docs/p02-verifica
 
 ## P03 implementation progress (2026-11-05)
 
-Implemented locally on `feat/clu-display-primitives` from merged `origin/master` at `12f5a39205d705e96b244f5747659bf5162c3e66` (P02 PR #2). Commit/PR review remain pending.
+Implemented locally on `feat/clu-display-primitives` from merged `origin/master` at `12f5a39205d705e96b244f5747659bf5162c3e66` (P02 PR #2). P03 was subsequently merged in PR #3 at `08aebf6`.
 
 - [x] Nine public display components and React 19 prop/ref types exported from the package entry.
 - [x] Scoped token styles, per-component tests and stories; explicit loading, unknown/unavailable and live announcement contracts.
 - [x] Clean install, lint, strict types, 22 tests across 13 files, library/CSS and Storybook builds.
 - [x] Packed ESM/CSS consumption without Tailwind; desktop/mobile light/dark browser review and visible keyboard focus.
 
-See [API notes](docs/display-primitives.md) and [P03 verification](docs/p03-verification.md). P04–P11 remain planned; no DGI integration or release claim is made.
+See [API notes](docs/display-primitives.md) and [P03 verification](docs/p03-verification.md). At P03 verification, P04–P11 remained planned; no DGI integration or release claim is made.
+
+## P04 implementation progress (2026-11-05)
+
+Implemented locally on `feat/clu-form-controls` from merged `origin/master` at `08aebf68e269ceb145e8c67d32d8e83dd8da4714`. Commit/PR review remain pending.
+
+- [x] Six generic native form primitives and prop types appended to the public entry; existing display exports preserved.
+- [x] Explicit stable Field association, native controlled/uncontrolled values and refs, tested mixed checkbox state and single-select radio behavior.
+- [x] Per-control states and controlled stories plus a generic synthetic metadata form; no DGI domain imports or date conversion.
+- [x] Clean install, lint, strict types, 36 tests across 15 files, CSS/library and Storybook builds.
+- [x] Desktop/390px light/dark browser review, radio keyboard navigation and native submission; packed public consumer smoke without Tailwind.
+
+See [form contracts](docs/form-controls.md) and [P04 verification](docs/p04-verification.md). P05–P11 remain planned; no consumer integration or release claim.
 
 ## 1. Product thesis
 
