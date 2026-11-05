@@ -31,3 +31,7 @@ export { SegmentedControl } from './forms/SegmentedControl';
 export type { SegmentedControlProps } from './forms/SegmentedControl';
 export type { FieldControlProps } from './forms/Field';
 export type { SegmentedOption } from './forms/SegmentedControl';
+export { Table } from './data/Table';
+export type { TableProps, TableHeadCellProps, TableCellProps, TableScrollAreaProps, TableMessageRowProps } from './data/Table';
+export { Pagination } from './data/Pagination';
+export type { PaginationProps } from './data/Pagination';

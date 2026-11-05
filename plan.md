@@ -44,7 +44,7 @@ See [API notes](docs/display-primitives.md) and [P03 verification](docs/p03-veri
 
 ## P04 implementation progress (2026-11-05)
 
-Implemented locally on `feat/clu-form-controls` from merged `origin/master` at `08aebf68e269ceb145e8c67d32d8e83dd8da4714`. Commit/PR review remain pending.
+Implemented locally on `feat/clu-form-controls` from merged `origin/master` at `08aebf68e269ceb145e8c67d32d8e83dd8da4714`. P04 was subsequently merged in PR #4 at `8e346d9`.
 
 - [x] Six generic native form primitives and prop types appended to the public entry; existing display exports preserved.
 - [x] Explicit stable Field association, native controlled/uncontrolled values and refs, tested mixed checkbox state and single-select radio behavior.
@@ -52,7 +52,19 @@ Implemented locally on `feat/clu-form-controls` from merged `origin/master` at `
 - [x] Clean install, lint, strict types, 36 tests across 15 files, CSS/library and Storybook builds.
 - [x] Desktop/390px light/dark browser review, radio keyboard navigation and native submission; packed public consumer smoke without Tailwind.
 
-See [form contracts](docs/form-controls.md) and [P04 verification](docs/p04-verification.md). P05–P11 remain planned; no consumer integration or release claim.
+See [form contracts](docs/form-controls.md) and [P04 verification](docs/p04-verification.md). At P04 verification, P05–P11 remained planned; no consumer integration or release claim.
+
+## P05 implementation progress (2026-11-05)
+
+Implemented locally on `feat/clu-data-presentation` from latest merged `origin/master` at `8e346d94a2dccd2c83f5b36ceb7613290093747f`. Commit/PR review remain pending.
+
+- [x] Native compound Table API, captions/header associations, refs, numeric alignment, density, empty/loading rows and named keyboard-scrollable overflow wrapper.
+- [x] Controlled Pagination with display-only numeric normalization, truthful empty ranges, bounded page windows, boundary/disabled controls and no state-reconciliation effects.
+- [x] Synthetic Delivery History/Merchant Summary and boundary/control stories; 69 tests across 18 files, strict types, safe CSS, library and Storybook builds after clean install.
+- [x] Real browser desktop/390px light/dark, horizontal keyboard scrolling, numeric style, empty ranges and total-shrink ownership review.
+- [x] Real tarball installed in an independent consumer; strict TypeScript, Vite production build, SSR and precompiled CSS without Tailwind passed.
+
+See [data API contracts](docs/data-presentation.md) and [P05 evidence](docs/p05-verification.md). P06–P11 remain planned. DGI pagination/edit policies, consumer integration and release approval remain outside this work.
 
 ## 1. Product thesis
 
