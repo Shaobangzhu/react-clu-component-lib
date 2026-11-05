@@ -1,0 +1,7 @@
+/*
+ * Explicit consumer CSS entry placeholder. No theme or public components yet.
+ * Tailwind is build-time only: no Preflight, theme globals, or auto-scanning.
+ * P02 will establish scoped --clu-* tokens and component styling.
+ */
+@layer clu-utilities;
+@import 'tailwindcss/utilities.css' layer(clu-utilities) prefix(clu) source(none);
