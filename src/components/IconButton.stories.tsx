@@ -1,0 +1,18 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { IconButton } from '../index';
+const meta = { title: 'Display/IconButton', component: IconButton, args: { 'aria-label': 'Open details', children: '+' } } satisfies Meta<typeof IconButton>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Default: Story = {};
+export const Dark: Story = { parameters: { cluTheme: 'dark' } };
+export const Compact: Story = { decorators: [Story => <div style={{ width: 'min(100%, 340px)' }}><Story /></div>] };
+export const LongContent: Story = { args: { 'aria-label': 'Open detailed information for this observation' } };
+export const Loading: Story = { args: { loading: true } };
+export const Disabled: Story = { args: { disabled: true } };
+export const Primary: Story = { args: { variant: 'primary' } };
+export const Secondary: Story = { args: { variant: 'secondary' } };
+export const Quiet: Story = { args: { variant: 'quiet' } };
+export const Danger: Story = { args: { variant: 'danger' } };
+export const Small: Story = { args: { size: 'small' } };
+export const Medium: Story = { args: { size: 'medium' } };
+export const Large: Story = { args: { size: 'large' } };

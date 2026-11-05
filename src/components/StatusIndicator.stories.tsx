@@ -1,0 +1,14 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { StatusIndicator } from '../index';
+const meta = { title: 'Display/StatusIndicator', component: StatusIndicator, args: { status: 'not_yet_verified' } } satisfies Meta<typeof StatusIndicator>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Default: Story = {};
+export const Dark: Story = { parameters: { cluTheme: 'dark' } };
+export const Compact: Story = { decorators: [Story => <div style={{ width: 'min(100%, 340px)' }}><Story /></div>] };
+export const LongContent: Story = { args: {} };
+export const Operational: Story = { args: { status: 'operational' } };
+export const Degraded: Story = { args: { status: 'degraded' } };
+export const Unavailable: Story = { args: { status: 'unavailable' } };
+export const NotYetVerified: Story = { args: { status: 'not_yet_verified' } };
+export const NotConfigured: Story = { args: { status: 'not_configured' } };

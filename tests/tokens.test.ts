@@ -47,7 +47,9 @@ describe('built consumer CSS contract', () => {
       for (const part of selector.split(',')) expect(part.trim()).toMatch(/^\[data-clu-theme(?:="dark")?\]/);
       for (const name of rule[2]?.matchAll(/(--[\w-]+)\s*:/g) ?? []) expect(name[1]).toMatch(/^--clu-/);
     }
-    expect(css).not.toMatch(/@import|@property|@font-face|:root|:host|\.card\b|\.table\b|box-sizing/);
+    // Scoped component box-sizing is permitted; a global universal reset is not.
+    expect(css).not.toMatch(/(?:^|[{}])\s*\*\s*\{/);
+    expect(css).not.toMatch(/@import|@property|@font-face|:root|:host|\.card\b|\.table\b/);
     const light = tokens('[data-clu-theme]');
     for (const name of ['surface-canvas', 'text', 'accent', 'stroke', 'success', 'warning', 'error', 'unknown', 'space-4', 'font-sans', 'font-size-md', 'numeric', 'radius-md', 'focus-width', 'shadow-overlay', 'motion-normal']) expect(light[name]).toBeDefined();
   });

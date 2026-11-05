@@ -1,0 +1,15 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Alert } from '../index';
+const meta = { title: 'Display/Alert', component: Alert, args: { children: 'Review this information before continuing.' } } satisfies Meta<typeof Alert>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Default: Story = {};
+export const Dark: Story = { parameters: { cluTheme: 'dark' } };
+export const Compact: Story = { decorators: [Story => <div style={{ width: 'min(100%, 340px)' }}><Story /></div>] };
+export const LongContent: Story = { args: { children: 'A long descriptive label that must remain readable on compact screens and at increased zoom' } };
+export const Neutral: Story = { args: { tone: 'neutral' } };
+export const Success: Story = { args: { tone: 'success' } };
+export const Warning: Story = { args: { tone: 'warning' } };
+export const Error: Story = { args: { tone: 'error' } };
+export const Unknown: Story = { args: { tone: 'unknown' } };
+export const Urgent: Story = { args: { tone: 'error', announcement: 'urgent' } };

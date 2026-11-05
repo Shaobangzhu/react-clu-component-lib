@@ -1,6 +1,6 @@
 # CLU Component Library
 
-CLU is a planned React 19 component library for data-dense operational applications. This repository currently implements **P01–P02: the library foundation and scoped semantic tokens**, with internal rendering specimens. None of the 19 planned public components is complete or exported.
+CLU is a planned React 19 component library for data-dense operational applications. This repository currently implements **P01–P03: the foundation, scoped semantic tokens, and nine public display primitives**. Form, data and overlay components remain planned.
 
 Implemented here: an ESM Vite library build with declarations and an explicit CSS export, strict TypeScript, ESLint, Vitest/React Testing Library, Tailwind CSS v4 build infrastructure, local/static Storybook, and scoped light/dark design tokens. The package is private and unpublished. There is no public Storybook URL yet.
 
@@ -31,7 +31,7 @@ Storybook runs locally at http://localhost:6006. `npm run build-storybook` gener
 The actual tested versions, official compatibility references, and verification output are recorded in [P01 verification](docs/p01-verification.md).
 
 ```text
-src/index.ts                        public entry; no component exports yet
+src/index.ts                        public entry; nine display component and prop exports
 src/styles/index.css                compiled scoped tokens and opt-in focus styles
 src/internal/ScaffoldButton.*        internal proof, excluded from library output
 .storybook/                         React + Vite Storybook configuration
@@ -56,3 +56,5 @@ CLU owns reusable UI semantics and generic interactions. Delivery, GIS, finance,
 **Maintainer:** [Chaoran Lu](https://github.com/Shaobangzhu)
 
 Review the token gallery under **Foundations / Semantic tokens** in Storybook. Interactive follows the local Theme toolbar; fixed Light/Dark and Compare stories support predictable review. Themes never mutate the document. For a bare consumer check, run `npm run build`, serve the repository with a static server, and open `examples/theme-smoke/`.
+
+Public display exports: Button, IconButton, Card, Badge, StatusIndicator, StatCard, Alert, Skeleton and EmptyState. See [API contracts and accessibility notes](docs/display-primitives.md), [P03 verification](docs/p03-verification.md) and [P03 PR draft](docs/p03-pr.md). Components require explicit CSS import and a theme host; the package remains unpublished.

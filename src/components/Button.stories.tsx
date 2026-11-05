@@ -1,0 +1,18 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Button } from '../index';
+const meta = { title: 'Display/Button', component: Button, args: { children: 'Save changes' } } satisfies Meta<typeof Button>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Default: Story = {};
+export const Dark: Story = { parameters: { cluTheme: 'dark' } };
+export const Compact: Story = { decorators: [Story => <div style={{ width: 'min(100%, 340px)' }}><Story /></div>] };
+export const LongContent: Story = { args: { children: 'A long descriptive label that must remain readable on compact screens and at increased zoom' } };
+export const Loading: Story = { args: { loading: true } };
+export const Disabled: Story = { args: { disabled: true } };
+export const Primary: Story = { args: { variant: 'primary' } };
+export const Secondary: Story = { args: { variant: 'secondary' } };
+export const Quiet: Story = { args: { variant: 'quiet' } };
+export const Danger: Story = { args: { variant: 'danger' } };
+export const Small: Story = { args: { size: 'small' } };
+export const Medium: Story = { args: { size: 'medium' } };
+export const Large: Story = { args: { size: 'large' } };

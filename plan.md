@@ -21,7 +21,7 @@ See [P01 verification](docs/p01-verification.md) for exact versions, actual outp
 
 ## P02 implementation progress (2026-11-04)
 
-Implemented on `feat/clu-design-tokens` from merged `origin/master` at `eade7b9bbe6fd7db748edeed75168e0a0bdf4559`. Local work is ready for review; commit/PR remain pending. All required automated checks were re-run successfully on 2026-11-05 after all 22 duplicate baseline files were analyzed and removed.
+Implemented on `feat/clu-design-tokens` from merged `origin/master` at `eade7b9bbe6fd7db748edeed75168e0a0bdf4559`. P02 was subsequently merged in PR #2 at `12f5a39`. All required automated checks were re-run successfully on 2026-11-05 after all 22 duplicate baseline files were analyzed and removed.
 
 - [x] Scoped public semantic tokens, independent light/dark and nested-host defaults, higher contrast, forced colors and reduced motion.
 - [x] Documented token meanings and public/private contracts; a Storybook gallery and local Theme toolbar.
@@ -29,7 +29,18 @@ Implemented on `feat/clu-design-tokens` from merged `origin/master` at `eade7b9b
 - [x] Clean install, lint, strict types, 10 tests, ESM/CSS build and Storybook build.
 - [x] Real browser review at 1280px and 390px in both themes; keyboard focus and bare HTML consumer isolation checked.
 
-See [token contract](docs/design-tokens.md) and [P02 evidence](docs/p02-verification.md). P03–P11 remain planned. This does not approve final DGI branding or complete public components, consumer integration, or accessibility certification.
+See [token contract](docs/design-tokens.md) and [P02 evidence](docs/p02-verification.md). At P02 verification, P03–P11 remained planned. This does not approve final DGI branding or complete public components, consumer integration, or accessibility certification.
+
+## P03 implementation progress (2026-11-05)
+
+Implemented locally on `feat/clu-display-primitives` from merged `origin/master` at `12f5a39205d705e96b244f5747659bf5162c3e66` (P02 PR #2). Commit/PR review remain pending.
+
+- [x] Nine public display components and React 19 prop/ref types exported from the package entry.
+- [x] Scoped token styles, per-component tests and stories; explicit loading, unknown/unavailable and live announcement contracts.
+- [x] Clean install, lint, strict types, 22 tests across 13 files, library/CSS and Storybook builds.
+- [x] Packed ESM/CSS consumption without Tailwind; desktop/mobile light/dark browser review and visible keyboard focus.
+
+See [API notes](docs/display-primitives.md) and [P03 verification](docs/p03-verification.md). P04–P11 remain planned; no DGI integration or release claim is made.
 
 ## 1. Product thesis
 

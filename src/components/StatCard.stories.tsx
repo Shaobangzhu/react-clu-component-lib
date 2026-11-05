@@ -1,0 +1,11 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { StatCard } from '../index';
+const meta = { title: 'Display/StatCard', component: StatCard, args: { label: 'Observed value', value: 0, detail: 'Passed by the consumer' } } satisfies Meta<typeof StatCard>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Default: Story = {};
+export const Dark: Story = { parameters: { cluTheme: 'dark' } };
+export const Compact: Story = { decorators: [Story => <div style={{ width: 'min(100%, 340px)' }}><Story /></div>] };
+export const LongContent: Story = { args: { label: 'A long descriptive label for the externally formatted observation', value: '123,456.00 units' } };
+export const Unavailable: Story = { args: { value: null } };
+export const Unobserved: Story = { args: { value: undefined } };
