@@ -1,0 +1,6 @@
+/* Reference-only import exposes @apply without injecting Tailwind base styles. */
+@reference 'tailwindcss';
+
+.clu-scaffold-button {
+  @apply inline-flex items-center;
+}

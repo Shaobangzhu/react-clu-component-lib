@@ -1,70 +1,56 @@
 # CLU Component Library
 
-**Reusable, type-safe React UI components for modern operations dashboards.**
+CLU is a planned React 19 component library for data-dense operational applications. This repository currently implements **P01: the library foundation**, with an internal rendering scaffold. None of the 19 planned public components is complete or exported.
 
-CLU is an independently engineered React component library built to explore the full lifecycle of frontend component development: **API design, accessibility, testing, documentation, packaging, and integration**. Its first intended consumer is **Solar Compute Operations Center (SCOC)**, a separate application for monitoring home compute infrastructure.
+Implemented here: an ESM Vite library build with declarations and an explicit CSS export, strict TypeScript, ESLint, Vitest/React Testing Library, Tailwind CSS v4 build infrastructure, and local/static Storybook. The package is private and unpublished. There is no public Storybook URL yet.
 
-> **Project status — rebuild in progress.** The current `master` branch contains the earlier React 18 / Create React App learning project. The React 19 library, npm distribution, and SCOC integration described below are **planned**, not yet shipped.
+Use Node **22.23.4** and npm **10.9.0**, matching the shared DGI baseline. `.nvmrc`, `packageManager`, and engine requirements record this toolchain; `.npmrc` enforces compatible engines and saves exact dependency versions. Exact development dependencies and transitive resolutions are recorded in `package.json` and `package-lock.json`.
 
-## Engineering Focus
-
-- **React & TypeScript:** composable APIs, strict prop types, native DOM attributes, refs, and controlled/uncontrolled state.
-- **Accessible interactions:** semantic HTML, keyboard navigation, focus management, and appropriate ARIA behavior.
-- **Design consistency:** Tailwind CSS v4, reusable design tokens, theme support, and isolated library styles.
-- **Quality engineering:** Vitest, React Testing Library, user-event, Storybook interaction tests, and consumer smoke tests.
-- **Library delivery:** ESM builds, TypeScript declarations, React peer dependencies, semantic versioning, and npm releases.
-
-## Target Stack
-
-| Area                | Technology                                |
-| ------------------- | ----------------------------------------- |
-| UI                  | React 19, TypeScript (strict)             |
-| Styling             | Tailwind CSS v4, CSS custom properties    |
-| Development & build | Vite (library mode)                       |
-| Testing             | Vitest, React Testing Library, user-event |
-| Documentation       | Storybook (React + Vite)                  |
-| Distribution        | Versioned npm package (ESM + types + CSS) |
-
-## Component Scope
-
-| Foundation                 | Interactive & data         |
-| -------------------------- | -------------------------- |
-| Button, Card, Badge        | Input, Select, Tabs        |
-| Alert, Spinner, EmptyState | Progress, Table primitives |
-
-The library owns **reusable UI primitives**, not application-specific logic. GPU telemetry, node health, energy metrics, and marketplace workflows belong to SCOC and compose CLU components.
-
-## Architecture
-
-```text
-CLU source (React + TypeScript + Tailwind)
-        |
-        +--> Storybook + component tests
-        |
-        v
-Vite library build --> ESM + types + compiled CSS
-        |
-        v
-Versioned npm package
-        |
-        v
-SCOC (independent React application)
+```sh
+nvm install
+nvm use
+# If necessary, select npm 10.9.0 in your Node installation:
+npm install --global npm@10.9.0
+npm ci
+npm run quality:check
+npm run storybook
 ```
 
-**Key design boundary:** SCOC will consume a published CLU package rather than copy component source. Package exports, styling isolation, and a separate consumer build will be tested before release.
+Storybook runs locally at http://localhost:6006. `npm run build-storybook` generates `storybook-static/` for local static serving. Hosting, public URLs, browser accessibility checks, and screenshot gates are later work; building Storybook does not establish those capabilities.
 
-## Roadmap
+| Command | Purpose |
+| --- | --- |
+| `npm run lint` | Type-aware ESLint and React Hooks checks; warnings fail |
+| `npm run typecheck` | Strict checks for source, config, stories, and tests |
+| `npm test` | Deterministic jsdom rendering, interaction, and portable-story tests |
+| `npm run build` | ESM library, declarations, and compiled CSS in `dist/` |
+| `npm run storybook` | Local Storybook development |
+| `npm run build-storybook` | Static Storybook production build |
+| `npm run quality:check` | Lint, types, tests, library build, and Storybook build in sequence |
 
-- [ ] **Foundation:** archive the learning baseline; initialize React 19, Vite, Tailwind, Vitest, and Storybook.
-- [ ] **Components:** implement and document the small set of primitives required by the SCOC MVP.
-- [ ] **Quality & packaging:** add accessibility coverage, declaration generation, `npm pack` validation, and consumer tests.
-- [ ] **Release & integration:** publish a versioned package and use it in SCOC.
+The actual tested versions, official compatibility references, and verification output are recorded in [P01 verification](docs/p01-verification.md).
 
-Setup instructions, live Storybook, CI status, and package installation commands will be added **when those capabilities are available**.
+```text
+src/index.ts                        public entry; no component exports yet
+src/styles/index.css                explicit CSS placeholder; no reset or theme
+src/internal/ScaffoldButton.*        internal proof, excluded from library output
+.storybook/                         React + Vite Storybook configuration
+tests/                             RTL interaction and portable-story tests
+```
 
-## Project Background
+The package exposes `.` as ESM with types and `./styles.css` as opt-in compiled CSS. Consumers will import the CSS explicitly when public styles exist; Tailwind will not be a consumer build requirement. CSS side effects are declared so bundlers preserve an explicit CSS import. The placeholder supplies no design tokens or global reset. The internal scaffold demonstrates Tailwind compilation under a `clu-*` selector, using a reference-only import. No Preflight or default theme is injected into consumers.
 
-This repository began as a React/TypeScript component-library learning exercise. CLU's new architecture and implementations are being developed as an independent engineering portfolio, with learning-stage history retained for transparency. No employer-proprietary code or internal assets are used.
+React 19 is both a peer and an exact development dependency. React, ReactDOM, and their subpaths (including JSX runtimes) are external in the library build. ReactDOM is development-only because the public entry does not import it. The scaffold is not re-exported or included in the package; it is not the future Button API.
 
-**Maintainer:** [Chaoran Lu](https://github.com/Shaobangzhu)  
-**Repository:** [react-clu-component-lib](https://github.com/Shaobangzhu/react-clu-component-lib)
+[The v1 blueprint](plan.md) preserves the two-repository scope and all 11 delivery phases. [The P01 PR draft](docs/p01-pr.md) is local review material; no PR has been opened by this work.
+
+- **CLU:** [Shaobangzhu/react-clu-component-lib](https://github.com/Shaobangzhu/react-clu-component-lib), base `master`. P01–P08 establish the foundation, tokens, components, package contract, and quality gates. Each phase starts from the latest merged `master` on its own branch and is reviewed before the next.
+- **First consumer, DGI:** [Shaobangzhu/delivery-geo-intelligence](https://github.com/Shaobangzhu/delivery-geo-intelligence), base `main`. P09–P10 will consume an approved, immutable CLU prerelease while preserving DGI's business contracts. DGI has not been modified or integrated here.
+- **Release readiness:** P11 audits real component, package, and consumer evidence. Publication, release tags, and public hosting require owner approval. A namespace such as `@shaobangzhu/clu-ui` is proposed, not verified or reserved. There is no registry installation command yet.
+- **SCOC:** a future consumer outside v1 acceptance scope.
+
+The external implementation kit also contains `codex-prompts.md` and `prompts/P01.md` through `P11.md`. They are not included in this repository. The root blueprint records the execution plan; later phase prompts remain separate handoff materials.
+
+CLU owns reusable UI semantics and generic interactions. Delivery, GIS, finance, provider telemetry, APIs, and other business logic stay in consumers. No consumer source is copied here. Complete public components, semantic tokens/themes, independent consumer validation, CI browser/a11y/visual gates, npm publication, DGI migration, and a hosted Storybook are planned work.
+
+**Maintainer:** [Chaoran Lu](https://github.com/Shaobangzhu)
