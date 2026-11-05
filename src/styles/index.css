@@ -2,6 +2,7 @@
 @layer clu-tokens, clu-components, clu-utilities;
 @import './tokens.css' layer(clu-tokens);
 @import './components.css' layer(clu-components);
+@import './forms.css' layer(clu-components);
 @import 'tailwindcss/utilities.css' layer(clu-utilities) prefix(clu) source(none);
 
 /* Opt-in focus treatment; no generic element selectors. */
