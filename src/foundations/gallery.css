@@ -1,0 +1,42 @@
+@reference 'tailwindcss';
+
+[data-clu-theme] .clu-gallery {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 76rem;
+  margin-inline: auto;
+  padding: clamp(var(--clu-space-4), 4vw, var(--clu-space-12));
+  background: var(--clu-surface-canvas);
+  color: var(--clu-text);
+  font-family: var(--clu-font-sans);
+  font-size: var(--clu-font-size-md);
+  line-height: var(--clu-line-height-body);
+  font-variant-numeric: var(--clu-numeric);
+  overflow-wrap: anywhere;
+}
+[data-clu-theme] .clu-gallery-heading { margin-bottom: var(--clu-space-12); }
+[data-clu-theme] .clu-gallery-eyebrow { color: var(--clu-accent); font-size: var(--clu-font-size-xs); font-weight: var(--clu-font-weight-bold); letter-spacing: .12em; text-transform: uppercase; }
+[data-clu-theme] .clu-gallery-title { margin: var(--clu-space-3) 0; font-size: clamp(var(--clu-font-size-xl), 4vw, var(--clu-font-size-2xl)); line-height: var(--clu-line-height-tight); letter-spacing: -.025em; }
+[data-clu-theme] .clu-gallery-copy { margin: var(--clu-space-2) 0; color: var(--clu-text-secondary); }
+[data-clu-theme] .clu-gallery-meta { color: var(--clu-text-muted); font-size: var(--clu-font-size-xs); }
+[data-clu-theme] .clu-gallery-section { padding-block: var(--clu-space-6); border-top: 1px solid var(--clu-stroke-subtle); }
+[data-clu-theme] .clu-gallery-section-title { font-size: var(--clu-font-size-sm); margin: 0 0 var(--clu-space-4); font-weight: var(--clu-font-weight-semibold); }
+[data-clu-theme] .clu-gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); gap: var(--clu-space-4); }
+[data-clu-theme] .clu-gallery-surface { display: flex; flex-direction: column; gap: var(--clu-space-2); padding: var(--clu-space-4); border: 1px solid var(--clu-stroke-subtle); border-radius: var(--clu-radius-md); min-width: 0; }
+[data-clu-theme] .clu-gallery-number { font-size: var(--clu-font-size-xl); font-weight: var(--clu-font-weight-semibold); }
+[data-clu-theme] .clu-gallery-code { font-family: var(--clu-font-mono); font-size: var(--clu-font-size-xs); }
+[data-clu-theme] .clu-gallery-type-list { display: grid; gap: var(--clu-space-4); }
+[data-clu-theme] .clu-gallery-type-row { display: grid; grid-template-columns: minmax(7rem, 1fr) 4fr; align-items: baseline; gap: var(--clu-space-4); }
+[data-clu-theme] .clu-gallery-state { display: flex; flex-direction: column; gap: var(--clu-space-2); padding: var(--clu-space-4); border-radius: var(--clu-radius-md); border: 1px solid currentColor; }
+[data-clu-theme] .clu-gallery-spacing { display: grid; gap: var(--clu-space-3); }
+[data-clu-theme] .clu-gallery-space-row { display: grid; grid-template-columns: 5rem 4rem 1fr; align-items: center; gap: var(--clu-space-4); }
+[data-clu-theme] .clu-gallery-space-bar { height: var(--clu-space-3); background: var(--clu-accent); border-radius: var(--clu-radius-sm); }
+[data-clu-theme] .clu-gallery-actions { @apply flex flex-wrap items-center; gap: var(--clu-space-6); margin-block: var(--clu-space-6); }
+[data-clu-theme] .clu-gallery-action { border: 1px solid var(--clu-accent); background: var(--clu-accent); color: var(--clu-accent-text); border-radius: var(--clu-radius-md); padding: var(--clu-space-3) var(--clu-space-4); font: inherit; cursor: pointer; transition: background-color var(--clu-motion-fast) var(--clu-motion-ease); }
+[data-clu-theme] .clu-gallery-action:hover { background: var(--clu-accent-hover); }
+[data-clu-theme] .clu-gallery-link { color: var(--clu-accent); text-underline-offset: .2em; }
+[data-clu-theme] .clu-gallery-elevation { display: flex; flex-direction: column; gap: var(--clu-space-2); padding: var(--clu-space-6); background: var(--clu-surface-elevated); border: 1px solid var(--clu-stroke-subtle); box-shadow: var(--clu-shadow-raised); }
+[data-clu-theme] .clu-gallery-notes { border-top: 1px solid var(--clu-stroke-subtle); margin-top: var(--clu-space-6); padding-top: var(--clu-space-6); font-size: var(--clu-font-size-sm); }
+@media (max-width: 30rem) {
+  [data-clu-theme] .clu-gallery-type-row { grid-template-columns: 1fr; gap: var(--clu-space-1); }
+}

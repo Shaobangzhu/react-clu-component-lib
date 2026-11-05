@@ -1,0 +1,132 @@
+/* Public semantic tokens. Every explicit host resets to light defaults. */
+[data-clu-theme] {
+  --clu-font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --clu-font-mono: ui-monospace, SFMono-Regular, Consolas, monospace;
+  --clu-font-size-xs: .75rem;
+  --clu-font-size-sm: .875rem;
+  --clu-font-size-md: 1rem;
+  --clu-font-size-lg: 1.25rem;
+  --clu-font-size-xl: 1.5rem;
+  --clu-font-size-2xl: 2rem;
+  --clu-font-weight-regular: 400;
+  --clu-font-weight-medium: 500;
+  --clu-font-weight-semibold: 600;
+  --clu-font-weight-bold: 700;
+  --clu-line-height-tight: 1.25;
+  --clu-line-height-body: 1.5;
+  --clu-numeric: tabular-nums lining-nums;
+  --clu-radius-sm: .25rem;
+  --clu-radius-md: .5rem;
+  --clu-radius-lg: .75rem;
+  --clu-radius-pill: 999px;
+  --clu-focus-width: 3px;
+  --clu-focus-offset: 3px;
+  --clu-motion-fast: 120ms;
+  --clu-motion-normal: 200ms;
+  --clu-motion-ease: cubic-bezier(.2, 0, 0, 1);
+  --clu-space-0: 0px;
+  --clu-space-1: 0.25rem;
+  --clu-space-2: 0.5rem;
+  --clu-space-3: 0.75rem;
+  --clu-space-4: 1rem;
+  --clu-space-6: 1.5rem;
+  --clu-space-8: 2rem;
+  --clu-space-12: 3rem;
+  --clu-space-16: 4rem;
+  --clu-surface-canvas: #f5f4ef;
+  --clu-surface: #ffffff;
+  --clu-surface-elevated: #ffffff;
+  --clu-surface-subtle: #eeeee7;
+  --clu-text: #182c2d;
+  --clu-text-secondary: #405858;
+  --clu-text-muted: #596e6c;
+  --clu-stroke: #758581;
+  --clu-stroke-subtle: #d6dcd6;
+  --clu-stroke-strong: #405858;
+  --clu-accent: #12645f;
+  --clu-accent-hover: #0a4d49;
+  --clu-accent-text: #ffffff;
+  --clu-accent-subtle: #e1f0eb;
+  --clu-focus: #12645f;
+  --clu-success: #246540;
+  --clu-success-subtle: #e5f1e7;
+  --clu-warning: #78500d;
+  --clu-warning-subtle: #fff0d1;
+  --clu-error: #a23138;
+  --clu-error-subtle: #ffeaeb;
+  --clu-unknown: #526367;
+  --clu-unknown-subtle: #eaf0f1;
+  --clu-shadow-raised: 0 2px 8px #182c2d0d;
+  --clu-shadow-overlay: 0 16px 48px #182c2d26;
+}
+
+[data-clu-theme="dark"] {
+  --clu-surface-canvas: #111d1f;
+  --clu-surface: #19292c;
+  --clu-surface-elevated: #223538;
+  --clu-surface-subtle: #293d40;
+  --clu-text: #edf2ec;
+  --clu-text-secondary: #c1d1cb;
+  --clu-text-muted: #a2b8b2;
+  --clu-stroke: #829d95;
+  --clu-stroke-subtle: #3d5552;
+  --clu-stroke-strong: #c1d1cb;
+  --clu-accent: #8ed9c9;
+  --clu-accent-hover: #b2eddf;
+  --clu-accent-text: #102c28;
+  --clu-accent-subtle: #21443e;
+  --clu-focus: #8ed9c9;
+  --clu-success: #a1dbaf;
+  --clu-success-subtle: #233e2e;
+  --clu-warning: #f2d18e;
+  --clu-warning-subtle: #453921;
+  --clu-error: #ffb4b8;
+  --clu-error-subtle: #4b292f;
+  --clu-unknown: #b9cdd2;
+  --clu-unknown-subtle: #2c3e43;
+  --clu-shadow-raised: 0 2px 8px #00000033;
+  --clu-shadow-overlay: 0 16px 48px #00000066;
+}
+
+@media (prefers-contrast: more) {
+  [data-clu-theme] {
+    --clu-stroke: var(--clu-text);
+    --clu-stroke-subtle: var(--clu-text);
+    --clu-text-secondary: var(--clu-text);
+    --clu-text-muted: var(--clu-text);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-clu-theme] { --clu-motion-fast: 0ms; --clu-motion-normal: 0ms; }
+}
+
+@media (forced-colors: active) {
+  [data-clu-theme] {
+  --clu-surface-canvas: Canvas;
+  --clu-surface: Canvas;
+  --clu-surface-elevated: Canvas;
+  --clu-surface-subtle: Canvas;
+  --clu-stroke-subtle: CanvasText;
+  --clu-accent-subtle: Canvas;
+  --clu-success-subtle: Canvas;
+  --clu-warning-subtle: Canvas;
+  --clu-error-subtle: Canvas;
+  --clu-unknown-subtle: Canvas;
+  --clu-text: CanvasText;
+  --clu-text-secondary: CanvasText;
+  --clu-text-muted: CanvasText;
+  --clu-stroke: CanvasText;
+  --clu-stroke-strong: CanvasText;
+  --clu-success: CanvasText;
+  --clu-warning: CanvasText;
+  --clu-error: CanvasText;
+  --clu-unknown: CanvasText;
+  --clu-accent: Highlight;
+  --clu-accent-hover: Highlight;
+  --clu-accent-text: HighlightText;
+  --clu-focus: Highlight;
+  --clu-shadow-raised: none;
+  --clu-shadow-overlay: none;
+}
+}

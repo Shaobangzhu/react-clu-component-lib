@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CLU bare CSS consumer</title>
+<link rel="stylesheet" href="../../dist/styles.css">
+<style>
+  #smoke { font: 16px/1.5 system-ui; max-width: 60rem; margin: 2rem auto; padding: 1rem; }
+  #smoke .card { border: 5px solid purple; padding: 7px; }
+  #smoke .table { border-spacing: 9px; }
+  #smoke .button { border-radius: 0; padding: 11px; }
+  #light, #dark { background: var(--clu-surface-canvas); color: var(--clu-text); padding: var(--clu-space-6); margin-block: 1rem; }
+  #nested { background: var(--clu-surface); color: var(--clu-text); padding: var(--clu-space-4); }
+</style>
+<div id="smoke">
+  <h1>Plain HTML + compiled CLU CSS</h1>
+  <p>No React, Tailwind runtime, font downloads or source scanning.</p>
+  <div id="outside" class="card">Unrelated .card outside a theme</div>
+  <button id="outside-button" class="button">Unrelated native button</button>
+  <section id="light" data-clu-theme="light">
+    <h2>Light region</h2>
+    <div class="card">Unrelated .card inside a theme keeps its own border</div>
+    <table class="table"><caption>Native table specimen</caption><tr><td>01</td><td>24</td></tr></table>
+    <button class="button clu-focus-ring">Light focus specimen</button>
+  </section>
+  <section id="dark" data-clu-theme="dark">
+    <h2>Dark region</h2>
+    <button class="button clu-focus-ring">Dark focus specimen</button>
+    <div id="nested" data-clu-theme="light">Nested light region resets tokens</div>
+  </section>
+</div>
+</html>

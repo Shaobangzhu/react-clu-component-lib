@@ -9,7 +9,7 @@
 
 ## P01 implementation progress (2026-11-04)
 
-P01 is implemented and locally verified in the working tree on `chore/clu-v1-foundation`, based on merged `origin/master` at `f159e7ea6c4dc5ebd0d60e5593a6ec4f8f9d9eb5`. This is foundation progress, not a v1 release. Commit and PR review remain pending.
+P01 is implemented and locally verified in the working tree on `chore/clu-v1-foundation`, based on merged `origin/master` at `f159e7ea6c4dc5ebd0d60e5593a6ec4f8f9d9eb5`. P01 was subsequently merged in PR #1 at `eade7b9`; this remains foundation progress, not a v1 release.
 
 - [x] Exact development dependency pins, lockfile, Node 22.23.4/npm 10.9.0 minimum, and strict peer/engine installation checks.
 - [x] Strict TypeScript, type-aware ESLint, deterministic Vitest/RTL tests, and an internal Storybook rendering proof.
@@ -17,7 +17,19 @@ P01 is implemented and locally verified in the working tree on `chore/clu-v1-fou
 - [x] Clean `npm ci` on Node 22.23.4/npm 10.9.0, then lint, typecheck, four tests, library build, and static Storybook build.
 - [x] README distinguishes implemented foundation, planned components, package publication, consumer integration, and a future public Storybook URL.
 
-See [P01 verification](docs/p01-verification.md) for exact versions, actual output, the npm lockfile-generation exception, compatibility choices, and outstanding development-tool audit findings. P02–P11 remain planned; no public components, registry release, hosted Storybook, or DGI integration have been completed.
+See [P01 verification](docs/p01-verification.md) for exact versions, actual output, the npm lockfile-generation exception, compatibility choices, and outstanding development-tool audit findings. At P01 verification, P02–P11 remained planned; no public components, registry release, hosted Storybook, or DGI integration have been completed.
+
+## P02 implementation progress (2026-11-04)
+
+Implemented on `feat/clu-design-tokens` from merged `origin/master` at `eade7b9bbe6fd7db748edeed75168e0a0bdf4559`. Local work is ready for review; commit/PR remain pending. All required automated checks were re-run successfully on 2026-11-05 after all 22 duplicate baseline files were analyzed and removed.
+
+- [x] Scoped public semantic tokens, independent light/dark and nested-host defaults, higher contrast, forced colors and reduced motion.
+- [x] Documented token meanings and public/private contracts; a Storybook gallery and local Theme toolbar.
+- [x] Built CSS isolation and opaque-pair contrast checks, plus theme-story tests.
+- [x] Clean install, lint, strict types, 10 tests, ESM/CSS build and Storybook build.
+- [x] Real browser review at 1280px and 390px in both themes; keyboard focus and bare HTML consumer isolation checked.
+
+See [token contract](docs/design-tokens.md) and [P02 evidence](docs/p02-verification.md). P03–P11 remain planned. This does not approve final DGI branding or complete public components, consumer integration, or accessibility certification.
 
 ## 1. Product thesis
 

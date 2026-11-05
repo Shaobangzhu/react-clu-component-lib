@@ -1,7 +1,11 @@
-/*
- * Explicit consumer CSS entry placeholder. No theme or public components yet.
- * Tailwind is build-time only: no Preflight, theme globals, or auto-scanning.
- * P02 will establish scoped --clu-* tokens and component styling.
- */
-@layer clu-utilities;
+/* Opt-in, precompiled consumer CSS. No Preflight or automatic source scanning. */
+@layer clu-tokens, clu-utilities;
+@import './tokens.css' layer(clu-tokens);
 @import 'tailwindcss/utilities.css' layer(clu-utilities) prefix(clu) source(none);
+
+/* Opt-in focus treatment; no generic element selectors. */
+[data-clu-theme].clu-focus-ring:focus-visible,
+[data-clu-theme] .clu-focus-ring:focus-visible {
+  outline: var(--clu-focus-width) solid var(--clu-focus);
+  outline-offset: var(--clu-focus-offset);
+}
