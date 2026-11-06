@@ -5,9 +5,9 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 export default defineConfig([
-  globalIgnores(['dist/**', 'storybook-static/**', 'coverage/**', '.vitest/**']),
+  globalIgnores(['dist/**', 'storybook-static/**', 'coverage/**', '.vitest/**', 'examples/consumer-smoke/**']),
   {
-    files: ['**/*.js'],
+    files: ['**/*.{js,mjs}'],
     extends: [js.configs.recommended],
     languageOptions: { globals: globals.node },
   },

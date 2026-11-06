@@ -5,7 +5,13 @@
     "declaration": true,
     "emitDeclarationOnly": true,
     "rootDir": "src",
-    "outDir": "dist"
+    "outDir": "dist",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "declarationMap": false,
+    "sourceMap": false
   },
-  "include": ["src/index.ts"]
+  "include": [
+    "src/index.ts"
+  ]
 }

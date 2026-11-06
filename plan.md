@@ -68,7 +68,7 @@ See [data API contracts](docs/data-presentation.md) and [P05 evidence](docs/p05-
 
 ## P06 implementation progress (2026-11-05)
 
-Implemented locally on `feat/clu-dialog-confirmation`; the existing clean branch was verified against latest fetched `origin/master` at `89dad11062a50fd63e2e0116a0e2034033df781f` (P05 merge). Commit and PR review remain pending.
+Implemented locally on `feat/clu-dialog-confirmation`; the existing clean branch was verified against latest fetched `origin/master` at `89dad11062a50fd63e2e0116a0e2034033df781f` (P05 merge). P06 was subsequently merged in PR #6 at `a90c433`.
 
 - [x] Controlled native Dialog with heading/description, initial and return/fallback focus, explicit Escape/backdrop policies and preserved child form content.
 - [x] Compositional ConfirmDialog with neutral/destructive actions, pending/disabled contracts, overlapping async confirmation guard and safe retry feedback.
@@ -77,7 +77,21 @@ Implemented locally on `feat/clu-dialog-confirmation`; the existing clean branch
 - [x] Real Chromium focus/Tab play test plus native keyboard Escape, backdrop, removed-trigger fallback, async confirmation and 390px long-form light/dark review.
 - [x] Independent packed consumer strict types, Vite build, closed SSR and precompiled CSS without Tailwind.
 
-See [overlay contracts and reviewer checklist](docs/overlays.md) and [P06 evidence](docs/p06-verification.md). P07–P11 remain planned. Browser limits are recorded; no DGI integration, publication or accessibility certification is claimed.
+See [overlay contracts and reviewer checklist](docs/overlays.md) and [P06 evidence](docs/p06-verification.md). At P06 verification, P07–P11 remained planned. Browser limits are recorded; no DGI integration, publication or accessibility certification is claimed.
+
+## P07 implementation progress (2026-11-05)
+
+Implemented locally on `build/clu-package-contract`; the clean existing branch matched latest fetched `origin/master` at `a90c433b79b894d795de3d8586ea7c6629a677c9` (P06 merge). Commit/PR review remain pending.
+
+- [x] Explicit ESM/CSS exports, narrow package files and CSS side effect, fresh prepack build, no source maps and React runtime boundary guard.
+- [x] Separate NodeNext declaration generation, explicit .js type paths and reachable public type graph only; existing component behavior/API names preserved.
+- [x] Real dry-run/pack/archive allowlist/integrity checks and a locked external consumer with 19 runtime APIs, 27 types, strict Bundler/NodeNext refs, Vite production build, SSR and one shared React installation.
+- [x] Rendered host CSS isolation fixture caught/fixed the layered-component conflict; no generic selectors or resets introduced.
+- [x] Two final clean npm ci/full quality/independent install rounds passed: 83 tests across 21 files, library/Storybook builds and byte-identical 24-file tarballs.
+- [x] Both external consumers reviewed in Chromium desktop/390px: host isolation, Button/Input/radio/Table/Pagination, Dialog native focus/Tab/Escape and draft preservation.
+- [x] Local install/version/source-map policies and registry/license/immutable-distribution prerequisites documented without claiming publication.
+
+See [package contract](docs/package-contract.md) and [P07 evidence](docs/p07-verification.md). P08–P11 remain planned. Publication is not authorized; P09/P10 stay blocked on a separately approved immutable installable artifact.
 
 ## 1. Product thesis
 

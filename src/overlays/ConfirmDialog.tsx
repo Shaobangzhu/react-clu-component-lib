@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
-import { Button } from '../components/Button';
-import { Dialog } from './Dialog';
-import type { DialogProps } from './Dialog';
+import { Button } from '../components/Button.js';
+import { Dialog } from './Dialog.js';
+import type { DialogProps } from './Dialog.js';
 
 export interface ConfirmDialogProps {
   open: boolean;

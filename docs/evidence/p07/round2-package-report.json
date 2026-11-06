@@ -1,0 +1,44 @@
+{
+  "name": "react-clu-component-lib",
+  "version": "0.1.0",
+  "filename": "react-clu-component-lib-0.1.0.tgz",
+  "integrity": "sha512-7qOX38YfZZ4bM2dnoNHfAFBzSGFEDxtCrwt8ak1ZJ2NL+Wry1J5p2Ffv/SExCsc/71xrB/NHToWSRgGhZi/AXg==",
+  "shasum": "cc8e517f531725aa249c05c19c5da214d43d8e04",
+  "size": 15160,
+  "unpackedSize": 54880,
+  "members": [
+    "README.md",
+    "dist/components/Alert.d.ts",
+    "dist/components/Badge.d.ts",
+    "dist/components/Button.d.ts",
+    "dist/components/Card.d.ts",
+    "dist/components/EmptyState.d.ts",
+    "dist/components/IconButton.d.ts",
+    "dist/components/Skeleton.d.ts",
+    "dist/components/StatCard.d.ts",
+    "dist/components/StatusIndicator.d.ts",
+    "dist/data/Pagination.d.ts",
+    "dist/data/Table.d.ts",
+    "dist/forms/Checkbox.d.ts",
+    "dist/forms/Field.d.ts",
+    "dist/forms/Input.d.ts",
+    "dist/forms/SegmentedControl.d.ts",
+    "dist/forms/Select.d.ts",
+    "dist/forms/Textarea.d.ts",
+    "dist/index.d.ts",
+    "dist/index.js",
+    "dist/overlays/ConfirmDialog.d.ts",
+    "dist/overlays/Dialog.d.ts",
+    "dist/styles.css",
+    "package.json"
+  ],
+  "externalRuntimeImports": [
+    "react/jsx-runtime",
+    "react"
+  ],
+  "consumer": "/private/var/folders/26/vbwrm8b50g71_5f05z7mjdr00000gn/T/clu-package-Dy5WgI/consumer",
+  "reactPaths": [
+    "/private/var/folders/26/vbwrm8b50g71_5f05z7mjdr00000gn/T/clu-package-Dy5WgI/consumer/node_modules/react"
+  ],
+  "browserReview": "NOT RUN: serve consumer/dist and execute Run browser checks, then keyboard/interactions."
+}

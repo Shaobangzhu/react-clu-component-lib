@@ -1,5 +1,5 @@
-import type { ButtonProps } from './Button';
-import { Button } from './Button';
+import type { ButtonProps } from './Button.js';
+import { Button } from './Button.js';
 export type IconButtonProps = Omit<ButtonProps, 'aria-label' | 'aria-labelledby'> & {
     'aria-label': string;
 };

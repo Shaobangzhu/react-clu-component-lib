@@ -1,5 +1,5 @@
-import { Button } from '../components/Button';
-import { paginationDisplay, visiblePages } from './paginationMath';
+import { Button } from '../components/Button.js';
+import { paginationDisplay, visiblePages } from './paginationMath.js';
 
 export interface PaginationProps {
   page: number;

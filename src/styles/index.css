@@ -1,10 +1,11 @@
 /* Opt-in, precompiled consumer CSS. No Preflight or automatic source scanning. */
-@layer clu-tokens, clu-components, clu-utilities;
+@layer clu-tokens, clu-utilities;
 @import './tokens.css' layer(clu-tokens);
-@import './components.css' layer(clu-components);
-@import './forms.css' layer(clu-components);
-@import './data.css' layer(clu-components);
-@import './overlays.css' layer(clu-components);
+/* Scoped component rules stay unlayered so generic host rules cannot outrank them. */
+@import './components.css';
+@import './forms.css';
+@import './data.css';
+@import './overlays.css';
 @import 'tailwindcss/utilities.css' layer(clu-utilities) prefix(clu) source(none);
 
 /* Opt-in focus treatment; no generic element selectors. */
