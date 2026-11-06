@@ -4,6 +4,7 @@
 @import './components.css' layer(clu-components);
 @import './forms.css' layer(clu-components);
 @import './data.css' layer(clu-components);
+@import './overlays.css' layer(clu-components);
 @import 'tailwindcss/utilities.css' layer(clu-utilities) prefix(clu) source(none);
 
 /* Opt-in focus treatment; no generic element selectors. */

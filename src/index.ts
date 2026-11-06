@@ -35,3 +35,7 @@ export { Table } from './data/Table';
 export type { TableProps, TableHeadCellProps, TableCellProps, TableScrollAreaProps, TableMessageRowProps } from './data/Table';
 export { Pagination } from './data/Pagination';
 export type { PaginationProps } from './data/Pagination';
+export { Dialog } from './overlays/Dialog';
+export type { DialogProps, DialogCloseReason } from './overlays/Dialog';
+export { ConfirmDialog } from './overlays/ConfirmDialog';
+export type { ConfirmDialogProps } from './overlays/ConfirmDialog';

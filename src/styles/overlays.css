@@ -1,0 +1,8 @@
+[data-clu-theme] .clu-dialog { box-sizing: border-box; width: min(40rem, calc(100% - 2rem)); max-width: calc(100% - 2rem); max-height: calc(100% - 2rem); max-height: calc(100dvh - 2rem); overflow: auto; overscroll-behavior: contain; margin: auto; padding: var(--clu-space-6); border: 1px solid var(--clu-stroke); border-radius: var(--clu-radius-lg); background: var(--clu-surface-elevated); color: var(--clu-text); box-shadow: var(--clu-shadow-overlay); font: var(--clu-font-size-md)/var(--clu-line-height-body) var(--clu-font-sans); overflow-wrap: anywhere; }
+[data-clu-theme] .clu-dialog::backdrop { background: color-mix(in srgb, var(--clu-text) 45%, transparent); }
+[data-clu-theme] .clu-dialog-header { display: flex; align-items: start; justify-content: space-between; gap: var(--clu-space-4); margin-bottom: var(--clu-space-4); }
+[data-clu-theme] .clu-dialog-title { margin: 0; font-size: var(--clu-font-size-lg); line-height: var(--clu-line-height-tight); font-weight: var(--clu-font-weight-semibold); }
+[data-clu-theme] .clu-dialog-description { margin-bottom: var(--clu-space-4); color: var(--clu-text-secondary); }
+[data-clu-theme] .clu-dialog-content { min-width: 0; }
+[data-clu-theme] .clu-dialog-actions { display: flex; flex-wrap: wrap; justify-content: end; gap: var(--clu-space-3); margin-top: var(--clu-space-6); }
+[data-clu-theme] .clu-confirm-error { color: var(--clu-error); }
