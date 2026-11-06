@@ -1,6 +1,6 @@
 import { useId, useLayoutEffect, useRef, useImperativeHandle } from 'react';
 import type { ComponentProps, ReactNode, RefObject } from 'react';
-import { Button } from '../components/Button';
+import { Button } from '../components/Button.js';
 
 export type DialogCloseReason = 'escape' | 'backdrop' | 'close-button' | 'native';
 export type DialogProps = Omit<ComponentProps<'dialog'>, 'open' | 'title' | 'onClose' | 'onCancel' | 'children' | 'aria-labelledby' | 'aria-describedby'> & {

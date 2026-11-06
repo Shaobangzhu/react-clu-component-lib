@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import type { ComponentProps } from 'react';
-import { Field } from './Field';
+import { Field } from './Field.js';
 export type CheckboxProps = Omit<ComponentProps<'input'>, 'type' | 'children' | 'aria-checked'> & {
     label: string;
     description?: string;

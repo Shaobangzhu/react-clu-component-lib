@@ -10,7 +10,9 @@
   },
   "packageManager": "npm@10.9.0",
   "files": [
-    "dist"
+    "dist/**/*.d.ts",
+    "dist/index.js",
+    "dist/styles.css"
   ],
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -23,17 +25,19 @@
     "./styles.css": "./dist/styles.css"
   },
   "sideEffects": [
-    "**/*.css"
+    "./dist/styles.css"
   ],
   "scripts": {
     "lint": "eslint . --max-warnings 0",
     "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.test.json",
     "test": "vitest run",
     "test:watch": "vitest",
-    "build": "vite build && tsc -p tsconfig.build.json",
+    "build": "vite build && node scripts/build-types.mjs",
     "storybook": "storybook dev -p 6006 --disable-telemetry",
     "build-storybook": "storybook build --disable-telemetry",
-    "quality:check": "npm run lint && npm run typecheck && npm test && npm run build && npm run build-storybook"
+    "quality:check": "npm run lint && npm run typecheck && npm test && npm run build && npm run build-storybook && npm run package:verify",
+    "prepack": "npm run build",
+    "package:verify": "npm run build && node scripts/verify-package.mjs"
   },
   "peerDependencies": {
     "react": "^19.0.0"

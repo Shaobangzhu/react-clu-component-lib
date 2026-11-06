@@ -1,5 +1,5 @@
 import type { ComponentProps } from 'react';
-import { Badge } from './Badge';
+import { Badge } from './Badge.js';
 const states = {
     operational: { label: 'Operational', tone: 'success' },
     degraded: { label: 'Degraded', tone: 'warning' },

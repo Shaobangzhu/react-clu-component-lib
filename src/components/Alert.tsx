@@ -1,5 +1,5 @@
 import type { ComponentProps } from 'react';
-import type { Tone } from './Badge';
+import type { Tone } from './Badge.js';
 export type AlertProps = Omit<ComponentProps<'div'>, 'role' | 'aria-live'> & {
     tone?: Tone;
     announcement?: 'off' | 'polite' | 'urgent';

@@ -1,6 +1,6 @@
 # CLU Component Library
 
-CLU is a planned React 19 component library for data-dense operational applications. This repository currently implements **P01–P06: the foundation, scoped semantic tokens, nine display primitives, six form primitives, two data APIs and two overlay components**. Package release and consumer integration remain planned.
+CLU is a planned React 19 component library for data-dense operational applications. This repository currently implements **P01–P07: the foundation, scoped semantic tokens, nine display primitives, six form primitives, two data APIs, two overlay components and a verified package contract**. Package release and consumer integration remain planned.
 
 Implemented here: an ESM Vite library build with declarations and an explicit CSS export, strict TypeScript, ESLint, Vitest/React Testing Library, Tailwind CSS v4 build infrastructure, local/static Storybook, and scoped light/dark design tokens. The package is private and unpublished. There is no public Storybook URL yet.
 
@@ -26,7 +26,8 @@ Storybook runs locally at http://localhost:6006. `npm run build-storybook` gener
 | `npm run build` | ESM library, declarations, and compiled CSS in `dist/` |
 | `npm run storybook` | Local Storybook development |
 | `npm run build-storybook` | Static Storybook production build |
-| `npm run quality:check` | Lint, types, tests, library build, and Storybook build in sequence |
+| `npm run package:verify` | Real archive checks and an external locked consumer: Bundler/NodeNext types, Vite, SSR and React deduplication |
+| `npm run quality:check` | Lint, types, tests, library, Storybook and package verification in sequence |
 
 The actual tested versions, official compatibility references, and verification output are recorded in [P01 verification](docs/p01-verification.md).
 
@@ -51,7 +52,7 @@ React 19 is both a peer and an exact development dependency. React, ReactDOM, an
 
 The external implementation kit also contains `codex-prompts.md` and `prompts/P01.md` through `P11.md`. They are not included in this repository. The root blueprint records the execution plan; later phase prompts remain separate handoff materials.
 
-CLU owns reusable UI semantics and generic interactions. Delivery, GIS, finance, provider telemetry, APIs, and other business logic stay in consumers. No consumer source is copied here. Full P07 package-contract validation, CI browser/a11y/visual gates, npm publication, DGI migration, and a hosted Storybook are planned work. Phase verification notes distinguish completed independent packed-consumer smoke checks from those later gates.
+CLU owns reusable UI semantics and generic interactions. Delivery, GIS, finance, provider telemetry, APIs, and other business logic stay in consumers. No consumer source is copied here. CI browser/a11y/visual gates, npm publication, DGI migration, and a hosted Storybook are planned work. Phase verification notes distinguish completed independent packed-consumer smoke checks from those later gates.
 
 **Maintainer:** [Chaoran Lu](https://github.com/Shaobangzhu)
 
@@ -64,3 +65,5 @@ Public form exports: Field, Input, Textarea, Select, Checkbox and SegmentedContr
 Public data APIs: composable `Table` and controlled `Pagination`. See [data API contracts](docs/data-presentation.md), [P05 verification](docs/p05-verification.md) and [PR draft](docs/p05-pr.md). The Data stories include synthetic Delivery History and Merchant Summary examples. Page size, row slicing, filtering, sorting and page reconciliation remain application responsibilities.
 
 Public overlay exports: controlled `Dialog` and compositional `ConfirmDialog`. Read the [focus, dismissal and async confirmation contracts](docs/overlays.md), [P06 verification](docs/p06-verification.md) and [PR draft](docs/p06-pr.md). Overlays use native modal isolation; consuming applications own form state, business callbacks and successful closure.
+
+The [P07 package contract](docs/package-contract.md) documents exact local tarball install commands, the isolated consumer template, archive/source-map rules and the version/distribution gate. `npm pack` rebuilds first. [P07 evidence](docs/p07-verification.md) distinguishes automated package checks from rendered browser checks. No registry artifact is published or approved for DGI integration.
