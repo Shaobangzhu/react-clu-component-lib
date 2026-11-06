@@ -56,7 +56,7 @@ See [form contracts](docs/form-controls.md) and [P04 verification](docs/p04-veri
 
 ## P05 implementation progress (2026-11-05)
 
-Implemented locally on `feat/clu-data-presentation` from latest merged `origin/master` at `8e346d94a2dccd2c83f5b36ceb7613290093747f`. Commit/PR review remain pending.
+Implemented locally on `feat/clu-data-presentation` from latest merged `origin/master` at `8e346d94a2dccd2c83f5b36ceb7613290093747f`. P05 was subsequently merged in PR #5 at `89dad11`.
 
 - [x] Native compound Table API, captions/header associations, refs, numeric alignment, density, empty/loading rows and named keyboard-scrollable overflow wrapper.
 - [x] Controlled Pagination with display-only numeric normalization, truthful empty ranges, bounded page windows, boundary/disabled controls and no state-reconciliation effects.
@@ -64,7 +64,20 @@ Implemented locally on `feat/clu-data-presentation` from latest merged `origin/m
 - [x] Real browser desktop/390px light/dark, horizontal keyboard scrolling, numeric style, empty ranges and total-shrink ownership review.
 - [x] Real tarball installed in an independent consumer; strict TypeScript, Vite production build, SSR and precompiled CSS without Tailwind passed.
 
-See [data API contracts](docs/data-presentation.md) and [P05 evidence](docs/p05-verification.md). P06–P11 remain planned. DGI pagination/edit policies, consumer integration and release approval remain outside this work.
+See [data API contracts](docs/data-presentation.md) and [P05 evidence](docs/p05-verification.md). At P05 verification, P06–P11 remained planned. DGI pagination/edit policies, consumer integration and release approval remain outside this work.
+
+## P06 implementation progress (2026-11-05)
+
+Implemented locally on `feat/clu-dialog-confirmation`; the existing clean branch was verified against latest fetched `origin/master` at `89dad11062a50fd63e2e0116a0e2034033df781f` (P05 merge). Commit and PR review remain pending.
+
+- [x] Controlled native Dialog with heading/description, initial and return/fallback focus, explicit Escape/backdrop policies and preserved child form content.
+- [x] Compositional ConfirmDialog with neutral/destructive actions, pending/disabled contracts, overlapping async confirmation guard and safe retry feedback.
+- [x] StrictMode reopen/queued-close/unmount tests, callback/association tests and synthetic form/confirmation stories.
+- [x] Clean install and complete quality script: lint, strict types, 82 tests across 20 files, scoped CSS/library and static Storybook builds.
+- [x] Real Chromium focus/Tab play test plus native keyboard Escape, backdrop, removed-trigger fallback, async confirmation and 390px long-form light/dark review.
+- [x] Independent packed consumer strict types, Vite build, closed SSR and precompiled CSS without Tailwind.
+
+See [overlay contracts and reviewer checklist](docs/overlays.md) and [P06 evidence](docs/p06-verification.md). P07–P11 remain planned. Browser limits are recorded; no DGI integration, publication or accessibility certification is claimed.
 
 ## 1. Product thesis
 
