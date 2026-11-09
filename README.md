@@ -52,7 +52,7 @@ React 19 is both a peer and an exact development dependency. React, ReactDOM, an
 
 The external implementation kit also contains `codex-prompts.md` and `prompts/P01.md` through `P11.md`. They are not included in this repository. The root blueprint records the execution plan; later phase prompts remain separate handoff materials.
 
-CLU owns reusable UI semantics and generic interactions. Delivery, GIS, finance, provider telemetry, APIs, and other business logic stay in consumers. No consumer source is copied here. CI browser/a11y/visual gates, npm publication, DGI migration, and a hosted Storybook are planned work. Phase verification notes distinguish completed independent packed-consumer smoke checks from those later gates.
+CLU owns reusable UI semantics and generic interactions. Delivery, GIS, finance, provider telemetry, APIs, and other business logic stay in consumers. No consumer source is copied here. Hosted CI verification/admin enablement, npm publication, DGI migration, and a hosted Storybook are planned work. Phase verification notes distinguish completed independent packed-consumer smoke checks from those later gates.
 
 **Maintainer:** [Chaoran Lu](https://github.com/Shaobangzhu)
 
@@ -67,3 +67,5 @@ Public data APIs: composable `Table` and controlled `Pagination`. See [data API 
 Public overlay exports: controlled `Dialog` and compositional `ConfirmDialog`. Read the [focus, dismissal and async confirmation contracts](docs/overlays.md), [P06 verification](docs/p06-verification.md) and [PR draft](docs/p06-pr.md). Overlays use native modal isolation; consuming applications own form state, business callbacks and successful closure.
 
 The [P07 package contract](docs/package-contract.md) documents exact local tarball install commands, the isolated consumer template, archive/source-map rules and the version/distribution gate. `npm pack` rebuilds first. [P07 evidence](docs/p07-verification.md) distinguishes automated package checks from rendered browser checks. No registry artifact is published or approved for DGI integration.
+
+P08 adds local/CI component, accessibility, visual and security gates. Read [commands, baseline review and admin operations](docs/ci-quality.md), [executed evidence](docs/p08-verification.md) and [PR draft](docs/p08-pr.md). `npm run quality:all` runs the complete local pipeline using the pinned Linux Docker browser environment. Hosted execution and required-check enablement remain pending review/push and admin action; no Pages publication is enabled.

@@ -1,4 +1,14 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["src", "tests", ".storybook/**/*.ts", "vite.config.ts", "vitest.config.ts"]
+  "include": [
+    "src",
+    "tests/**/*.test.ts",
+    "tests/**/*.test.tsx",
+    "tests/dialog-native-stub.ts",
+    ".storybook/main.ts",
+    ".storybook/preview.ts",
+    "vite.config.ts",
+    "vitest.config.ts",
+    "tests/setup.ts"
+  ]
 }

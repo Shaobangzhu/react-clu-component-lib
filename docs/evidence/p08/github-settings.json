@@ -1,0 +1,11 @@
+{
+  "checkedOn": "2026-11-09",
+  "source": "https://api.github.com/repos/Shaobangzhu/react-clu-component-lib/branches/master",
+  "branch": "master",
+  "protected": false,
+  "requiredStatusEnforcement": "off",
+  "pagesUnauthenticatedHTTP": 404,
+  "pagesEnabled": "not established",
+  "settingsChanged": false,
+  "hostedP08Run": "not run: no push authorized"
+}

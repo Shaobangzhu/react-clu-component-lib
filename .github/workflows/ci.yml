@@ -1,0 +1,128 @@
+name: CLU CI
+on:
+  pull_request:
+    branches: [master]
+  push:
+    branches: [master]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: clu-ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+defaults:
+  run:
+    shell: bash
+env:
+  TZ: UTC
+  STORYBOOK_DISABLE_TELEMETRY: '1'
+jobs:
+  checks:
+    name: ${{ matrix.name }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {name: 'Static checks', command: 'lint && npm run typecheck'}
+          - {name: 'Unit and coverage', command: 'test:coverage'}
+          - {name: 'Package contract', command: 'package:verify'}
+          - {name: 'Storybook build', command: 'build-storybook'}
+          - {name: 'Dependency security', command: 'security:check'}
+          - {name: 'Failure propagation', command: 'quality:probe'}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm install --global npm@10.9.0
+      - run: npm ci
+      - name: Run blocking stage
+        env:
+          CHECK_COMMAND: ${{ matrix.command }}
+        run: |
+          mkdir -p artifacts/check
+          set -o pipefail
+          # Commands are fixed by this workflow, not derived from event input.
+          bash -e -o pipefail -c "npm run $CHECK_COMMAND" 2>&1 | tee artifacts/check/execution.log
+      - name: Prepare bounded synthetic diagnostics
+        if: always()
+        run: npm run artifacts:prepare
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: clu-${{ matrix.name }}
+          path: artifacts/upload/
+          retention-days: 7
+          if-no-files-found: warn
+  components:
+    name: Component interactions and a11y
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version-file: .nvmrc
+      - name: Run pinned browser component suite
+        run: |
+          mkdir -p artifacts/check
+          set -o pipefail
+          node scripts/browser-container.mjs stories 2>&1 | tee artifacts/check/components.log
+      - if: always()
+        run: node scripts/prepare-artifacts.mjs
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: clu-component-a11y
+          path: artifacts/upload/
+          retention-days: 7
+          if-no-files-found: warn
+  visual:
+    name: Chromium visual and keyboard
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version-file: .nvmrc
+      - name: Compare reviewed goldens (never update)
+        run: |
+          mkdir -p artifacts/check
+          set -o pipefail
+          node scripts/browser-container.mjs visual 2>&1 | tee artifacts/check/visual.log
+      - if: always()
+        run: node scripts/prepare-artifacts.mjs
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: clu-visual-diffs
+          path: artifacts/upload/
+          retention-days: 7
+          if-no-files-found: warn
+  gate:
+    name: Quality gate
+    if: always()
+    needs: [checks, components, visual]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version-file: .nvmrc
+      - name: Require every mandatory stage, including blocked/cancelled results
+        env:
+          CLU_NEEDS: ${{ toJSON(needs) }}
+        run: node scripts/quality-gate.mjs

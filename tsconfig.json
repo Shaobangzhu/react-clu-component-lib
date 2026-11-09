@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "jsx": "react-jsx",
@@ -15,7 +19,16 @@
     "isolatedModules": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "types": ["node", "vite/client"]
+    "types": [
+      "node",
+      "vite/client"
+    ]
   },
-  "include": ["src", ".storybook/**/*.ts", "vite.config.ts", "vitest.config.ts"]
+  "include": [
+    "src",
+    ".storybook/main.ts",
+    ".storybook/preview.ts",
+    "vite.config.ts",
+    "vitest.config.ts"
+  ]
 }

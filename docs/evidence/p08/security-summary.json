@@ -1,0 +1,106 @@
+[
+  {
+    "name": "production",
+    "blockingLevel": "moderate",
+    "exitCode": 0,
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    },
+    "advisories": []
+  },
+  {
+    "name": "full",
+    "blockingLevel": "high",
+    "exitCode": 0,
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 13,
+      "high": 0,
+      "critical": 0,
+      "total": 13
+    },
+    "advisories": [
+      {
+        "name": "@eslint/config-array",
+        "severity": "moderate",
+        "via": []
+      },
+      {
+        "name": "@eslint/js",
+        "severity": "moderate",
+        "via": []
+      },
+      {
+        "name": "@joshwooding/vite-plugin-react-docgen-typescript",
+        "severity": "moderate",
+        "via": []
+      },
+      {
+        "name": "@storybook/react-vite",
+        "severity": "moderate",
+        "via": []
+      },
+      {
+        "name": "@typescript-eslint/eslint-plugin",
+        "severity": "moderate",
+        "via": []
+      },
+      {
+        "name": "@typescript-eslint/parser",
+        "severity": "moderate",
+        "via": []
+      },
+      {
+        "name": "@typescript-eslint/type-utils",
+        "severity": "moderate",
+        "via": []
+      },
+      {
+        "name": "@typescript-eslint/typescript-estree",
+        "severity": "moderate",
+        "via": []
+      },
+      {
+        "name": "@typescript-eslint/utils",
+        "severity": "moderate",
+        "via": []
+      },
+      {
+        "name": "eslint",
+        "severity": "moderate",
+        "via": []
+      },
+      {
+        "name": "glob",
+        "severity": "moderate",
+        "via": [
+          {
+            "title": "Glob: AbortSignal cancellation bypass allows post-timeout filesystem traversal",
+            "url": "https://github.com/advisories/GHSA-3g3m-2fjr-6pw4"
+          }
+        ]
+      },
+      {
+        "name": "minimatch",
+        "severity": "moderate",
+        "via": [
+          {
+            "title": "minimatch has potential denial of service via globparts amplification",
+            "url": "https://github.com/advisories/GHSA-g3hv-75wg-m249"
+          }
+        ]
+      },
+      {
+        "name": "typescript-eslint",
+        "severity": "moderate",
+        "via": []
+      }
+    ]
+  }
+]
