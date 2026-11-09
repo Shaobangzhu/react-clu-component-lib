@@ -1,6 +1,6 @@
 # CLU Component Library
 
-CLU is a planned React 19 component library for data-dense operational applications. This repository currently implements **P01–P07: the foundation, scoped semantic tokens, nine display primitives, six form primitives, two data APIs, two overlay components and a verified package contract**. Package release and consumer integration remain planned.
+CLU is a React 19 component library for data-dense operational applications. This repository implements **P01–P08: the foundation, scoped semantic tokens, nine display primitives, six form primitives, two data APIs, two overlay components, a verified package contract and layered quality gates**. Package release and consumer integration remain planned.
 
 Implemented here: an ESM Vite library build with declarations and an explicit CSS export, strict TypeScript, ESLint, Vitest/React Testing Library, Tailwind CSS v4 build infrastructure, local/static Storybook, and scoped light/dark design tokens. The package is private and unpublished. There is no public Storybook URL yet.
 
@@ -16,7 +16,7 @@ npm run quality:check
 npm run storybook
 ```
 
-Storybook runs locally at http://localhost:6006. `npm run build-storybook` generates `storybook-static/` for local static serving. Desktop/mobile browser reviews are recorded in phase verification notes. Hosting, public URLs and automated browser/accessibility/screenshot gates remain later work; building Storybook does not establish those capabilities.
+Storybook runs locally at http://localhost:6006. `npm run build-storybook` generates `storybook-static/` for local static serving. Automated browser, accessibility and visual checks run separately through `npm run quality:all`; desktop/mobile reviews and their limits are recorded in phase verification notes. Public hosting and its URL remain planned.
 
 | Command | Purpose |
 | --- | --- |
@@ -28,11 +28,12 @@ Storybook runs locally at http://localhost:6006. `npm run build-storybook` gener
 | `npm run build-storybook` | Static Storybook production build |
 | `npm run package:verify` | Real archive checks and an external locked consumer: Bundler/NodeNext types, Vite, SSR and React deduplication |
 | `npm run quality:check` | Lint, types, tests, library, Storybook and package verification in sequence |
+| `npm run quality:all` | Complete local quality pipeline, including pinned Linux Chromium stories/a11y/visuals, security and failure-propagation probes |
 
 The actual tested versions, official compatibility references, and verification output are recorded in [P01 verification](docs/p01-verification.md).
 
 ```text
-src/index.ts                        public entry; display, form and data APIs and prop types
+src/index.ts                        public entry; display, form, data and overlay APIs/types
 src/styles/index.css                compiled scoped tokens and opt-in focus styles
 src/internal/ScaffoldButton.*        internal proof, excluded from library output
 .storybook/                         React + Vite Storybook configuration
@@ -52,7 +53,7 @@ React 19 is both a peer and an exact development dependency. React, ReactDOM, an
 
 The external implementation kit also contains `codex-prompts.md` and `prompts/P01.md` through `P11.md`. They are not included in this repository. The root blueprint records the execution plan; later phase prompts remain separate handoff materials.
 
-CLU owns reusable UI semantics and generic interactions. Delivery, GIS, finance, provider telemetry, APIs, and other business logic stay in consumers. No consumer source is copied here. Hosted CI verification/admin enablement, npm publication, DGI migration, and a hosted Storybook are planned work. Phase verification notes distinguish completed independent packed-consumer smoke checks from those later gates.
+CLU owns reusable UI semantics and generic interactions. Delivery, GIS, finance, provider telemetry, APIs, and other business logic stay in consumers. No consumer source is copied here. Admin enablement, npm publication, DGI migration, and a hosted Storybook remain separate work. Phase verification notes distinguish completed package/CI checks from those later gates.
 
 **Maintainer:** [Chaoran Lu](https://github.com/Shaobangzhu)
 
@@ -68,4 +69,6 @@ Public overlay exports: controlled `Dialog` and compositional `ConfirmDialog`. R
 
 The [P07 package contract](docs/package-contract.md) documents exact local tarball install commands, the isolated consumer template, archive/source-map rules and the version/distribution gate. `npm pack` rebuilds first. [P07 evidence](docs/p07-verification.md) distinguishes automated package checks from rendered browser checks. No registry artifact is published or approved for DGI integration.
 
-P08 adds local/CI component, accessibility, visual and security gates. Read [commands, baseline review and admin operations](docs/ci-quality.md), [executed evidence](docs/p08-verification.md) and [PR draft](docs/p08-pr.md). `npm run quality:all` runs the complete local pipeline using the pinned Linux Docker browser environment. Hosted execution and required-check enablement remain pending review/push and admin action; no Pages publication is enabled.
+P08 adds local/CI component, accessibility, visual and security gates. Read [commands, baseline review and admin operations](docs/ci-quality.md), [original local evidence](docs/p08-verification.md) and [PR draft](docs/p08-pr.md). `npm run quality:all` uses the pinned Linux Docker browser environment. P08 merged in PR #8; the [merged-master run](https://github.com/Shaobangzhu/react-clu-component-lib/actions/runs/42668994812) passed. That base run does not verify the current unpushed prerelease diff. Downloaded hosted artifact/fork-PR review and admin-only required-check enablement remain follow-ups; no Pages publication is enabled.
+
+Local prerelease preparation: `react-clu-component-lib@0.1.0-rc.1` is a **provisional, private, UNLICENSED review candidate**. Package identity, licensing and npm publication rights are not approved or established. It must not be distributed or used to bypass the P09 artifact gate. See [candidate decisions and publication boundary](docs/prerelease-candidate.md) and [verification record](docs/prerelease-verification.md). Changing metadata or rebuilding produces a new candidate requiring fresh verification and approval.
