@@ -1,6 +1,6 @@
 {
   "name": "react-clu-component-lib",
-  "version": "0.1.0",
+  "version": "0.1.0-rc.1",
   "private": true,
   "description": "CLU React 19 display, form, data and overlay primitives with scoped semantic themes.",
   "type": "module",
@@ -47,7 +47,8 @@
     "quality:probe": "node scripts/quality-probe.mjs",
     "security:check": "node scripts/security-check.mjs",
     "artifacts:prepare": "node scripts/prepare-artifacts.mjs",
-    "quality:all": "npm run quality:check && npm run browser:stories && npm run browser:visual && npm run security:check && npm run quality:probe"
+    "quality:all": "npm run quality:check && npm run browser:stories && npm run browser:visual && npm run security:check && npm run quality:probe",
+    "candidate:retain": "node scripts/retain-candidate.mjs"
   },
   "peerDependencies": {
     "react": "^19.0.0"
@@ -87,5 +88,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Shaobangzhu/react-clu-component-lib.git"
-  }
+  },
+  "license": "UNLICENSED"
 }

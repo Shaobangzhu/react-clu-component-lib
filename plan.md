@@ -95,7 +95,7 @@ See [package contract](docs/package-contract.md) and [P07 evidence](docs/p07-ver
 
 ## P08 local implementation progress (2026-11-09)
 
-Implemented locally on `ci/clu-storybook-quality-gates` from latest fetched merged master `f617b4a630cda7ffc6f65adae36764e4141d5681` (P07). Review, push and hosted acceptance remain pending.
+Implemented on `ci/clu-storybook-quality-gates` from merged master `f617b4a630cda7ffc6f65adae36764e4141d5681` (P07), subsequently merged in PR #8 at `9f08f61102bec757de5107161602d4ac158fe760`. Hosted results were checked read-only during prerelease preparation.
 
 - [x] Least-permission PR/master/manual layered CI and unconditional Quality gate; blocked/cancelled/missing upstream results fail.
 - [x] Supported Storybook Vitest/a11y integration with a11y.test=error; all 166 story tests pass without custom exclusions.
@@ -103,9 +103,14 @@ Implemented locally on `ci/clu-storybook-quality-gates` from latest fetched merg
 - [x] Clean full local pipeline: strict lint/types, 83 unit tests, measured coverage floors, ESM/type/CSS build, external package smoke and Storybook build.
 - [x] Production/full audit policies with actual findings, sanitized bounded artifacts, disposable real test-failure/exit-code/aggregate/privacy probes and actionlint validation.
 - [x] Actual master protection metadata checked; admin required-check and optional trusted-master Pages enablement instructions documented. No settings/deployment changed.
-- [ ] Hosted P08 jobs/Quality gate and artifact inspection after authorized review/push. No green hosted claim.
+- [x] Hosted PR and merged-master runs passed; all nine master jobs, including Quality gate and artifact-upload steps, succeeded. See [master run](https://github.com/Shaobangzhu/react-clu-component-lib/actions/runs/42668994812) and [PR run](https://github.com/Shaobangzhu/react-clu-component-lib/actions/runs/42668975600).
+- [ ] Manual review of downloaded hosted artifacts and fork-PR execution. Successful upload steps alone do not establish artifact-content review.
 
-See [operations and limits](docs/ci-quality.md), [actual local evidence](docs/p08-verification.md) and [PR draft](docs/p08-pr.md). P09–P11 remain planned and the immutable-distribution gate remains in force. Local implementation is ready for review; P08 hosted acceptance is not complete.
+See [operations and limits](docs/ci-quality.md), [original local evidence](docs/p08-verification.md) and [PR draft](docs/p08-pr.md). P09–P11 remain planned and the immutable-distribution gate remains in force. Hosted checks passed; the separate manual follow-ups above remain open.
+
+## Prerelease preparation (2026-11-09)
+
+Local preparation on `release/clu-prerelease-candidate` uses the merged P08 master commit above. The proposed `0.1.0-rc.1` package retains the existing technical name, `private: true` and an explicit `UNLICENSED` no-grant placeholder. It is provisional, not an approved distribution or a v1 release. See [decisions and publication prerequisites](docs/prerelease-candidate.md) and [actual verification](docs/prerelease-verification.md). P09 remains blocked until an approved immutable artifact is distributed and its installed bytes are verified; no DGI work begins here.
 
 ## 1. Product thesis
 
