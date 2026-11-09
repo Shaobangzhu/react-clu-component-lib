@@ -1,0 +1,7 @@
+FROM mcr.microsoft.com/playwright:v1.64.1-noble@sha256:ee15712262f017b8157421b212b12099146645f44b1bc5c0514cbbe6a229b1d0
+RUN curl -fsSL https://nodejs.org/dist/v22.23.4/node-v22.23.4-linux-x64.tar.gz -o /tmp/node.tar.gz \
+ && echo 'b8492284c76a54baf58d61668dd0e41ee0fc98adabf9503d30f05d08f55b4406  /tmp/node.tar.gz' | sha256sum -c - \
+ && mkdir -p /opt/node22 && tar -xzf /tmp/node.tar.gz -C /opt/node22 --strip-components=1 && rm /tmp/node.tar.gz
+ENV PATH="/opt/node22/bin:$PATH" TZ=UTC LANG=C.UTF-8 LC_ALL=C.UTF-8
+RUN npm install --global npm@10.9.0
+WORKDIR /work

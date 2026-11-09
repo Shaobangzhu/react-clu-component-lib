@@ -6,6 +6,7 @@ const config: StorybookConfig = {
     name: '@storybook/react-vite',
     options: {},
   },
+  addons: ['@storybook/addon-vitest', '@storybook/addon-a11y'],
   core: { disableTelemetry: true },
 };
 

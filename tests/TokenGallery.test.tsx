@@ -15,7 +15,7 @@ it('renders fixed themes on local hosts without mutating the document theme', ()
 });
 it('keeps nested light and dark hosts independent and notes anchors unique', () => {
   render(<Compare />);
-  const galleries = screen.getAllByRole('article', { name: 'CLU token gallery' });
+  const galleries = screen.getAllByRole('article', { name: /^(?:Dark|Light) token gallery$/ });
   expect(galleries[0]?.closest('[data-clu-theme]')).toHaveAttribute('data-clu-theme', 'dark');
   expect(galleries[1]?.closest('[data-clu-theme]')).toHaveAttribute('data-clu-theme', 'light');
   const links = screen.getAllByRole('link', { name: 'Review notes' });

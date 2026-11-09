@@ -14,8 +14,8 @@ export const Dark: Story = { parameters: { cluTheme: 'dark' } };
 export const Compare: Story = {
   render: () => (
     <div data-clu-theme="dark">
-      <TokenGallery />
-      <div data-clu-theme="light"><TokenGallery /></div>
+      <TokenGallery label="Dark token gallery" />
+      <div data-clu-theme="light"><TokenGallery label="Light token gallery" /></div>
     </div>
   ),
 };

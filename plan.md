@@ -81,7 +81,7 @@ See [overlay contracts and reviewer checklist](docs/overlays.md) and [P06 eviden
 
 ## P07 implementation progress (2026-11-05)
 
-Implemented locally on `build/clu-package-contract`; the clean existing branch matched latest fetched `origin/master` at `a90c433b79b894d795de3d8586ea7c6629a677c9` (P06 merge). Commit/PR review remain pending.
+Implemented locally on `build/clu-package-contract`; the clean existing branch matched latest fetched `origin/master` at `a90c433b79b894d795de3d8586ea7c6629a677c9` (P06 merge). P07 was subsequently merged in PR #7 at `f617b4a`.
 
 - [x] Explicit ESM/CSS exports, narrow package files and CSS side effect, fresh prepack build, no source maps and React runtime boundary guard.
 - [x] Separate NodeNext declaration generation, explicit .js type paths and reachable public type graph only; existing component behavior/API names preserved.
@@ -91,7 +91,21 @@ Implemented locally on `build/clu-package-contract`; the clean existing branch m
 - [x] Both external consumers reviewed in Chromium desktop/390px: host isolation, Button/Input/radio/Table/Pagination, Dialog native focus/Tab/Escape and draft preservation.
 - [x] Local install/version/source-map policies and registry/license/immutable-distribution prerequisites documented without claiming publication.
 
-See [package contract](docs/package-contract.md) and [P07 evidence](docs/p07-verification.md). P08–P11 remain planned. Publication is not authorized; P09/P10 stay blocked on a separately approved immutable installable artifact.
+See [package contract](docs/package-contract.md) and [P07 evidence](docs/p07-verification.md). At P07 verification, P08–P11 remained planned. Publication is not authorized; P09/P10 stay blocked on a separately approved immutable installable artifact.
+
+## P08 local implementation progress (2026-11-09)
+
+Implemented locally on `ci/clu-storybook-quality-gates` from latest fetched merged master `f617b4a630cda7ffc6f65adae36764e4141d5681` (P07). Review, push and hosted acceptance remain pending.
+
+- [x] Least-permission PR/master/manual layered CI and unconditional Quality gate; blocked/cancelled/missing upstream results fail.
+- [x] Supported Storybook Vitest/a11y integration with a11y.test=error; all 166 story tests pass without custom exclusions.
+- [x] Twelve inspected Linux amd64/Chromium goldens, zero-pixel normal comparison, pinned fonts/environment and 6 native keyboard/visual tests.
+- [x] Clean full local pipeline: strict lint/types, 83 unit tests, measured coverage floors, ESM/type/CSS build, external package smoke and Storybook build.
+- [x] Production/full audit policies with actual findings, sanitized bounded artifacts, disposable real test-failure/exit-code/aggregate/privacy probes and actionlint validation.
+- [x] Actual master protection metadata checked; admin required-check and optional trusted-master Pages enablement instructions documented. No settings/deployment changed.
+- [ ] Hosted P08 jobs/Quality gate and artifact inspection after authorized review/push. No green hosted claim.
+
+See [operations and limits](docs/ci-quality.md), [actual local evidence](docs/p08-verification.md) and [PR draft](docs/p08-pr.md). P09–P11 remain planned and the immutable-distribution gate remains in force. Local implementation is ready for review; P08 hosted acceptance is not complete.
 
 ## 1. Product thesis
 

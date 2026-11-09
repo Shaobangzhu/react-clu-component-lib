@@ -1,0 +1,27 @@
+{
+  "intentionalFailureExit": 1,
+  "customExit": 23,
+  "aggregate": [
+    {
+      "name": "success",
+      "exitCode": 0
+    },
+    {
+      "name": "failure",
+      "exitCode": 1
+    },
+    {
+      "name": "skipped",
+      "exitCode": 1
+    },
+    {
+      "name": "cancelled",
+      "exitCode": 1
+    },
+    {
+      "name": "missing",
+      "exitCode": 1
+    }
+  ],
+  "disposable": true
+}

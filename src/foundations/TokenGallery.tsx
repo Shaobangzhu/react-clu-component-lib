@@ -7,17 +7,17 @@ const sizes = ['xs', 'sm', 'md', 'lg', 'xl', '2xl'] as const;
 const spaces = [1, 2, 3, 4, 6, 8, 12, 16] as const;
 
 /** Storybook-only review specimen, excluded from the public library entry. */
-export function TokenGallery() {
+export function TokenGallery({ label = 'CLU token gallery' }: { label?: string }) {
   const notesId = useId();
   return (
-    <article aria-label="CLU token gallery" className="clu-gallery">
+    <article aria-label={label} className="clu-gallery">
       <header className="clu-gallery-heading">
         <span className="clu-gallery-eyebrow">CLU / Design foundations / 02</span>
         <h1 className="clu-gallery-title">Cartographic Operations</h1>
         <p className="clu-gallery-copy">Quiet surfaces. Clear signals. Room for the details.</p>
         <p className="clu-gallery-meta">Semantic tokens · visual proposal · system fonts</p>
       </header>
-      <section className="clu-gallery-section" aria-label="Surfaces">
+      <section className="clu-gallery-section" aria-label={`${label}: Surfaces`}>
         <h2 className="clu-gallery-section-title">01 / Surfaces & hierarchy</h2>
         <div className="clu-gallery-grid">
           {surfaces.map(token => (
@@ -30,7 +30,7 @@ export function TokenGallery() {
           ))}
         </div>
       </section>
-      <section className="clu-gallery-section" aria-label="Typography">
+      <section className="clu-gallery-section" aria-label={`${label}: Typography`}>
         <h2 className="clu-gallery-section-title">02 / Type & numbers</h2>
         <div className="clu-gallery-type-list">
           {sizes.map(size => (
@@ -41,7 +41,7 @@ export function TokenGallery() {
           ))}
         </div>
       </section>
-      <section className="clu-gallery-section" aria-label="Semantic states">
+      <section className="clu-gallery-section" aria-label={`${label}: Semantic states`}>
         <h2 className="clu-gallery-section-title">03 / Signals with meaning</h2>
         <div className="clu-gallery-grid">
           {states.map(state => (
@@ -52,7 +52,7 @@ export function TokenGallery() {
           ))}
         </div>
       </section>
-      <section className="clu-gallery-section" aria-label="Spacing">
+      <section className="clu-gallery-section" aria-label={`${label}: Spacing`}>
         <h2 className="clu-gallery-section-title">04 / A measured rhythm</h2>
         <div className="clu-gallery-spacing">
           {spaces.map(space => (
@@ -64,7 +64,7 @@ export function TokenGallery() {
           ))}
         </div>
       </section>
-      <section className="clu-gallery-section" aria-label="Focus and elevation">
+      <section className="clu-gallery-section" aria-label={`${label}: Focus and elevation`}>
         <h2 className="clu-gallery-section-title">05 / Focus, shape & motion</h2>
         <p className="clu-gallery-copy">Tab to the specimens. Hover to inspect the accent. Motion follows your system preference.</p>
         <div className="clu-gallery-actions">

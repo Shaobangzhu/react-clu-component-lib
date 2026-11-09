@@ -1,0 +1,676 @@
+
+> react-clu-component-lib@0.1.0 quality:all
+> npm run quality:check && npm run browser:stories && npm run browser:visual && npm run security:check && npm run quality:probe
+
+
+> react-clu-component-lib@0.1.0 quality:check
+> npm run lint && npm run typecheck && npm run test:coverage && npm run build && npm run build-storybook && npm run package:verify
+
+
+> react-clu-component-lib@0.1.0 lint
+> eslint . --max-warnings 0
+
+
+> react-clu-component-lib@0.1.0 typecheck
+> tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.test.json && tsc --noEmit -p tsconfig.browser.json
+
+
+> react-clu-component-lib@0.1.0 test:coverage
+> vitest run --coverage
+
+
+ RUN  v4.1.12 <workspace>
+      Coverage enabled with v8
+
+
+ Test Files  21 passed (21)
+      Tests  83 passed (83)
+   Start at  09:40:03
+   Duration  2.98s (transform 813ms, setup 2.53s, import 2.22s, tests 5.09s, environment 9.76s)
+
+ % Coverage report from v8
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------|---------|----------|---------|---------|-------------------
+All files          |   93.57 |    88.96 |   92.64 |   96.36 |                   
+ components        |     100 |    97.56 |     100 |     100 |                   
+  StatCard.tsx     |     100 |    85.71 |     100 |     100 | 9                 
+ forms             |   96.55 |     90.9 |     100 |   96.42 |                   
+  Checkbox.tsx     |     100 |       90 |     100 |     100 | 19                
+  ...edControl.tsx |    90.9 |    84.61 |     100 |      90 | 24                
+ overlays          |   89.34 |    80.85 |   82.14 |    93.9 |                   
+  ...irmDialog.tsx |   89.28 |     86.2 |   83.33 |     100 | 31-34,37-38       
+  Dialog.tsx       |   89.36 |    79.46 |   81.81 |   92.42 | 32,41-42,111-114  
+-------------------|---------|----------|---------|---------|-------------------
+
+=============================== Coverage summary ===============================
+Statements   : 93.57% ( 204/218 )
+Branches     : 88.96% ( 274/308 )
+Functions    : 92.64% ( 63/68 )
+Lines        : 96.36% ( 159/165 )
+================================================================================
+
+> react-clu-component-lib@0.1.0 build
+> vite build && node scripts/build-types.mjs
+
+vite v8.3.6 building client environment for production...
+transforming...
+✓ 23 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/styles.css  14.04 kB │ gzip: 3.00 kB
+dist/index.js    18.49 kB │ gzip: 5.38 kB
+
+✓ built in 33ms
+Public declaration graph: 20 files; private implementation declarations pruned.
+
+> react-clu-component-lib@0.1.0 build-storybook
+> storybook build --disable-telemetry
+
+
+┌  Building storybook v10.6.5
+│
+◇  Cleaning outputDir: storybook-static
+│
+◇  Loading presets
+│
+◇  Building manager..
+│
+●  Building open services..
+│
+●  Building preview..
+│  Vite vite v8.3.6 building client environment for production...
+transforming...
+✓ 95 modules transformed.
+rendering chunks...
+computing gzip size...
+│  Vite storybook-static/iframe.html
+│  18.66 kB │ gzip:   5.27 kB
+│  storybook-static/assets/ScaffoldButton-De5he8bX.css               0.12
+│  kB │ gzip:   0.13 kB
+│  storybook-static/assets/TokenGallery-DA91pU7q.css                 3.80
+│  kB │ gzip:   0.97 kB
+│  storybook-static/assets/iframe-CbKviUum.css                      14.04
+│  kB │ gzip:   3.00 kB
+│  storybook-static/assets/iframe-DdhThu9G.js                        0.04
+│  kB │ gzip:   0.06 kB
+│  storybook-static/assets/jsx-runtime-lyb9smFi.js                   0.39
+│  kB │ gzip:   0.28 kB
+│  storybook-static/assets/Input-qcow6mpj.js                         0.40
+│  kB │ gzip:   0.29 kB
+│  storybook-static/assets/Select-B6wCyY8n.js                        0.40
+│  kB │ gzip:   0.29 kB
+│  storybook-static/assets/Textarea-DbEvKGyi.js                      0.41
+│  kB │ gzip:   0.29 kB
+│  storybook-static/assets/Skeleton-D-QLGw1V.js                      0.41
+│  kB │ gzip:   0.30 kB
+│  storybook-static/assets/IconButton-DddOeVaN.js                    0.66
+│  kB │ gzip:   0.42 kB
+│  storybook-static/assets/Card-C7CKiECV.js                          0.74
+│  kB │ gzip:   0.38 kB
+│  storybook-static/assets/Badge-BrvtwzDY.js                         0.84
+│  kB │ gzip:   0.43 kB
+│  storybook-static/assets/StatusIndicator-BDNyGvSg.js               0.92
+│  kB │ gzip:   0.48 kB
+│  storybook-static/assets/EmptyState-BoJLQZ5Q.js                    0.92
+│  kB │ gzip:   0.46 kB
+│  storybook-static/assets/ScaffoldButton.stories-B9c-YXJh.js        0.99
+│  kB │ gzip:   0.56 kB
+│  storybook-static/assets/StatCard-DkRA0Vgk.js                      1.01
+│  kB │ gzip:   0.50 kB
+│  storybook-static/assets/Alert-DfmcyP9b.js                         1.08
+│  kB │ gzip:   0.48 kB
+│  storybook-static/assets/Skeleton.stories-D2WRMOly.js              1.18
+│  kB │ gzip:   0.54 kB
+│  storybook-static/assets/rolldown-runtime-sJBDdmOt.js              1.20
+│  kB │ gzip:   0.67 kB
+│  storybook-static/assets/Checkbox-C_sgLrtw.js                      1.26
+│  kB │ gzip:   0.60 kB
+│  storybook-static/assets/Button-CnIzXw8u.js                        1.36
+│  kB │ gzip:   0.58 kB
+│  storybook-static/assets/EmptyState.stories-DcbRdCd6.js            1.39
+│  kB │ gzip:   0.61 kB
+│  storybook-static/assets/Card.stories-Bt60Q9H1.js                  1.44
+│  kB │ gzip:   0.64 kB
+│  storybook-static/assets/Field-C-JVP-Hd.js                         1.49
+│  kB │ gzip:   0.64 kB
+│  storybook-static/assets/preload-helper-Dt5pTa-y.js                1.74
+│  kB │ gzip:   0.90 kB
+│  storybook-static/assets/StatCard.stories-D5Hz5fwB.js              1.85
+│  kB │ gzip:   0.74 kB
+│  storybook-static/assets/Table-BcvwIUKG.js                         2.23
+│  kB │ gzip:   0.83 kB
+│  storybook-static/assets/SegmentedControl-ct_ReQAo.js              2.27
+│  kB │ gzip:   0.91 kB
+│  storybook-static/assets/StatusIndicator.stories--GbpYOmW.js       2.34
+│  kB │ gzip:   0.75 kB
+│  storybook-static/assets/Badge.stories-CQSFpk9_.js                 2.42
+│  kB │ gzip:   0.80 kB
+│  storybook-static/assets/Checkbox.stories-2tkriuPK.js              2.58
+│  kB │ gzip:   0.87 kB
+│  storybook-static/assets/Field.stories-Bj4uy11O.js                 2.62
+│  kB │ gzip:   0.92 kB
+│  storybook-static/assets/Alert.stories-B8ZoWEHS.js                 2.69
+│  kB │ gzip:   0.87 kB
+│  storybook-static/assets/SegmentedControl.stories-BspmDPtx.js      2.70
+│  kB │ gzip:   0.92 kB
+│  storybook-static/assets/Pagination-Dj0duqjM.js                    2.79
+│  kB │ gzip:   1.18 kB
+│  storybook-static/assets/DeliveryMetadata.stories-BVTBjtwv.js      2.87
+│  kB │ gzip:   1.27 kB
+│  storybook-static/assets/DisplayReview.stories-CqZecgEV.js         3.02
+│  kB │ gzip:   1.30 kB
+│  storybook-static/assets/Input.stories-CIsfBdVU.js                 3.08
+│  kB │ gzip:   1.01 kB
+│  storybook-static/assets/Textarea.stories-CtnrWreI.js              3.09
+│  kB │ gzip:   1.01 kB
+│  storybook-static/assets/IconButton.stories-CVKZDFoD.js            3.17
+│  kB │ gzip:   0.94 kB
+│  storybook-static/assets/Button.stories-CDrZ7EEI.js                3.23
+│  kB │ gzip:   0.96 kB
+│  storybook-static/assets/Pagination.stories-CU9bVi_l.js            3.88
+│  kB │ gzip:   1.27 kB
+│  storybook-static/assets/Table.stories-NC2ofkC8.js                 4.12
+│  kB │ gzip:   1.52 kB
+│  storybook-static/assets/Select.stories-Cula1-Bu.js                4.35
+│  kB │ gzip:   1.09 kB
+│  storybook-static/assets/Quality.stories-OeOGnex-.js               5.03
+│  kB │ gzip:   1.87 kB
+│  storybook-static/assets/ConfirmDialog.stories-CpY4ULqA.js         5.37
+│  kB │ gzip:   1.85 kB
+│  storybook-static/assets/Dialog.stories-Dg-Bjp6e.js                5.38
+│  kB │ gzip:   1.93 kB
+│  storybook-static/assets/Dialog-Dm-jAHup.js                        5.39
+│  kB │ gzip:   2.07 kB
+│  storybook-static/assets/TokenGallery.stories-9aR-22EN.js          6.12
+│  kB │ gzip:   1.86 kB
+│  storybook-static/vite-inject-mocker-entry.js                     27.75
+│  kB │ gzip:   9.66 kB
+│  storybook-static/assets/matchers-JIUQ3HVY-DLBmcvP1.js            28.75
+│  kB │ gzip:   9.66 kB
+│  storybook-static/assets/react-18-Defwtd0d.js                    211.28
+│  kB │ gzip:  66.05 kB
+│  storybook-static/assets/axe-B_PhqGaV.js                         659.29
+│  kB │ gzip: 187.87 kB
+│  storybook-static/assets/iframe-Drm9ljW8.js                    1,139.00
+│  kB │ gzip: 323.75 kB
+
+│
+▲  Vite [plugin builtin:vite-reporter]
+│  (!) Some chunks are larger than 500 kB after minification. Consider:
+│  - Using dynamic import() to code-split the application
+│  - Use build.rolldownOptions.output.codeSplitting to improve chunking:
+│  https://rolldown.rs/reference/OutputOptions.codeSplitting
+│  - Adjust chunk size limit for this warning via
+│  build.chunkSizeWarningLimit.
+│  Vite ✓ built in 527ms
+│
+◇  Output directory:
+│  <workspace>/storybook-static
+│
+└  Storybook build completed successfully
+
+
+> react-clu-component-lib@0.1.0 package:verify
+> npm run build && node scripts/verify-package.mjs
+
+
+> react-clu-component-lib@0.1.0 build
+> vite build && node scripts/build-types.mjs
+
+vite v8.3.6 building client environment for production...
+transforming...
+✓ 23 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/styles.css  14.04 kB │ gzip: 3.00 kB
+dist/index.js    18.49 kB │ gzip: 5.38 kB
+
+✓ built in 29ms
+Public declaration graph: 20 files; private implementation declarations pruned.
+External verification directory: /private/var/folders/26/vbwrm8b50g71_5f05z7mjdr00000gn/T/clu-package-W3AOhc
+added 24 packages in 333ms
+> clu-external-consumer-smoke@0.0.0 typecheck
+> tsc -p tsconfig.json && tsc -p tsconfig.nodenext.json
+> clu-external-consumer-smoke@0.0.0 build
+> vite build
+
+vite v8.3.6 building client environment for production...
+transforming...
+✓ 17 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.35 kB │ gzip:  0.26 kB
+dist/assets/index-CaAz2wQg.css   14.63 kB │ gzip:  3.18 kB
+dist/assets/index-BxG9VIHz.js   232.83 kB │ gzip: 72.95 kB
+
+✓ built in 175ms
+PASS public ESM/SSR, CSS export, blocked deep import, 19 APIs and shared React resolution
+PASS archive (24 files), Bundler + NodeNext declarations, external production build, SSR, single React install.
+Report: /private/var/folders/26/vbwrm8b50g71_5f05z7mjdr00000gn/T/clu-package-W3AOhc/report.json
+Browser: serve /private/var/folders/26/vbwrm8b50g71_5f05z7mjdr00000gn/T/clu-package-W3AOhc/consumer/dist with a local static server; no browser pass is inferred by this script.
+
+> react-clu-component-lib@0.1.0 browser:stories
+> node scripts/browser-container.mjs stories
+
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.browser
+#1 transferring dockerfile: 612B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for mcr.microsoft.com/playwright:v1.64.1-noble@sha256:ee15712262f017b8157421b212b12099146645f44b1bc5c0514cbbe6a229b1d0
+#2 DONE 0.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/4] FROM mcr.microsoft.com/playwright:v1.64.1-noble@sha256:ee15712262f017b8157421b212b12099146645f44b1bc5c0514cbbe6a229b1d0
+#4 resolve mcr.microsoft.com/playwright:v1.64.1-noble@sha256:ee15712262f017b8157421b212b12099146645f44b1bc5c0514cbbe6a229b1d0 done
+#4 DONE 0.0s
+
+#5 [2/4] RUN curl -fsSL https://nodejs.org/dist/v22.23.4/node-v22.23.4-linux-x64.tar.gz -o /tmp/node.tar.gz  && echo 'b8492284c76a54baf58d61668dd0e41ee0fc98adabf9503d30f05d08f55b4406  /tmp/node.tar.gz' | sha256sum -c -  && mkdir -p /opt/node22 && tar -xzf /tmp/node.tar.gz -C /opt/node22 --strip-components=1 && rm /tmp/node.tar.gz
+#5 CACHED
+
+#6 [3/4] RUN npm install --global npm@10.9.0
+#6 CACHED
+
+#7 [4/4] WORKDIR /work
+#7 CACHED
+
+#8 exporting to image
+#8 exporting layers done
+#8 exporting manifest sha256:68d85c49eb28cbad90c46c4f0f3c0a089bdc1820ab8e7987b72c837e0b713721 done
+#8 exporting config sha256:f008997c4ada6eaacee8e1cf37bfdc91abfec7bb536007e64e38476760aef29a done
+#8 exporting attestation manifest sha256:4e7d3cb6ef442fdfe2e055ad079d8788cc265529a55a27a4a053b403a65863ca done
+#8 exporting manifest list sha256:c802484a2cbf44c2a598664a45ae830e27f799bff4a16d38dfce138e0da4d6de done
+#8 naming to docker.io/library/clu-browser:p08 done
+#8 DONE 0.0s
+
+added 385 packages in 5s
+
+> react-clu-component-lib@0.1.0 test:stories
+> vitest run --config vitest.storybook.ts
+
+
+ RUN  v4.1.12 /work
+
+ ✓  storybook (chromium)  src/forms/DeliveryMetadata.stories.tsx (2 tests) 6134ms
+   ✓ Light  5695ms
+   ✓ Dark  426ms
+ ✓  storybook (chromium)  src/components/DisplayReview.stories.tsx (2 tests) 6483ms
+   ✓ Light  6046ms
+   ✓ Dark  415ms
+ ✓  storybook (chromium)  src/overlays/ConfirmDialog.stories.tsx (6 tests) 6644ms
+   ✓ Neutral  5699ms
+ ✓  storybook (chromium)  src/forms/Textarea.stories.tsx (8 tests) 6859ms
+   ✓ Empty  5387ms
+   ✓ Filled  483ms
+ ✓  storybook (chromium)  src/quality/Quality.stories.tsx (3 tests) 6874ms
+   ✓ Light  5661ms
+   ✓ Dark  458ms
+   ✓ Interactions  740ms
+ ✓  storybook (chromium)  src/forms/Select.stories.tsx (8 tests) 7108ms
+   ✓ Empty  5637ms
+   ✓ Filled  433ms
+ ✓  storybook (chromium)  src/overlays/Dialog.stories.tsx (7 tests) 7118ms
+   ✓ Form  5413ms
+   ✓ Long Form  323ms
+   ✓ Focus Contract  599ms
+ ✓  storybook (chromium)  src/data/Pagination.stories.tsx (12 tests) 7526ms
+   ✓ First  5694ms
+   ✓ Middle  402ms
+ ✓  storybook (chromium)  src/data/Table.stories.tsx (8 tests) 7286ms
+   ✓ Delivery History  5665ms
+   ✓ Merchant Summary  427ms
+   ✓ Dark  348ms
+ ✓  storybook (chromium)  src/forms/Input.stories.tsx (8 tests) 1117ms
+   ✓ Empty  303ms
+ ✓  storybook (chromium)  src/forms/Field.stories.tsx (8 tests) 1284ms
+   ✓ Empty  519ms
+ ✓  storybook (chromium)  src/forms/SegmentedControl.stories.tsx (8 tests) 1473ms
+   ✓ Empty  515ms
+ ✓  storybook (chromium)  src/components/Button.stories.tsx (13 tests) 1413ms
+   ✓ Default  327ms
+ ✓  storybook (chromium)  src/components/Badge.stories.tsx (9 tests) 1016ms
+   ✓ Default  363ms
+ ✓  storybook (chromium)  src/components/Alert.stories.tsx (10 tests) 1181ms
+   ✓ Default  384ms
+ ✓  storybook (chromium)  src/forms/Checkbox.stories.tsx (9 tests) 1203ms
+   ✓ Empty  501ms
+ ✓  storybook (chromium)  src/components/StatusIndicator.stories.tsx (9 tests) 1122ms
+   ✓ Default  394ms
+ ✓  storybook (chromium)  src/components/IconButton.stories.tsx (13 tests) 1287ms
+   ✓ Default  389ms
+ ✓  storybook (chromium)  src/internal/ScaffoldButton.stories.tsx (1 test) 255ms
+ ✓  storybook (chromium)  src/components/Card.stories.tsx (4 tests) 460ms
+ ✓  storybook (chromium)  src/components/StatCard.stories.tsx (6 tests) 684ms
+ ✓  storybook (chromium)  src/components/Skeleton.stories.tsx (4 tests) 486ms
+ ✓  storybook (chromium)  src/components/EmptyState.stories.tsx (4 tests) 568ms
+ ✓  storybook (chromium)  src/foundations/TokenGallery.stories.tsx (4 tests) 883ms
+   ✓ Interactive  464ms
+
+ Test Files  24 passed (24)
+      Tests  166 passed (166)
+   Start at  17:40:24
+   Duration  22.62s (transform 0ms, setup 48.71s, import 5.89s, tests 76.46s, environment 0ms)
+
+JUNIT report written to /work/artifacts/storybook/results.xml
+
+> react-clu-component-lib@0.1.0 browser:visual
+> node scripts/browser-container.mjs visual
+
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.browser
+#1 transferring dockerfile: 612B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for mcr.microsoft.com/playwright:v1.64.1-noble@sha256:ee15712262f017b8157421b212b12099146645f44b1bc5c0514cbbe6a229b1d0
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/4] FROM mcr.microsoft.com/playwright:v1.64.1-noble@sha256:ee15712262f017b8157421b212b12099146645f44b1bc5c0514cbbe6a229b1d0
+#4 resolve mcr.microsoft.com/playwright:v1.64.1-noble@sha256:ee15712262f017b8157421b212b12099146645f44b1bc5c0514cbbe6a229b1d0 done
+#4 DONE 0.0s
+
+#5 [3/4] RUN npm install --global npm@10.9.0
+#5 CACHED
+
+#6 [2/4] RUN curl -fsSL https://nodejs.org/dist/v22.23.4/node-v22.23.4-linux-x64.tar.gz -o /tmp/node.tar.gz  && echo 'b8492284c76a54baf58d61668dd0e41ee0fc98adabf9503d30f05d08f55b4406  /tmp/node.tar.gz' | sha256sum -c -  && mkdir -p /opt/node22 && tar -xzf /tmp/node.tar.gz -C /opt/node22 --strip-components=1 && rm /tmp/node.tar.gz
+#6 CACHED
+
+#7 [4/4] WORKDIR /work
+#7 CACHED
+
+#8 exporting to image
+#8 exporting layers done
+#8 exporting manifest sha256:68d85c49eb28cbad90c46c4f0f3c0a089bdc1820ab8e7987b72c837e0b713721 done
+#8 exporting config sha256:f008997c4ada6eaacee8e1cf37bfdc91abfec7bb536007e64e38476760aef29a done
+#8 exporting attestation manifest sha256:ca045d01bb4c5b5bb89c7e7af9fe94c5d10240e5ca544b5a1ae4167d395169ed 0.0s done
+#8 exporting manifest list sha256:a3a547e46da6c4d167066cf8bdf76c668a056adda3301009c27174ad734d8c1b done
+#8 naming to docker.io/library/clu-browser:p08 done
+#8 DONE 0.1s
+
+added 385 packages in 5s
+PASS 12 inspected baseline hashes; normal tests cannot update goldens.
+
+> react-clu-component-lib@0.1.0 build-storybook
+> storybook build --disable-telemetry
+
+
+┌  Building storybook v10.6.5
+│
+◇  Cleaning outputDir: storybook-static
+│
+◇  Loading presets
+│
+◇  Building manager..
+│
+●  Building open services..
+│
+●  Building preview..
+│  Vite vite v8.3.6 building client environment for production...
+transforming...
+✓ 95 modules transformed.
+rendering chunks...
+computing gzip size...
+│  Vite storybook-static/iframe.html
+│  18.66 kB │ gzip:   5.27 kB
+│  storybook-static/assets/ScaffoldButton-De5he8bX.css               0.12
+│  kB │ gzip:   0.13 kB
+│  storybook-static/assets/TokenGallery-DA91pU7q.css                 3.80
+│  kB │ gzip:   0.97 kB
+│  storybook-static/assets/iframe-CbKviUum.css                      14.04
+│  kB │ gzip:   3.00 kB
+│  storybook-static/assets/iframe-DdhThu9G.js                        0.04
+│  kB │ gzip:   0.06 kB
+│  storybook-static/assets/jsx-runtime-lyb9smFi.js                   0.39
+│  kB │ gzip:   0.28 kB
+│  storybook-static/assets/Input-qcow6mpj.js                         0.40
+│  kB │ gzip:   0.29 kB
+│  storybook-static/assets/Select-B6wCyY8n.js                        0.40
+│  kB │ gzip:   0.29 kB
+│  storybook-static/assets/Textarea-DbEvKGyi.js                      0.41
+│  kB │ gzip:   0.29 kB
+│  storybook-static/assets/Skeleton-D-QLGw1V.js                      0.41
+│  kB │ gzip:   0.30 kB
+│  storybook-static/assets/IconButton-DddOeVaN.js                    0.66
+│  kB │ gzip:   0.42 kB
+│  storybook-static/assets/Card-C7CKiECV.js                          0.74
+│  kB │ gzip:   0.38 kB
+│  storybook-static/assets/Badge-BrvtwzDY.js                         0.84
+│  kB │ gzip:   0.43 kB
+│  storybook-static/assets/StatusIndicator-BDNyGvSg.js               0.92
+│  kB │ gzip:   0.48 kB
+│  storybook-static/assets/EmptyState-BoJLQZ5Q.js                    0.92
+│  kB │ gzip:   0.46 kB
+│  storybook-static/assets/ScaffoldButton.stories-B9c-YXJh.js        0.99
+│  kB │ gzip:   0.56 kB
+│  storybook-static/assets/StatCard-DkRA0Vgk.js                      1.01
+│  kB │ gzip:   0.50 kB
+│  storybook-static/assets/Alert-DfmcyP9b.js                         1.08
+│  kB │ gzip:   0.48 kB
+│  storybook-static/assets/Skeleton.stories-D2WRMOly.js              1.18
+│  kB │ gzip:   0.54 kB
+│  storybook-static/assets/rolldown-runtime-sJBDdmOt.js              1.20
+│  kB │ gzip:   0.67 kB
+│  storybook-static/assets/Checkbox-C_sgLrtw.js                      1.26
+│  kB │ gzip:   0.60 kB
+│  storybook-static/assets/Button-CnIzXw8u.js                        1.36
+│  kB │ gzip:   0.58 kB
+│  storybook-static/assets/EmptyState.stories-DcbRdCd6.js            1.39
+│  kB │ gzip:   0.61 kB
+│  storybook-static/assets/Card.stories-Bt60Q9H1.js                  1.44
+│  kB │ gzip:   0.64 kB
+│  storybook-static/assets/Field-C-JVP-Hd.js                         1.49
+│  kB │ gzip:   0.64 kB
+│  storybook-static/assets/preload-helper-Dt5pTa-y.js                1.74
+│  kB │ gzip:   0.90 kB
+│  storybook-static/assets/StatCard.stories-D5Hz5fwB.js              1.85
+│  kB │ gzip:   0.74 kB
+│  storybook-static/assets/Table-BcvwIUKG.js                         2.23
+│  kB │ gzip:   0.83 kB
+│  storybook-static/assets/SegmentedControl-ct_ReQAo.js              2.27
+│  kB │ gzip:   0.91 kB
+│  storybook-static/assets/StatusIndicator.stories--GbpYOmW.js       2.34
+│  kB │ gzip:   0.75 kB
+│  storybook-static/assets/Badge.stories-CQSFpk9_.js                 2.42
+│  kB │ gzip:   0.80 kB
+│  storybook-static/assets/Checkbox.stories-2tkriuPK.js              2.58
+│  kB │ gzip:   0.87 kB
+│  storybook-static/assets/Field.stories-Bj4uy11O.js                 2.62
+│  kB │ gzip:   0.92 kB
+│  storybook-static/assets/Alert.stories-B8ZoWEHS.js                 2.69
+│  kB │ gzip:   0.87 kB
+│  storybook-static/assets/SegmentedControl.stories-BspmDPtx.js      2.70
+│  kB │ gzip:   0.92 kB
+│  storybook-static/assets/Pagination-Dj0duqjM.js                    2.79
+│  kB │ gzip:   1.18 kB
+│  storybook-static/assets/DeliveryMetadata.stories-BVTBjtwv.js      2.87
+│  kB │ gzip:   1.27 kB
+│  storybook-static/assets/DisplayReview.stories-CqZecgEV.js         3.02
+│  kB │ gzip:   1.30 kB
+│  storybook-static/assets/Input.stories-CIsfBdVU.js                 3.08
+│  kB │ gzip:   1.01 kB
+│  storybook-static/assets/Textarea.stories-CtnrWreI.js              3.09
+│  kB │ gzip:   1.01 kB
+│  storybook-static/assets/IconButton.stories-CVKZDFoD.js            3.17
+│  kB │ gzip:   0.94 kB
+│  storybook-static/assets/Button.stories-CDrZ7EEI.js                3.23
+│  kB │ gzip:   0.96 kB
+│  storybook-static/assets/Pagination.stories-CU9bVi_l.js            3.88
+│  kB │ gzip:   1.27 kB
+│  storybook-static/assets/Table.stories-NC2ofkC8.js                 4.12
+│  kB │ gzip:   1.52 kB
+│  storybook-static/assets/Select.stories-Cula1-Bu.js                4.35
+│  kB │ gzip:   1.09 kB
+│  storybook-static/assets/Quality.stories-OeOGnex-.js               5.03
+│  kB │ gzip:   1.87 kB
+│  storybook-static/assets/ConfirmDialog.stories-CpY4ULqA.js         5.37
+│  kB │ gzip:   1.85 kB
+│  storybook-static/assets/Dialog.stories-Dg-Bjp6e.js                5.38
+│  kB │ gzip:   1.93 kB
+│  storybook-static/assets/Dialog-Dm-jAHup.js                        5.39
+│  kB │ gzip:   2.07 kB
+│  storybook-static/assets/TokenGallery.stories-9aR-22EN.js          6.12
+│  kB │ gzip:   1.86 kB
+│  storybook-static/vite-inject-mocker-entry.js                     27.75
+│  kB │ gzip:   9.66 kB
+│  storybook-static/assets/matchers-JIUQ3HVY-DLBmcvP1.js            28.75
+│  kB │ gzip:   9.66 kB
+│  storybook-static/assets/react-18-Defwtd0d.js                    211.28
+│  kB │ gzip:  66.05 kB
+│  storybook-static/assets/axe-B_PhqGaV.js                         659.29
+│  kB │ gzip: 187.87 kB
+│  storybook-static/assets/iframe-Drm9ljW8.js                    1,139.00
+│  kB │ gzip: 323.75 kB
+
+│
+▲  Vite [plugin builtin:vite-reporter]
+│  (!) Some chunks are larger than 500 kB after minification. Consider:
+│  - Using dynamic import() to code-split the application
+│  - Use build.rolldownOptions.output.codeSplitting to improve chunking:
+│  https://rolldown.rs/reference/OutputOptions.codeSplitting
+│  - Adjust chunk size limit for this warning via
+│  build.chunkSizeWarningLimit.
+│  Vite ✓ built in 1.82s
+│
+◇  Output directory: /work/storybook-static
+│
+└  Storybook build completed successfully
+
+
+> react-clu-component-lib@0.1.0 test:visual
+> playwright test
+
+
+Running 6 tests using 1 worker
+
+  ✓  1 [desktop] › tests/browser/quality.spec.ts:3:3 › light: reviewed visual states (5.8s)
+  ✓  2 [desktop] › tests/browser/quality.spec.ts:3:3 › dark: reviewed visual states (4.4s)
+  ✓  3 [desktop] › tests/browser/quality.spec.ts:16:1 › native keyboard, control, pagination and modal focus contract (2.6s)
+  ✓  4 [mobile] › tests/browser/quality.spec.ts:3:3 › light: reviewed visual states (3.3s)
+  ✓  5 [mobile] › tests/browser/quality.spec.ts:3:3 › dark: reviewed visual states (3.2s)
+  ✓  6 [mobile] › tests/browser/quality.spec.ts:16:1 › native keyboard, control, pagination and modal focus contract (2.6s)
+
+  6 passed (24.8s)
+
+> react-clu-component-lib@0.1.0 security:check
+> node scripts/security-check.mjs
+
+[
+  {
+    "name": "production",
+    "blockingLevel": "moderate",
+    "exitCode": 0,
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    },
+    "advisories": []
+  },
+  {
+    "name": "full",
+    "blockingLevel": "high",
+    "exitCode": 0,
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 13,
+      "high": 0,
+      "critical": 0,
+      "total": 13
+    },
+    "advisories": [
+      {
+        "name": "@eslint/config-array",
+        "severity": "moderate",
+        "via": []
+      },
+      {
+        "name": "@eslint/js",
+        "severity": "moderate",
+        "via": []
+      },
+      {
+        "name": "@joshwooding/vite-plugin-react-docgen-typescript",
+        "severity": "moderate",
+        "via": []
+      },
+      {
+        "name": "@storybook/react-vite",
+        "severity": "moderate",
+        "via": []
+      },
+      {
+        "name": "@typescript-eslint/eslint-plugin",
+        "severity": "moderate",
+        "via": []
+      },
+      {
+        "name": "@typescript-eslint/parser",
+        "severity": "moderate",
+        "via": []
+      },
+      {
+        "name": "@typescript-eslint/type-utils",
+        "severity": "moderate",
+        "via": []
+      },
+      {
+        "name": "@typescript-eslint/typescript-estree",
+        "severity": "moderate",
+        "via": []
+      },
+      {
+        "name": "@typescript-eslint/utils",
+        "severity": "moderate",
+        "via": []
+      },
+      {
+        "name": "eslint",
+        "severity": "moderate",
+        "via": []
+      },
+      {
+        "name": "glob",
+        "severity": "moderate",
+        "via": [
+          {
+            "title": "Glob: AbortSignal cancellation bypass allows post-timeout filesystem traversal",
+            "url": "https://github.com/advisories/GHSA-3g3m-2fjr-6pw4"
+          }
+        ]
+      },
+      {
+        "name": "minimatch",
+        "severity": "moderate",
+        "via": [
+          {
+            "title": "minimatch has potential denial of service via globparts amplification",
+            "url": "https://github.com/advisories/GHSA-g3hv-75wg-m249"
+          }
+        ]
+      },
+      {
+        "name": "typescript-eslint",
+        "severity": "moderate",
+        "via": []
+      }
+    ]
+  }
+]
+
+> react-clu-component-lib@0.1.0 quality:probe
+> node scripts/quality-probe.mjs
+
+PASS: disposable real failing test stayed failed through tee; exit 23 preserved; gate rejects failure/skipped/cancelled/missing.

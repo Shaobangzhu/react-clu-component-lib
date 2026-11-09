@@ -1,0 +1,79 @@
+{
+  "reviewedOn": "2026-11-09",
+  "environment": "Linux amd64; Playwright 1.64.1; Chromium 156.0.8078.4 revision 1248; pinned Noble image",
+  "review": "All twelve inspected. Dialog spacing adjusted before final acceptance; states, disabled/error, focus, empty and responsive layouts reviewed. Not final branding approval.",
+  "files": [
+    {
+      "file": "tests/visual/baselines/desktop/dark-dialog.png",
+      "sha256": "b9b3f7c91047909a3921093e5a596fb9ef21b15512ea659bd46d62161f755b09",
+      "width": 1280,
+      "height": 800
+    },
+    {
+      "file": "tests/visual/baselines/desktop/dark-focus.png",
+      "sha256": "f73189d05f217e3dcc85c600d97b329322891589631c658013b0f9dec4aad29b",
+      "width": 1280,
+      "height": 832
+    },
+    {
+      "file": "tests/visual/baselines/desktop/dark-states.png",
+      "sha256": "bb7c95e953d40d446bfc3d771c4e6697cdd47ed9de74593385a2277e75015d50",
+      "width": 1280,
+      "height": 832
+    },
+    {
+      "file": "tests/visual/baselines/desktop/light-dialog.png",
+      "sha256": "97a360dfac86a1851024b078f00df6b99f74591239288c44224f8edcd1d37127",
+      "width": 1280,
+      "height": 800
+    },
+    {
+      "file": "tests/visual/baselines/desktop/light-focus.png",
+      "sha256": "9756537d153cd48c7190ceec48de3aea091e974dd57a769d5e8486ec7e9e04f8",
+      "width": 1280,
+      "height": 832
+    },
+    {
+      "file": "tests/visual/baselines/desktop/light-states.png",
+      "sha256": "15bdecdfc6633665f1549848e341a55907b7d4abd0f79772f22a47cbf3d78ef3",
+      "width": 1280,
+      "height": 832
+    },
+    {
+      "file": "tests/visual/baselines/mobile/dark-dialog.png",
+      "sha256": "f5d7871891d7da4d42ea8c9c7024a255169d9f6ab237108b13eab42ece740ddf",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "tests/visual/baselines/mobile/dark-focus.png",
+      "sha256": "00174eeee27296b2ae571e2f401de7a7341a3d687acffd310eb75eed262147be",
+      "width": 390,
+      "height": 949
+    },
+    {
+      "file": "tests/visual/baselines/mobile/dark-states.png",
+      "sha256": "15c9f628c958de842ad5ea03dc854dec983b6f9cb6f449c085f18b3c43e9fd61",
+      "width": 390,
+      "height": 949
+    },
+    {
+      "file": "tests/visual/baselines/mobile/light-dialog.png",
+      "sha256": "9e7c8f018f4d02bf3ff905b2e0b0666da4f6775df768a1b9c6f8a25c18f5c5ee",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "tests/visual/baselines/mobile/light-focus.png",
+      "sha256": "5cad9d541cb7846a9e77eaa14874974e857ba3e11f6cb513fbbb0c0c65d0dbec",
+      "width": 390,
+      "height": 949
+    },
+    {
+      "file": "tests/visual/baselines/mobile/light-states.png",
+      "sha256": "090adf4d05f5ae280cb96cb5906cf195f909b1f905d923d520398192aadbaafa",
+      "width": 390,
+      "height": 949
+    }
+  ]
+}

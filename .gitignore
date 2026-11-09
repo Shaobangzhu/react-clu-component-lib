@@ -15,3 +15,6 @@
 # OS files and npm diagnostics
 .DS_Store
 npm-debug.log*
+
+# Bounded local CI diagnostics and unreviewed baseline candidates
+/artifacts/
