@@ -1,5 +1,9 @@
 # CLU Component Library
 
+[![npm version](https://img.shields.io/npm/v/%40shaobangzhu%2Fclu-ui/latest)](https://www.npmjs.com/package/@shaobangzhu/clu-ui)
+
+[npm package](https://www.npmjs.com/package/@shaobangzhu/clu-ui) · [GitHub Releases](https://github.com/Shaobangzhu/react-clu-component-lib/releases) · [Source code](https://github.com/Shaobangzhu/react-clu-component-lib)
+
 CLU is a React 19 component library for data-dense operational applications. This repository implements **P01–P08: the foundation, scoped semantic tokens, nine display primitives, six form primitives, two data APIs, two overlay components, a verified package contract and layered quality gates**. Consumer integration and v1 release readiness remain planned.
 
 Implemented here: an ESM Vite library build with declarations and an explicit CSS export, strict TypeScript, ESLint, Vitest/React Testing Library, Tailwind CSS v4 build infrastructure, local/static Storybook, and scoped light/dark design tokens. [`@shaobangzhu/clu-ui@0.1.0-rc.2`](https://www.npmjs.com/package/@shaobangzhu/clu-ui/v/0.1.0-rc.2) is publicly available on npm under MIT. Both `next` and `latest` currently resolve to this prerelease; it is not a stable or v1 release. See [publication evidence](docs/rc2-publication.md) and the [npm-to-GitHub audit](docs/npm-github-sync.md). There is no public Storybook URL yet.
@@ -12,7 +16,7 @@ npm install --save-exact @shaobangzhu/clu-ui@0.1.0-rc.2
 
 React `^19.0.0` is required as a peer dependency. Browser applications also need ReactDOM 19; the verified consumer uses React/ReactDOM 19.3.1. Import `@shaobangzhu/clu-ui/styles.css` once and render CLU inside a `data-clu-theme="light"` or `"dark"` host. No Tailwind installation or source scanning is required. An unversioned npm install currently selects rc.2 through `latest`; use the exact version for reproducible consumption.
 
-npm publication, GitHub Releases and GitHub Packages are separate distribution mechanisms. This package is published to the public npm registry, not GitHub Packages. The publication audit found no Git tags or GitHub Releases; creating those remains a separate release step. GitHub account linking alone does not configure Trusted Publishing.
+The **npm Registry** is the canonical channel for the compiled package. **GitHub Releases** records source/version history, including the verified [v0.1.0-rc.2 prerelease](https://github.com/Shaobangzhu/react-clu-component-lib/releases/tag/v0.1.0-rc.2); its source archives are not the compiled npm distribution. **GitHub Packages** is a separate registry and is not required for this project. GitHub account linking alone does not configure Trusted Publishing.
 
 Use Node **22.23.4** and npm **10.9.0**, matching the shared DGI baseline. `.nvmrc`, `packageManager`, and engine requirements record this toolchain; `.npmrc` enforces compatible engines and saves exact dependency versions. Exact development dependencies and transitive resolutions are recorded in `package.json` and `package-lock.json`.
 
