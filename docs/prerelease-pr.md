@@ -1,5 +1,7 @@
 # chore(release): prepare a verified provisional CLU prerelease candidate
 
+Historical private rc.1 record. The owner subsequently approved the scoped MIT rc.2 plan and conditional publication; see [current rc.2 evidence](rc2-verification.md). This historical artifact/digest is unchanged.
+
 ## Summary
 
 - Prepare `react-clu-component-lib@0.1.0-rc.1` for owner review, retaining `private: true` and an explicit `UNLICENSED` no-grant placeholder until identity/license/distribution decisions are approved.

@@ -37,12 +37,12 @@ For a direct local install into another scratch React 19 app:
 # In CLU: prepack rebuilds both ESM/CSS and declarations.
 npm pack --pack-destination /ABSOLUTE/ARTIFACT/DIRECTORY
 # In the external app: use the exact resulting file, not a directory/workspace link.
-npm install --save-exact /ABSOLUTE/ARTIFACT/DIRECTORY/react-clu-component-lib-0.1.0.tgz react@19.3.1 react-dom@19.3.1
+npm install --save-exact /ABSOLUTE/ARTIFACT/DIRECTORY/shaobangzhu-clu-ui-0.1.0-rc.2.tgz react@19.3.1 react-dom@19.3.1
 ```
 
 ```tsx
-import { Button, Input, Table, Pagination, Dialog } from 'react-clu-component-lib';
-import 'react-clu-component-lib/styles.css'; // once, through the consumer's CSS loader
+import { Button, Input, Table, Pagination, Dialog } from '@shaobangzhu/clu-ui';
+import '@shaobangzhu/clu-ui/styles.css'; // once, through the consumer's CSS loader
 
 <div data-clu-theme="light"><Button>Example</Button></div>
 ```
@@ -55,7 +55,7 @@ The package is ESM-only. Native Node ESM can import the JS entry and render on t
 - dist/index.js: one ESM entry, with React/JSX runtime imports external. The build rejects any bundled node_modules JS/TS runtime, including React, ReactDOM, Storybook or Tailwind runtime/plugin code.
 - dist/index.d.ts and its reachable declarations: generated separately by TypeScript NodeNext with explicit .js relative specifiers. Private implementation-only declarations are pruned. Existing component behavior and public names are preserved.
 - dist/styles.css: explicit self-contained compiled CSS, scoped under data-clu-theme and namespaced CLU classes/tokens. Only that file is marked as a side effect. Scoped component rules are intentionally unlayered: ordinary unlayered host element rules would otherwise outrank every layered CLU component rule regardless of specificity. Token and unused authoring-utility layers remain isolated; no !important or generic reset is added. Consumers can customize through documented tokens and deliberate scoped overrides.
-- Source-map policy: no JS/CSS/declaration maps, embedded sources or sourceMappingURL references. JS/CSS and .d.ts files are the distribution; TS/TSX sources, stories, tests, fixture, scripts, docs/private notes, lockfiles, local config and generated reports are not archived. npm includes the intentional README and package.json automatically.
+- Source-map policy: no JS/CSS/declaration maps, embedded sources or sourceMappingURL references. JS/CSS and .d.ts files are the distribution; TS/TSX sources, stories, tests, fixture, scripts, docs/private notes, lockfiles, local config and generated reports are not archived. npm includes the intentional README, package.json and MIT LICENSE. The current strict archive has 25 members, including 20 public declarations.
 - Pack verification compares the dry-run JSON, actual JSON and tar members against the exact reachable-file allowlist, verifies the real tarball SHA-512, rejects links/path escapes and scans allowed text for high-signal credential patterns. This is defense against accidental inclusions, not a universal secret-detection guarantee.
 - The packed consumer asserts shared React resolution from its app and CLU entry, one actual React installation, only CLU/React/ReactDOM production roots, native SSR with no render-time callbacks, explicit CSS resolution and blocked deep imports.
 
@@ -63,10 +63,12 @@ The packaging checks use npm's documented [pack JSON/dry-run behavior](https://d
 
 ## Version and distribution policy
 
-The current technical package name remains react-clu-component-lib and version remains 0.1.0, private=true. These local verification snapshots are unpublished development artifacts, not a live registry version or a release. A technical candidate such as @shaobangzhu/clu-ui has not been verified for registry availability, scope ownership or publish permission. P07 does not perform authentication, rename the package, enable publication or claim a public npm URL.
+The owner approved @shaobangzhu/clu-ui@0.1.0-rc.2, MIT, private=false and npm public/next distribution. scripts/release-contract.json pins these exact approved metadata fields, and verification compares both the source and archived package against them. The private rc.1 remains historical and unchanged. Publication is conditionally authorized after all mandatory tests pass; npm authentication/scope rights and registry integrity still need actual verification. See [current rc.2 evidence](rc2-verification.md).
 
-Before publication, the owner must approve distribution, verify registry/scope rights, settle package identity/license/metadata, choose an immutable version, and approve any private flag change. No LICENSE file or registry rights were invented here. Record the chosen artifact's version and SHA-512 integrity; never replace different bytes at an already distributed version. Consumers pin an exact version or approved immutable tarball URL with a deterministic lockfile. Public API removals/renames or incompatible behavior require the appropriate documented version change; private paths remain unsupported.
+Before publication, the owner must approve distribution, verify registry/scope rights, settle package identity/license/metadata, choose an immutable version, and approve any private flag change. The MIT LICENSE is included following owner authorization; registry rights are verified with the intended npm account. Record the chosen artifact's version and SHA-512 integrity; never replace different bytes at an already distributed version. Consumers pin an exact version or approved immutable tarball URL with a deterministic lockfile. Public API removals/renames or incompatible behavior require the appropriate documented version change; private paths remain unsupported.
 
 P09/P10 DGI integration remains gated on an approved versioned immutable installable artifact. The temporary local verification tarballs and their hashes prove packaging, not an approved distribution channel. Do not bypass that gate through source copying, symlinks, workspace packages or file:../src. DGI remains untouched.
 
 See [P07 executed verification](p07-verification.md) and [PR draft](p07-pr.md).
+
+To verify an existing retained/downloaded tarball without rebuilding or repacking it, use `npm run package:verify:tarball -- /ABSOLUTE/exact.tgz`. This runs the same archive, public metadata/export/type, fresh locked consumer, ESM/SSR, Vite and React deduplication checks. The original tarball is never rewritten. Run the browser harness against that report for rendered validation. Registry dist.integrity and actual downloaded bytes must equal the retained candidate SRI before this mode establishes the P09 artifact prerequisite.

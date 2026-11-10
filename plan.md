@@ -112,6 +112,12 @@ See [operations and limits](docs/ci-quality.md), [original local evidence](docs/
 
 Local preparation on `release/clu-prerelease-candidate` uses the merged P08 master commit above. The proposed `0.1.0-rc.1` package retains the existing technical name, `private: true` and an explicit `UNLICENSED` no-grant placeholder. It is provisional, not an approved distribution or a v1 release. See [decisions and publication prerequisites](docs/prerelease-candidate.md) and [actual verification](docs/prerelease-verification.md). P09 remains blocked until an approved immutable artifact is distributed and its installed bytes are verified; no DGI work begins here.
 
+## Scoped MIT prerelease preparation (2026-11-09)
+
+The owner approved @shaobangzhu/clu-ui@0.1.0-rc.2, MIT, private=false and public/next publication after all mandatory validation succeeds. Work is on release/clu-0.1.0-rc.2 from latest merged master bce772dce977e41bfe5a065b1d5e0a76ce14cca7 (PR #9). The private rc.1 artifact remains unchanged. See [current rc.2 status](docs/rc2-verification.md) and [release contract](docs/prerelease-candidate.md). Registry authentication, actual release and integrity verification are recorded only when completed. This is not P09 implementation; DGI remains untouched.
+
+Publication update: rc.2 is now publicly available; its actual registry SHA-512 equals the frozen candidate, and downloaded/exact-version consumers plus four browser contexts passed. See [publication evidence and tag diagnosis](docs/rc2-publication.md). Read-only investigation matched npm's first-publication/required-latest behavior: next and latest both point to rc.2, and authenticated latest deletion returned HTTP 400. The required tag is retained; no further deletion or 2FA retry is planned, and no next-only/stable-release claim is made. The immutable exact-version distribution is verified. This completes neither P09 migration nor P11 readiness; DGI is untouched.
+
 ## 1. Product thesis
 
 CLU is an independently versioned, accessible, type-safe React 19 design system and component library for data-dense operational applications. DGI is the first real consuming application. CLU owns visual semantics and generic interaction behavior, but never owns delivery/GIS/finance/provider logic.

@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { Alert, Button, Dialog, Field, Input, Pagination, SegmentedControl, StatusIndicator, Table } from 'react-clu-component-lib';
-import type { DialogProps, PaginationProps, TableProps } from 'react-clu-component-lib';
+import { Alert, Button, Dialog, Field, Input, Pagination, SegmentedControl, StatusIndicator, Table } from '@shaobangzhu/clu-ui';
+import type { DialogProps, PaginationProps, TableProps } from '@shaobangzhu/clu-ui';
 import './host.css';
-import 'react-clu-component-lib/styles.css';
+import '@shaobangzhu/clu-ui/styles.css';
 
 function HostControls({ id }: { id: string }) {
   return <div className="smoke-controls" id={id}>

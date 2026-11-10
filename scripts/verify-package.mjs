@@ -3,13 +3,15 @@ import { createHash } from 'node:crypto';
 import { spawnSync } from 'node:child_process';
 import { cp, mkdir, mkdtemp, readFile, readdir, realpath, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
-import { dirname, isAbsolute, join, relative, resolve } from 'node:path';
+import { basename, dirname, isAbsolute, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import ts from 'typescript';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const npmCLI = process.env.npm_execpath;
 assert(npmCLI, 'Run through npm run package:verify');
+const existingArchive = process.argv[2] === '--tarball';
+assert(process.argv[2] === undefined || (existingArchive && process.argv.length === 4), 'Expected --tarball /ABSOLUTE/archive.tgz');
 function run(command, args, cwd = root) {
   const result = spawnSync(command, args, { cwd, encoding: 'utf8', maxBuffer: 8 * 1024 * 1024 });
   if (result.error) throw result.error;
@@ -20,7 +22,12 @@ const npm = (args, cwd) => run(process.execPath, [npmCLI, ...args], cwd);
 const json = async path => JSON.parse(await readFile(path, 'utf8'));
 const expected = await json(join(root, 'scripts/public-api.json'));
 const manifest = await json(join(root, 'package.json'));
-assert.equal(manifest.type, 'module'); assert.equal(manifest.private, true);
+const release = await json(join(root, 'scripts/release-contract.json'));
+for (const key of ['name', 'version', 'private', 'license', 'publishConfig']) assert.deepEqual(manifest[key], release[key], `Approved release metadata: ${key}`);
+assert.equal(manifest.type, 'module'); assert.equal(manifest.private, false);
+const license = await readFile(join(root, 'LICENSE'), 'utf8');
+assert(license.startsWith('MIT License\n\nCopyright (c) 2026 Chaoran Lu\n'));
+assert(license.includes('The above copyright notice and this permission notice shall be included'));
 assert.deepEqual(manifest.exports, { '.': { types: './dist/index.d.ts', import: './dist/index.js' }, './styles.css': './dist/styles.css' });
 assert.deepEqual(manifest.sideEffects, ['./dist/styles.css']);
 assert.deepEqual(manifest.peerDependencies, { react: '^19.0.0' });
@@ -55,27 +62,40 @@ async function visit(file) {
   }
 }
 await visit('dist/index.d.ts');
-const allowed = ['package.json', 'README.md', 'dist/index.js', 'dist/styles.css', ...declarations].sort();
+const allowed = ['package.json', 'README.md', 'LICENSE', 'dist/index.js', 'dist/styles.css', ...declarations].sort();
 const output = await mkdtemp(join(await realpath(tmpdir()), 'clu-package-'));
 assert(relative(root, output).startsWith('..') && !(await realpath(output)).startsWith(`${await realpath(root)}/`));
 console.log(`External verification directory: ${output}`);
 const options = ['--json', '--ignore-scripts', '--pack-destination', output];
-const [dry] = JSON.parse(npm(['pack', '--dry-run', ...options]));
-const [packed] = JSON.parse(npm(['pack', ...options]));
-for (const item of [dry, packed]) {
-  assert.deepEqual(item.files.map(file => file.path).sort(), allowed, 'Archive contains missing or unexpected files');
-  assert.equal(item.entryCount, allowed.length);
+let packed;
+if (existingArchive) {
+  const sourceArchive = resolve(process.argv[3]);
+  assert(isAbsolute(process.argv[3]), 'An existing archive must use an absolute path');
+  const bytes = await readFile(sourceArchive);
+  packed = { name: manifest.name, version: manifest.version, filename: basename(sourceArchive),
+    integrity: `sha512-${createHash('sha512').update(bytes).digest('base64')}`,
+    shasum: createHash('sha1').update(bytes).digest('hex'), size: bytes.length };
+  await cp(sourceArchive, join(output, packed.filename));
+} else {
+  const [dry] = JSON.parse(npm(['pack', '--dry-run', ...options]));
+  [packed] = JSON.parse(npm(['pack', ...options]));
+  for (const item of [dry, packed]) {
+    assert.deepEqual(item.files.map(file => file.path).sort(), allowed, 'Archive contains missing or unexpected files');
+    assert.equal(item.entryCount, allowed.length);
+  }
+  assert.equal(packed.integrity, dry.integrity, 'dry-run and real archive differ');
 }
 const tarball = join(output, packed.filename);
 const bytes = await readFile(tarball);
 assert.equal(`sha512-${createHash('sha512').update(bytes).digest('base64')}`, packed.integrity);
-assert.equal(packed.integrity, dry.integrity, 'dry-run and real archive differ');
 const members = run('tar', ['-tzf', tarball]).trim().split('\n');
 assert.deepEqual(members.map(path => path.replace(/^package\//, '')).sort(), allowed);
 assert(members.every(path => path.startsWith('package/') && !path.includes('..') && !path.includes('\\')));
 assert(!run('tar', ['-tvzf', tarball]).split('\n').some(line => /^[lh]/.test(line)), 'No links allowed in package');
 const unpacked = join(output, 'archive'); await mkdir(unpacked);
 run('tar', ['-xzf', tarball, '-C', unpacked]);
+assert.equal(await readFile(join(unpacked, 'package/LICENSE'), 'utf8'), license);
+assert.deepEqual(await json(join(unpacked, 'package/package.json')), manifest);
 for (const member of allowed) {
   const text = await readFile(join(unpacked, 'package', member), 'utf8');
   assert(!/-----BEGIN [A-Z ]*PRIVATE KEY-----|\bghp_[a-zA-Z0-9]{30,}|\bgithub_pat_[a-zA-Z0-9_]{30,}|\bAKIA[A-Z0-9]{16}\b|\bsk-proj-[a-zA-Z0-9_-]{30,}/.test(text), `Possible credential in ${member}`);
@@ -139,7 +159,7 @@ console.log('PASS public ESM/SSR, CSS export, blocked deep import, 19 APIs and s
 `;
 await writeFile(join(consumer, 'verify.mjs'), ssr);
 console.log(run(process.execPath, ['verify.mjs'], consumer).trim());
-const report = { name: packed.name, version: packed.version, filename: packed.filename, integrity: packed.integrity,
+const report = { verificationMode: existingArchive ? 'existing-archive-no-repack' : 'npm-dry-run-and-pack', name: packed.name, version: packed.version, private: manifest.private, license: manifest.license, publishConfig: manifest.publishConfig, filename: packed.filename, integrity: packed.integrity,
   shasum: packed.shasum, size: packed.size, unpackedSize: packed.unpackedSize, members: allowed, externalRuntimeImports: imports,
   consumer, reactPaths, browserReview: 'NOT RUN: serve consumer/dist and execute Run browser checks, then keyboard/interactions.' };
 await writeFile(join(output, 'report.json'), `${JSON.stringify(report, null, 2)}\n`);
