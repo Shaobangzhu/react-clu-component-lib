@@ -118,6 +118,10 @@ The owner approved @shaobangzhu/clu-ui@0.1.0-rc.2, MIT, private=false and public
 
 Publication update: rc.2 is now publicly available; its actual registry SHA-512 equals the frozen candidate, and downloaded/exact-version consumers plus four browser contexts passed. See [publication evidence and tag diagnosis](docs/rc2-publication.md). Read-only investigation matched npm's first-publication/required-latest behavior: next and latest both point to rc.2, and authenticated latest deletion returned HTTP 400. The required tag is retained; no further deletion or 2FA retry is planned, and no next-only/stable-release claim is made. The immutable exact-version distribution is verified. This completes neither P09 migration nor P11 readiness; DGI is untouched.
 
+## npm-to-GitHub synchronization (2026-11-10)
+
+The prerelease preparation merged in PR #10. A publication audit reproduced the exact npm tarball from c8a19783325cbd963a4ff92cb5c7dd8eef46a27c and audited master b193cf08429746cc1e4d9de6ff6aa2ceebb5e9aa. npm provides neither gitHead nor provenance attestation, so the original producer commit is not independently attested. The synchronization on chore/sync-npm-github-release adds the repository homepage and corrects current publication/docs status while preserving the runtime/type/CSS contract and historical phase evidence. See [audit, differences and validation](docs/npm-github-sync.md). No npm republish, Git tag/Release, DGI integration or public Storybook deployment is part of this change. P09–P11 remain planned.
+
 ## 1. Product thesis
 
 CLU is an independently versioned, accessible, type-safe React 19 design system and component library for data-dense operational applications. DGI is the first real consuming application. CLU owns visual semantics and generic interaction behavior, but never owns delivery/GIS/finance/provider logic.

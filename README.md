@@ -2,7 +2,17 @@
 
 CLU is a React 19 component library for data-dense operational applications. This repository implements **P01–P08: the foundation, scoped semantic tokens, nine display primitives, six form primitives, two data APIs, two overlay components, a verified package contract and layered quality gates**. Consumer integration and v1 release readiness remain planned.
 
-Implemented here: an ESM Vite library build with declarations and an explicit CSS export, strict TypeScript, ESLint, Vitest/React Testing Library, Tailwind CSS v4 build infrastructure, local/static Storybook, and scoped light/dark design tokens. The approved prerelease identity is `@shaobangzhu/clu-ui`, licensed under MIT, with public npm access and the `next` channel. Registry publication and byte verification are tracked in [rc.2 evidence](docs/rc2-verification.md). There is no public Storybook URL yet.
+Implemented here: an ESM Vite library build with declarations and an explicit CSS export, strict TypeScript, ESLint, Vitest/React Testing Library, Tailwind CSS v4 build infrastructure, local/static Storybook, and scoped light/dark design tokens. [`@shaobangzhu/clu-ui@0.1.0-rc.2`](https://www.npmjs.com/package/@shaobangzhu/clu-ui/v/0.1.0-rc.2) is publicly available on npm under MIT. Both `next` and `latest` currently resolve to this prerelease; it is not a stable or v1 release. See [publication evidence](docs/rc2-publication.md) and the [npm-to-GitHub audit](docs/npm-github-sync.md). There is no public Storybook URL yet.
+
+Install the immutable version explicitly:
+
+```sh
+npm install --save-exact @shaobangzhu/clu-ui@0.1.0-rc.2
+```
+
+React `^19.0.0` is required as a peer dependency. Browser applications also need ReactDOM 19; the verified consumer uses React/ReactDOM 19.3.1. Import `@shaobangzhu/clu-ui/styles.css` once and render CLU inside a `data-clu-theme="light"` or `"dark"` host. No Tailwind installation or source scanning is required. An unversioned npm install currently selects rc.2 through `latest`; use the exact version for reproducible consumption.
+
+npm publication, GitHub Releases and GitHub Packages are separate distribution mechanisms. This package is published to the public npm registry, not GitHub Packages. The publication audit found no Git tags or GitHub Releases; creating those remains a separate release step. GitHub account linking alone does not configure Trusted Publishing.
 
 Use Node **22.23.4** and npm **10.9.0**, matching the shared DGI baseline. `.nvmrc`, `packageManager`, and engine requirements record this toolchain; `.npmrc` enforces compatible engines and saves exact dependency versions. Exact development dependencies and transitive resolutions are recorded in `package.json` and `package-lock.json`.
 
@@ -42,18 +52,18 @@ tests/                             RTL interaction and portable-story tests
 
 The package exposes `.` as ESM with types and `./styles.css` as opt-in compiled CSS. Consumers import the CSS explicitly and place components under a theme host; Tailwind is not a consumer build requirement. CSS side effects are declared so bundlers preserve an explicit CSS import. Theme variables are defined only on explicit `[data-clu-theme]` hosts, with scoped user-preference overrides and no reset. See the [public token contract](docs/design-tokens.md) and [P02 verification](docs/p02-verification.md). The internal scaffold demonstrates Tailwind compilation under a `clu-*` selector, using a reference-only import. No Preflight or default theme is injected into consumers.
 
-React 19 is both a peer and an exact development dependency. React, ReactDOM, and their subpaths (including JSX runtimes) are external in the library build. ReactDOM is development-only because the public entry does not import it. The scaffold is not re-exported or included in the package; it is not the future Button API.
+React 19 is both a peer and an exact development dependency. React, ReactDOM, and their subpaths (including JSX runtimes) are external in the library build. ReactDOM is development-only because the public entry does not import it. The internal scaffold is not exported or packaged; the public Button is documented below.
 
 [The v1 blueprint](plan.md) preserves the two-repository scope and all 11 delivery phases. P01 was merged in PR #1. [The P02 PR draft](docs/p02-pr.md) is local review material.
 
 - **CLU:** [Shaobangzhu/react-clu-component-lib](https://github.com/Shaobangzhu/react-clu-component-lib), base `master`. P01–P08 establish the foundation, tokens, components, package contract, and quality gates. Each phase starts from the latest merged `master` on its own branch and is reviewed before the next.
 - **First consumer, DGI:** [Shaobangzhu/delivery-geo-intelligence](https://github.com/Shaobangzhu/delivery-geo-intelligence), base `main`. P09–P10 will consume an approved, immutable CLU prerelease while preserving DGI's business contracts. DGI has not been modified or integrated here.
-- **Release readiness:** P11 audits real component, package, and consumer evidence. Publication, release tags, and public hosting require owner approval. The owner approved `@shaobangzhu/clu-ui@0.1.0-rc.2`, MIT and public/next metadata. Actual registry acceptance and integrity verification remain separate from metadata approval.
+- **Release readiness:** P11 audits real component, package, and consumer evidence. The owner-approved MIT rc.2 prerelease is published and its registry bytes and independent consumers are verified. GitHub tags/Releases, public hosting and v1 readiness remain separate steps.
 - **SCOC:** a future consumer outside v1 acceptance scope.
 
 The external implementation kit also contains `codex-prompts.md` and `prompts/P01.md` through `P11.md`. They are not included in this repository. The root blueprint records the execution plan; later phase prompts remain separate handoff materials.
 
-CLU owns reusable UI semantics and generic interactions. Delivery, GIS, finance, provider telemetry, APIs, and other business logic stay in consumers. No consumer source is copied here. Admin enablement, npm publication, DGI migration, and a hosted Storybook remain separate work. Phase verification notes distinguish completed package/CI checks from those later gates.
+CLU owns reusable UI semantics and generic interactions. Delivery, GIS, finance, provider telemetry, APIs, and other business logic stay in consumers. No consumer source is copied here. Admin enablement, DGI migration, and a hosted Storybook remain separate work. Phase verification notes preserve the project history and distinguish completed package/CI checks from those later gates.
 
 **Maintainer:** [Chaoran Lu](https://github.com/Shaobangzhu)
 
@@ -69,9 +79,9 @@ Public overlay exports: controlled `Dialog` and compositional `ConfirmDialog`. R
 
 The [P07 package contract](docs/package-contract.md) documents exact local tarball install commands, the isolated consumer template, archive/source-map rules and the version/distribution gate. `npm pack` rebuilds first. [P07 evidence](docs/p07-verification.md) distinguishes automated package checks from rendered browser checks. DGI integration requires a registry artifact whose bytes match the tested candidate; local pack verification alone does not meet that gate.
 
-P08 adds local/CI component, accessibility, visual and security gates. Read [commands, baseline review and admin operations](docs/ci-quality.md), [original local evidence](docs/p08-verification.md) and [PR draft](docs/p08-pr.md). `npm run quality:all` uses the pinned Linux Docker browser environment. P08 merged in PR #8; the [merged-master run](https://github.com/Shaobangzhu/react-clu-component-lib/actions/runs/42668994812) passed. That base run does not verify the current unpushed prerelease diff. Downloaded hosted artifact/fork-PR review and admin-only required-check enablement remain follow-ups; no Pages publication is enabled.
+P08 adds local/CI component, accessibility, visual and security gates. Read [commands, baseline review and admin operations](docs/ci-quality.md), [original local evidence](docs/p08-verification.md) and [PR draft](docs/p08-pr.md). `npm run quality:all` uses the pinned Linux Docker browser environment. P08 merged in PR #8, and the prerelease preparation merged in PR #10. The [audited master CI run](https://github.com/Shaobangzhu/react-clu-component-lib/actions/runs/42780185648) passed at `b193cf0`; it does not validate later changes. Downloaded hosted artifact/fork-PR review and admin-only required-check enablement remain follow-ups; no Pages publication is enabled.
 
-Current prerelease: `@shaobangzhu/clu-ui@0.1.0-rc.2`, MIT, public metadata, `next` channel. The owner authorized publication after all mandatory verification succeeds. Read [candidate decisions](docs/prerelease-candidate.md) and [actual rc.2 status/evidence](docs/rc2-verification.md); metadata approval alone does not establish registry availability. The frozen private rc.1 remains historical evidence and is never overwritten. Changes to a packed file or metadata require a newly verified tarball and SHA-512.
+Current prerelease: `@shaobangzhu/clu-ui@0.1.0-rc.2`, MIT, publicly published with both `next` and `latest` pointing to rc.2. Read [candidate decisions](docs/prerelease-candidate.md), [publication evidence](docs/rc2-publication.md) and [source correspondence](docs/npm-github-sync.md). The frozen private rc.1 remains historical evidence. Post-publication metadata/docs changes do not change the npm artifact; a future publication requires a new version and verified artifact.
 
 Consumers use only public exports and import the compiled CSS once:
 
@@ -81,4 +91,4 @@ import '@shaobangzhu/clu-ui/styles.css';
 // Render CLU elements inside <section data-clu-theme="light"> or "dark".
 ```
 
-Once registry verification for this exact version is recorded, install with `npm install --save-exact @shaobangzhu/clu-ui@0.1.0-rc.2 react@19.3.1 react-dom@19.3.1`. Before availability is verified, use the locally retained tarball and its generated external consumer lockfile. No Tailwind installation or CLU source scanning is required. See [MIT license](LICENSE).
+For an application that also needs the verified React versions, use `npm install --save-exact @shaobangzhu/clu-ui@0.1.0-rc.2 react@19.3.1 react-dom@19.3.1`. See [MIT license](LICENSE).
