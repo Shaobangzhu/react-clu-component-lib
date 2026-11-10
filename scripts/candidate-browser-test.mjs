@@ -6,7 +6,12 @@ import { resolve, extname, sep } from 'node:path';
 import { chromium } from 'playwright';
 const consumer=resolve(process.argv[2]); const output=resolve(process.argv[3]);
 const root=resolve(consumer,'dist');await mkdir(output,{recursive:true});
-const css=await readFile(resolve(consumer,'node_modules/react-clu-component-lib/dist/styles.css'),'utf8');
+const consumerPackage=JSON.parse(await readFile(resolve(consumer,'package.json'),'utf8'));
+const [packageName]=Object.keys(consumerPackage.dependencies).filter(name=>!['react','react-dom'].includes(name));
+assert.equal(packageName,'@shaobangzhu/clu-ui');
+const installed=JSON.parse(await readFile(resolve(consumer,'node_modules',packageName,'package.json'),'utf8'));
+assert.equal(installed.name,packageName);assert.equal(installed.version,'0.1.0-rc.2');assert.equal(installed.license,'MIT');assert.equal(installed.private,false);
+const css=await readFile(resolve(consumer,'node_modules',packageName,'dist/styles.css'),'utf8');
 await assert.rejects(readFile(resolve(consumer,'node_modules/tailwindcss/package.json')));
 assert(!/@import|@font-face|@property|:root|:host|\.card\b|\.table\b/.test(css));
 // Lightning CSS can merge scoped branches into :is(...). Split only at

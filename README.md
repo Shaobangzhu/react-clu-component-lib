@@ -1,8 +1,8 @@
 # CLU Component Library
 
-CLU is a React 19 component library for data-dense operational applications. This repository implements **P01–P08: the foundation, scoped semantic tokens, nine display primitives, six form primitives, two data APIs, two overlay components, a verified package contract and layered quality gates**. Package release and consumer integration remain planned.
+CLU is a React 19 component library for data-dense operational applications. This repository implements **P01–P08: the foundation, scoped semantic tokens, nine display primitives, six form primitives, two data APIs, two overlay components, a verified package contract and layered quality gates**. Consumer integration and v1 release readiness remain planned.
 
-Implemented here: an ESM Vite library build with declarations and an explicit CSS export, strict TypeScript, ESLint, Vitest/React Testing Library, Tailwind CSS v4 build infrastructure, local/static Storybook, and scoped light/dark design tokens. The package is private and unpublished. There is no public Storybook URL yet.
+Implemented here: an ESM Vite library build with declarations and an explicit CSS export, strict TypeScript, ESLint, Vitest/React Testing Library, Tailwind CSS v4 build infrastructure, local/static Storybook, and scoped light/dark design tokens. The approved prerelease identity is `@shaobangzhu/clu-ui`, licensed under MIT, with public npm access and the `next` channel. Registry publication and byte verification are tracked in [rc.2 evidence](docs/rc2-verification.md). There is no public Storybook URL yet.
 
 Use Node **22.23.4** and npm **10.9.0**, matching the shared DGI baseline. `.nvmrc`, `packageManager`, and engine requirements record this toolchain; `.npmrc` enforces compatible engines and saves exact dependency versions. Exact development dependencies and transitive resolutions are recorded in `package.json` and `package-lock.json`.
 
@@ -48,7 +48,7 @@ React 19 is both a peer and an exact development dependency. React, ReactDOM, an
 
 - **CLU:** [Shaobangzhu/react-clu-component-lib](https://github.com/Shaobangzhu/react-clu-component-lib), base `master`. P01–P08 establish the foundation, tokens, components, package contract, and quality gates. Each phase starts from the latest merged `master` on its own branch and is reviewed before the next.
 - **First consumer, DGI:** [Shaobangzhu/delivery-geo-intelligence](https://github.com/Shaobangzhu/delivery-geo-intelligence), base `main`. P09–P10 will consume an approved, immutable CLU prerelease while preserving DGI's business contracts. DGI has not been modified or integrated here.
-- **Release readiness:** P11 audits real component, package, and consumer evidence. Publication, release tags, and public hosting require owner approval. A namespace such as `@shaobangzhu/clu-ui` is proposed, not verified or reserved. There is no registry installation command yet.
+- **Release readiness:** P11 audits real component, package, and consumer evidence. Publication, release tags, and public hosting require owner approval. The owner approved `@shaobangzhu/clu-ui@0.1.0-rc.2`, MIT and public/next metadata. Actual registry acceptance and integrity verification remain separate from metadata approval.
 - **SCOC:** a future consumer outside v1 acceptance scope.
 
 The external implementation kit also contains `codex-prompts.md` and `prompts/P01.md` through `P11.md`. They are not included in this repository. The root blueprint records the execution plan; later phase prompts remain separate handoff materials.
@@ -59,7 +59,7 @@ CLU owns reusable UI semantics and generic interactions. Delivery, GIS, finance,
 
 Review the token gallery under **Foundations / Semantic tokens** in Storybook. Interactive follows the local Theme toolbar; fixed Light/Dark and Compare stories support predictable review. Themes never mutate the document. For a bare consumer check, run `npm run build`, serve the repository with a static server, and open `examples/theme-smoke/`.
 
-Public display exports: Button, IconButton, Card, Badge, StatusIndicator, StatCard, Alert, Skeleton and EmptyState. See [API contracts and accessibility notes](docs/display-primitives.md), [P03 verification](docs/p03-verification.md) and [P03 PR draft](docs/p03-pr.md). Components require explicit CSS import and a theme host; the package remains unpublished.
+Public display exports: Button, IconButton, Card, Badge, StatusIndicator, StatCard, Alert, Skeleton and EmptyState. See [API contracts and accessibility notes](docs/display-primitives.md), [P03 verification](docs/p03-verification.md) and [P03 PR draft](docs/p03-pr.md). Components require explicit CSS import and a theme host.
 
 Public form exports: Field, Input, Textarea, Select, Checkbox and SegmentedControl. Read the [native form API and accessibility contract](docs/form-controls.md), [P04 verification](docs/p04-verification.md) and [PR draft](docs/p04-pr.md). The Forms stories include a synthetic delivery metadata example; DGI integration and domain validation remain consumer work.
 
@@ -67,8 +67,18 @@ Public data APIs: composable `Table` and controlled `Pagination`. See [data API 
 
 Public overlay exports: controlled `Dialog` and compositional `ConfirmDialog`. Read the [focus, dismissal and async confirmation contracts](docs/overlays.md), [P06 verification](docs/p06-verification.md) and [PR draft](docs/p06-pr.md). Overlays use native modal isolation; consuming applications own form state, business callbacks and successful closure.
 
-The [P07 package contract](docs/package-contract.md) documents exact local tarball install commands, the isolated consumer template, archive/source-map rules and the version/distribution gate. `npm pack` rebuilds first. [P07 evidence](docs/p07-verification.md) distinguishes automated package checks from rendered browser checks. No registry artifact is published or approved for DGI integration.
+The [P07 package contract](docs/package-contract.md) documents exact local tarball install commands, the isolated consumer template, archive/source-map rules and the version/distribution gate. `npm pack` rebuilds first. [P07 evidence](docs/p07-verification.md) distinguishes automated package checks from rendered browser checks. DGI integration requires a registry artifact whose bytes match the tested candidate; local pack verification alone does not meet that gate.
 
 P08 adds local/CI component, accessibility, visual and security gates. Read [commands, baseline review and admin operations](docs/ci-quality.md), [original local evidence](docs/p08-verification.md) and [PR draft](docs/p08-pr.md). `npm run quality:all` uses the pinned Linux Docker browser environment. P08 merged in PR #8; the [merged-master run](https://github.com/Shaobangzhu/react-clu-component-lib/actions/runs/42668994812) passed. That base run does not verify the current unpushed prerelease diff. Downloaded hosted artifact/fork-PR review and admin-only required-check enablement remain follow-ups; no Pages publication is enabled.
 
-Local prerelease preparation: `react-clu-component-lib@0.1.0-rc.1` is a **provisional, private, UNLICENSED review candidate**. Package identity, licensing and npm publication rights are not approved or established. It must not be distributed or used to bypass the P09 artifact gate. See [candidate decisions and publication boundary](docs/prerelease-candidate.md) and [verification record](docs/prerelease-verification.md). Changing metadata or rebuilding produces a new candidate requiring fresh verification and approval.
+Current prerelease: `@shaobangzhu/clu-ui@0.1.0-rc.2`, MIT, public metadata, `next` channel. The owner authorized publication after all mandatory verification succeeds. Read [candidate decisions](docs/prerelease-candidate.md) and [actual rc.2 status/evidence](docs/rc2-verification.md); metadata approval alone does not establish registry availability. The frozen private rc.1 remains historical evidence and is never overwritten. Changes to a packed file or metadata require a newly verified tarball and SHA-512.
+
+Consumers use only public exports and import the compiled CSS once:
+
+```tsx
+import { Button, Input, SegmentedControl, Table, Pagination, Dialog } from '@shaobangzhu/clu-ui';
+import '@shaobangzhu/clu-ui/styles.css';
+// Render CLU elements inside <section data-clu-theme="light"> or "dark".
+```
+
+Once registry verification for this exact version is recorded, install with `npm install --save-exact @shaobangzhu/clu-ui@0.1.0-rc.2 react@19.3.1 react-dom@19.3.1`. Before availability is verified, use the locally retained tarball and its generated external consumer lockfile. No Tailwind installation or CLU source scanning is required. See [MIT license](LICENSE).

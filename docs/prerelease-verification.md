@@ -1,5 +1,7 @@
 # CLU provisional prerelease verification
 
+Historical private rc.1 record. The owner subsequently approved the scoped MIT rc.2 plan and conditional publication; see [current rc.2 evidence](rc2-verification.md). This historical artifact/digest is unchanged.
+
 Verified locally on 2026-11-09 on `release/clu-prerelease-candidate`, based on freshly fetched merged `origin/master` at `9f08f61102bec757de5107161602d4ac158fe760` (P08 PR #8). The initial worktree was clean. No commit, publication, upload/distribution, remote release/tag, push or merge was performed. DGI was not read or changed.
 
 ## Candidate identity and provenance

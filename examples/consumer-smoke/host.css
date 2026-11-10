@@ -3,7 +3,7 @@ body { margin: 0; background: #eef2f5; color: #15283b; font-family: system-ui, s
 button { background: rgb(240, 210, 170); color: rgb(21, 40, 59); padding: 7px 11px; border: 3px solid rgb(70, 80, 90); font: 13px/1.4 monospace; box-sizing: content-box; }
 input { color: rgb(21, 40, 59); background: rgb(250, 240, 210); border: 3px solid rgb(70, 80, 90); padding: 7px; font-size: 13px; box-sizing: content-box; }
 .card { color: rgb(21, 40, 59); border-radius: 2px; background: rgb(215, 225, 235); }
-.table { color: rgb(21, 40, 59); border-spacing: 5px; }
+.table { background: rgb(215, 225, 235); color: rgb(21, 40, 59); border-spacing: 5px; }
 .esri-widget, .calcite-button { background: rgb(30, 70, 120); color: white; padding: 9px; border-radius: 1px; }
 .smoke-shell { max-width: 64rem; margin: auto; padding: 1rem; }
 .smoke-panel { padding: 1rem; margin-block: 1rem; }
