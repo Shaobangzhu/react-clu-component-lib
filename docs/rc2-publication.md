@@ -1,5 +1,7 @@
 # CLU rc.2 publication and registry verification
 
+Follow-up: prerelease preparation subsequently merged in PR #10. The [npm-to-GitHub audit](npm-github-sync.md) records verified matching source commits, the absence of npm gitHead/provenance, and the later homepage/README differences. Statements below about no push/merge describe the original publication operation.
+
 @shaobangzhu/clu-ui@0.1.0-rc.2 was accepted by npm after owner security-key verification. Registry publication time: 2026-11-10T03:02:46.313Z (2026-11-09 America/Los_Angeles). The exact retained read-only tarball was published with npm 11.21.2 on Node 22.23.4, --ignore-scripts, --tag next and --access public. No rebuild/repack, GitHub push/merge/release/tag or DGI change occurred.
 
 ## Actual registry bytes

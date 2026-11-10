@@ -1,5 +1,7 @@
 # chore(release): prepare scoped MIT CLU 0.1.0-rc.2
 
+Historical PR #10 draft: the preparation was merged, and [master CI](https://github.com/Shaobangzhu/react-clu-component-lib/actions/runs/42780185648) passed at b193cf0. The checklist and boundaries below include subsequent status updates; current publication/source correspondence is recorded in the [synchronization audit](npm-github-sync.md).
+
 ## Summary
 
 - Apply owner-approved @shaobangzhu/clu-ui@0.1.0-rc.2, MIT LICENSE, private=false and npm public/next metadata; preserve the frozen private rc.1.
@@ -17,13 +19,13 @@
 - [x] Production security zero findings; 13 moderate dev findings remain visible, no high/critical; failure propagation passed
 - [x] Owner-authenticated public npm publication, downloaded registry SHA-512, clean exact-version consumer and browser verification
 - [x] Registry tag read-back and primary-source diagnosis: npm retains required latest on first publication; next/latest both point to rc.2, deletion returned HTTP 400, and consumers pin the exact prerelease. No tag-removal success is claimed.
-- [ ] Hosted validation of this unpushed diff
+- [x] Subsequent hosted validation: PR #10 merged and master CI passed at b193cf0
 
 Actual prepublication evidence and exact tarball/SHA-512: [rc.2 verification](rc2-verification.md).
 
 ## Boundaries
 
-The owner authorized publication after all mandatory checks succeed; npm authentication and any 2FA challenge still require the owner's account. No GitHub push/merge/tag/release, Pages or DGI work. P09 stays gated until actual distributed bytes equal the tested SRI and pass the independent consumer checks. MIT/name/private flag decisions are approved; no duplicate approval is required for those decisions.
+The original publication used owner authentication/2FA and did not perform GitHub tag/Release, Pages or DGI work. The preparation subsequently merged in PR #10. Actual distributed bytes match the tested SRI and independent consumer checks passed, satisfying the P09 artifact prerequisite. DGI migration and v1 readiness remain separate work; MIT/name/private flag decisions remain approved.
 
 Suggested commit: chore(release): prepare scoped MIT CLU 0.1.0-rc.2.
 

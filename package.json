@@ -90,6 +90,7 @@
     "type": "git",
     "url": "git+https://github.com/Shaobangzhu/react-clu-component-lib.git"
   },
+  "homepage": "https://github.com/Shaobangzhu/react-clu-component-lib#readme",
   "license": "MIT",
   "publishConfig": {
     "registry": "https://registry.npmjs.org",

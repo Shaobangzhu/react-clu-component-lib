@@ -1,6 +1,8 @@
 # CLU rc.2 release candidate and publication contract
 
-The owner approved @shaobangzhu/clu-ui, MIT, 0.1.0-rc.2 and the previously proposed npm public registry / next / public release plan. The owner also explicitly authorized publication if all mandatory validation succeeds. No additional publication permission is needed for this exact approved scope; authentication, registry acceptance and byte verification must still be established. GitHub push/merge, releases/tags, Pages and DGI changes are not authorized by this request.
+Status: @shaobangzhu/clu-ui@0.1.0-rc.2 is publicly published under the owner-approved MIT license. Registry SHA-512 and independent consumers are verified; next and latest both point to rc.2. See [publication evidence](rc2-publication.md) and [source audit](npm-github-sync.md). The owner separately authorized the metadata/docs synchronization branch, PR and merge after passing checks. Git tags/Releases, Pages, DGI changes and another npm publication are outside that synchronization task.
+
+The procedure below preserves the original candidate/publication contract. It is not an instruction to publish rc.2 again. Any future publication requires a new version and separately approved artifact.
 
 ## Approved metadata
 
@@ -55,4 +57,4 @@ npm run package:verify:tarball -- /ABSOLUTE/DOWNLOADED/shaobangzhu-clu-ui-0.1.0-
 node scripts/check-candidate-browser.mjs /ABSOLUTE/REGISTRY-VERIFY/report.json /ABSOLUTE/NEW-REGISTRY-BROWSER-EVIDENCE
 ```
 
-This repeats the same strict archive/metadata, locked external consumer, public types/ESM/SSR/Vite/React/CSS and browser assertions. Only approved immutable distribution plus successful actual-byte and consumer verification satisfies the P09 package prerequisite. It does not implement any DGI migration, P09 tests or v1 readiness. Hosted results for this unpushed diff, branch protection, optional Pages and future Trusted Publishing settings remain separate follow-ups.
+This repeats the same strict archive/metadata, locked external consumer, public types/ESM/SSR/Vite/React/CSS and browser assertions. Use the matching published-source checkout for existing-archive metadata equality; see [package contract](package-contract.md). The published rc.2 has satisfied the immutable-distribution and actual-byte consumer prerequisites. This does not implement DGI migration, P09 tests or v1 readiness. Prerelease preparation merged in PR #10 and the [audited master CI run](https://github.com/Shaobangzhu/react-clu-component-lib/actions/runs/42780185648) passed. Branch protection, optional Pages and future Trusted Publishing settings remain separate operations.
