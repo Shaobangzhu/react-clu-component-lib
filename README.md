@@ -4,7 +4,9 @@
 
 [npm package](https://www.npmjs.com/package/@shaobangzhu/clu-ui) · [GitHub Releases](https://github.com/Shaobangzhu/react-clu-component-lib/releases) · [Source code](https://github.com/Shaobangzhu/react-clu-component-lib)
 
-CLU is a React 19 component library for data-dense operational applications. This repository implements **P01–P08: the foundation, scoped semantic tokens, nine display primitives, six form primitives, two data APIs, two overlay components, a verified package contract and layered quality gates**. Consumer integration and v1 release readiness remain planned.
+CLU UI provides React 19 components, strict TypeScript declarations and isolated light/dark themes for data-dense operational applications. Its 19 public components cover display, native forms, semantic tables, controlled pagination and dialogs. The published rc.2 is used by DGI's Dashboard, Settings, History and Merchants; it is a prerelease, not stable v1.
+
+[Local Storybook / component gallery](http://localhost:6006) · [CLU CI](https://github.com/Shaobangzhu/react-clu-component-lib/actions/workflows/ci.yml) · [Real DGI consumer evidence](docs/consumer-integration.md) · [Architecture](docs/architecture.md) · [Release readiness](docs/release-readiness.md) · [Changelog](CHANGELOG.md)
 
 Implemented here: an ESM Vite library build with declarations and an explicit CSS export, strict TypeScript, ESLint, Vitest/React Testing Library, Tailwind CSS v4 build infrastructure, local/static Storybook, and scoped light/dark design tokens. [`@shaobangzhu/clu-ui@0.1.0-rc.2`](https://www.npmjs.com/package/@shaobangzhu/clu-ui/v/0.1.0-rc.2) is publicly available on npm under MIT. Both `next` and `latest` currently resolve to this prerelease; it is not a stable or v1 release. See [publication evidence](docs/rc2-publication.md) and the [npm-to-GitHub audit](docs/npm-github-sync.md). There is no public Storybook URL yet.
 
@@ -61,13 +63,13 @@ React 19 is both a peer and an exact development dependency. React, ReactDOM, an
 [The v1 blueprint](plan.md) preserves the two-repository scope and all 11 delivery phases. P01 was merged in PR #1. [The P02 PR draft](docs/p02-pr.md) is local review material.
 
 - **CLU:** [Shaobangzhu/react-clu-component-lib](https://github.com/Shaobangzhu/react-clu-component-lib), base `master`. P01–P08 establish the foundation, tokens, components, package contract, and quality gates. Each phase starts from the latest merged `master` on its own branch and is reviewed before the next.
-- **First consumer, DGI:** [Shaobangzhu/delivery-geo-intelligence](https://github.com/Shaobangzhu/delivery-geo-intelligence), base `main`. P09–P10 will consume an approved, immutable CLU prerelease while preserving DGI's business contracts. DGI has not been modified or integrated here.
-- **Release readiness:** P11 audits real component, package, and consumer evidence. The owner-approved MIT rc.2 prerelease is published and its registry bytes and independent consumers are verified. GitHub tags/Releases, public hosting and v1 readiness remain separate steps.
+- **First consumer, DGI:** [Shaobangzhu/delivery-geo-intelligence](https://github.com/Shaobangzhu/delivery-geo-intelligence), base `main`. P09/P10 merged in PRs #22/#23. Its exact npm rc.2 dependency, four page integrations and main/PR-head Quality gates are [independently verified](docs/consumer-integration.md). This CLU documentation PR does not modify DGI.
+- **Release readiness:** P11 audits real component, package, and consumer evidence. The owner-approved MIT npm rc.2 and its GitHub prerelease are published; registry bytes and independent consumers are verified. Public hosting and stable v1 approval remain separate steps.
 - **SCOC:** a future consumer outside v1 acceptance scope.
 
 The external implementation kit also contains `codex-prompts.md` and `prompts/P01.md` through `P11.md`. They are not included in this repository. The root blueprint records the execution plan; later phase prompts remain separate handoff materials.
 
-CLU owns reusable UI semantics and generic interactions. Delivery, GIS, finance, provider telemetry, APIs, and other business logic stay in consumers. No consumer source is copied here. Admin enablement, DGI migration, and a hosted Storybook remain separate work. Phase verification notes preserve the project history and distinguish completed package/CI checks from those later gates.
+CLU owns reusable UI semantics and generic interactions. Delivery, GIS, finance, provider telemetry, APIs, and business logic stay in consumers. No consumer implementation is copied here. Further consumer coverage, admin enablement and hosted Storybook remain separate work. [The phase ledger](plan.md) preserves historical snapshots; [readiness](docs/release-readiness.md) separates verified adoption from remaining stable-release gates.
 
 **Maintainer:** [Chaoran Lu](https://github.com/Shaobangzhu)
 

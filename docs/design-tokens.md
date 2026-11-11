@@ -7,7 +7,7 @@ DGI's four CSS files at `077ae131c324913823bd793105424c5e00a3b389` were read for
 ## Consumer use and isolation
 
 ```tsx
-import 'react-clu-component-lib/styles.css';
+import '@shaobangzhu/clu-ui/styles.css';
 
 <section data-clu-theme="light" className="my-app-region">
   <button className="clu-focus-ring">Example action</button>

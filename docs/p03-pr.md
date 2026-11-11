@@ -1,5 +1,7 @@
 # feat(components): add accessible CLU display primitives
 
+Historical phase snapshot. P11 correction (2026-11-10, America/Los_Angeles): package imports in current consumer code use `@shaobangzhu/clu-ui` and its `/styles.css` export. Earlier technical names, private/license/publication and future-phase statements below describe that phase only. See [current readiness](release-readiness.md) and [consumer evidence](consumer-integration.md). Original measurements and logs are preserved.
+
 ## Summary
 
 - Add Button, IconButton, Card, Badge, StatusIndicator, StatCard, Alert, Skeleton and EmptyState through the documented public entry, with React 19 props/refs and scoped semantic CSS.

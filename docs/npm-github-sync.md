@@ -1,5 +1,7 @@
 # npm-to-GitHub release synchronization
 
+P11 status correction (2026-11-10, America/Los_Angeles): P09/P10 DGI integration is now independently verified; the tagged GitHub prerelease exists. See [current consumer evidence](consumer-integration.md) and [readiness](release-readiness.md). The operation-specific statements and measurements below remain historical; they do not describe a new npm publication.
+
 ## Verified publication audit — 2026-11-10
 
 The public npm package is [@shaobangzhu/clu-ui@0.1.0-rc.2](https://www.npmjs.com/package/@shaobangzhu/clu-ui/v/0.1.0-rc.2), licensed MIT. Published versions are 0.0.0-stage and 0.1.0-rc.2. Both latest and next point to rc.2, so an unversioned install currently selects the prerelease. Prefer `npm install --save-exact @shaobangzhu/clu-ui@0.1.0-rc.2`. No npm version or tag is changed by this synchronization.

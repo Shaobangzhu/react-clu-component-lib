@@ -1,5 +1,7 @@
 # P04 verification — 2026-11-05
 
+Historical phase snapshot. P11 correction (2026-11-10, America/Los_Angeles): package imports in current consumer code use `@shaobangzhu/clu-ui` and its `/styles.css` export. Earlier technical names, private/license/publication and future-phase statements below describe that phase only. See [current readiness](release-readiness.md) and [consumer evidence](consumer-integration.md). Original measurements and logs are preserved.
+
 Branch: `feat/clu-form-controls`. The clean existing branch matched latest fetched `origin/master` at `08aebf68e269ceb145e8c67d32d8e83dd8da4714` (P03 merge). CLU was the only writable repository; DGI form/filter sources were read for demand only. No commits, pushes, PR creation or publication performed.
 
 Node 22.23.4 / npm 10.9.0. Dependency versions and lockfile unchanged; only the package description was updated. Clean npm ci passed and retained the existing 13 moderate development-tool audit findings. Storybook's existing preview chunk-size warning remains visible.

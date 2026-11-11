@@ -1,6 +1,6 @@
 # Semantic tables and controlled pagination (P05)
 
-Import `Table`, `Pagination` and their prop types from `react-clu-component-lib`. Import `react-clu-component-lib/styles.css` once; place components inside an explicit light/dark CLU theme host. Styles are already compiled. A consuming application needs neither Tailwind nor CLU source scanning.
+Import `Table`, `Pagination` and their prop types from `@shaobangzhu/clu-ui`. Import `@shaobangzhu/clu-ui/styles.css` once; place components inside an explicit light/dark CLU theme host. Styles are already compiled. A consuming application needs neither Tailwind nor CLU source scanning.
 
 ## Table composition
 

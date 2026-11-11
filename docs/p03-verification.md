@@ -1,5 +1,7 @@
 # P03 verification — 2026-11-05
 
+Historical phase snapshot. P11 correction (2026-11-10, America/Los_Angeles): package imports in current consumer code use `@shaobangzhu/clu-ui` and its `/styles.css` export. Earlier technical names, private/license/publication and future-phase statements below describe that phase only. See [current readiness](release-readiness.md) and [consumer evidence](consumer-integration.md). Original measurements and logs are preserved.
+
 Branch `feat/clu-display-primitives`; clean base/latest fetched master `12f5a39205d705e96b244f5747659bf5162c3e66`. Existing requested branch matched that base. No DGI changes, commits, pushes or PR creation.
 
 Node 22.23.4 / npm 10.9.0. Dependency pins and lockfile unchanged; package description updated to reflect actual exports.

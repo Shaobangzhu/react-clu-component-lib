@@ -1,6 +1,6 @@
 # Controlled overlays (P06)
 
-Import `Dialog`, `ConfirmDialog` and their prop types only from `react-clu-component-lib`; import `react-clu-component-lib/styles.css` explicitly. Render inside an existing `[data-clu-theme="light|dark"]` host. No portal, ReactDOM runtime import, overlay dependency or Tailwind installation is required.
+Import `Dialog`, `ConfirmDialog` and their prop types only from `@shaobangzhu/clu-ui`; import `@shaobangzhu/clu-ui/styles.css` explicitly. Render inside an existing `[data-clu-theme="light|dark"]` host. No portal, ReactDOM runtime import, overlay dependency or Tailwind installation is required.
 
 ## Dialog
 

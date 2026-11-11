@@ -1,5 +1,7 @@
 # P02 verification
 
+Historical phase snapshot. P11 correction (2026-11-10, America/Los_Angeles): package imports in current consumer code use `@shaobangzhu/clu-ui` and its `/styles.css` export. Earlier technical names, private/license/publication and future-phase statements below describe that phase only. See [current readiness](release-readiness.md) and [consumer evidence](consumer-integration.md). Original measurements and logs are preserved.
+
 Initial verification: 2026-11-04; final re-verification after duplicate cleanup: 2026-11-05 (America/Los_Angeles). Branch: `feat/clu-design-tokens`; clean starting base `eade7b9bbe6fd7db748edeed75168e0a0bdf4559` (latest merged master, P01 PR #1). The pre-existing P02 branch already matched this base. No DGI writes, commit, push, publication or PR creation were performed.
 
 Node 22.23.4 / npm 10.9.0. Dependencies and lockfile are unchanged from P01; lockfile SHA-256 is `b2e4cb57169f39ff8d2c2a361e1938f006dd1347a0666c19cf0a443d47d4cc27`. Clean installation retained P01's 13 moderate development-tool audit findings.
