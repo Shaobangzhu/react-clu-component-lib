@@ -1,5 +1,7 @@
 # P01 verification — 2026-11-04
 
+Historical phase snapshot. P11 correction (2026-11-10, America/Los_Angeles): package imports in current consumer code use `@shaobangzhu/clu-ui` and its `/styles.css` export. Earlier technical names, private/license/publication and future-phase statements below describe that phase only. See [current readiness](release-readiness.md) and [consumer evidence](consumer-integration.md). Original measurements and logs are preserved.
+
 Branch: `chore/clu-v1-foundation`. Fetched base: `origin/master` at `f159e7ea6c4dc5ebd0d60e5593a6ec4f8f9d9eb5`; the existing local foundation branch already pointed to that exact base. The original uncommitted README change was incorporated with explicit user authorization. No DGI files were touched. No commit, push, registry publication, or PR creation was performed.
 
 ## Tested toolchain and compatibility

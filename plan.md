@@ -1,11 +1,25 @@
 # CLU v1 Blueprint and Delivery Plan
 
-**Status:** Proposed implementation plan, not a statement that the library is already shipped.
-**Planning date:** 2026-11-04 (America/Los_Angeles).
-**CLU repository:** https://github.com/Shaobangzhu/react-clu-component-lib (default branch: `master`; audited commit: `f159e7ea6c4dc5ebd0d60e5593a6ec4f8f9d9eb5`).
-**First consumer:** https://github.com/Shaobangzhu/delivery-geo-intelligence (default branch: `main`; audited commit: `077ae131c324913823bd793105424c5e00a3b389`).
+**Status (2026-11-11, America/Los_Angeles):** P01–P08 implemented; public rc.2 prerelease published; P09/P10 DGI consumer integration independently verified. P11 documentation and local quality checks are complete; PR-head verification awaits an authorized push. Stable v1.0.0 is NOT APPROVED / NOT PUBLISHED. See the current ledger below; older phase sections are dated historical snapshots.
+**Original planning date:** 2026-11-04 (America/Los_Angeles).
+**CLU repository:** https://github.com/Shaobangzhu/react-clu-component-lib (default branch: `master`; original planning audit commit: `f159e7ea6c4dc5ebd0d60e5593a6ec4f8f9d9eb5`).
+**First consumer:** https://github.com/Shaobangzhu/delivery-geo-intelligence (default branch: `main`; original planning audit commit: `077ae131c324913823bd793105424c5e00a3b389`).
 **Future consumer:** SCOC, outside the v1 acceptance scope.
 **Version meaning:** This document defines the v1 product scope. The package may use `0.1.x` prereleases before `1.0.0`; it must not claim v1 is released until all acceptance gates pass.
+
+## Current factual ledger
+
+| Phase / gate | Evidence and status |
+| --- | --- |
+| P01–P08 | Implemented, PRs #1–#8 merged; [current audited master CI](https://github.com/Shaobangzhu/react-clu-component-lib/actions/runs/42867225771) passed at 5328c8db5ff9394169c842ec43b63b40d24c11ce |
+| Prerelease / presentation | PRs #9–#13 merged; public @shaobangzhu/clu-ui@0.1.0-rc.2 and annotated GitHub prerelease v0.1.0-rc.2; [immutable artifact/source distinction](docs/release-readiness.md) |
+| P09 | [DGI PR #22](https://github.com/Shaobangzhu/delivery-geo-intelligence/pull/22) merged; exact PR-head Quality gate verified |
+| P10 | [DGI PR #23](https://github.com/Shaobangzhu/delivery-geo-intelligence/pull/23) merged; exact PR-head and current main Quality gates verified; [adoption and exceptions](docs/consumer-integration.md) |
+| P11 | Local documentation/readiness complete on release/clu-v1-readiness; command results and pending PR-head verification in [readiness](docs/release-readiness.md) |
+| Public Storybook | Local/static only; no verified public deployment |
+| Stable v1 | Blocked pending owner approval, new version/artifact verification, P11 PR-head gate and outstanding review items; not released |
+
+The original planning references above and phase-era claims below remain historical. Current status takes precedence over earlier “planned/private/unpublished” snapshots. DGI's report deployment failure is separate from its passing consumer CI; no public report freshness is claimed.
 
 ## P01 implementation progress (2026-11-04)
 

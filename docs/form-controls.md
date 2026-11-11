@@ -1,6 +1,6 @@
 # Form controls (P04)
 
-Import Field, Input, Textarea, Select, Checkbox and SegmentedControl (and their prop types) from the public package entry. Import the precompiled `styles.css` once and place controls inside an explicit CLU light/dark theme host. Consumers do not install Tailwind. Existing display exports are unchanged.
+Import Field, Input, Textarea, Select, Checkbox and SegmentedControl (and their prop types) from `@shaobangzhu/clu-ui`. Import `@shaobangzhu/clu-ui/styles.css` once and place controls inside an explicit CLU light/dark theme host. Consumers do not install Tailwind. Existing display exports are unchanged. See [verified consumer adoption](consumer-integration.md) for intentionally retained DGI controls.
 
 ## Field: explicit association
 

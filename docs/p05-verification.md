@@ -1,5 +1,7 @@
 # P05 verification — 2026-11-05
 
+Historical phase snapshot. P11 correction (2026-11-10, America/Los_Angeles): package imports in current consumer code use `@shaobangzhu/clu-ui` and its `/styles.css` export. Earlier technical names, private/license/publication and future-phase statements below describe that phase only. See [current readiness](release-readiness.md) and [consumer evidence](consumer-integration.md). Original measurements and logs are preserved.
+
 Branch `feat/clu-data-presentation`; clean existing branch matched latest fetched `origin/master` at `8e346d94a2dccd2c83f5b36ceb7613290093747f` (P04 merge). DGI was read-only. No commit, push, PR creation, merge or registry publication performed.
 
 Node 22.23.4 / npm 10.9.0. Dependency versions and lockfile are unchanged. The package description was updated to include data APIs. The lockfile SHA-256 remains `b2e4cb57169f39ff8d2c2a361e1938f006dd1347a0666c19cf0a443d47d4cc27`.

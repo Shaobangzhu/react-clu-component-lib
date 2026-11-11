@@ -1,5 +1,7 @@
 # P06 verification — 2026-11-05
 
+Historical phase snapshot. P11 correction (2026-11-10, America/Los_Angeles): package imports in current consumer code use `@shaobangzhu/clu-ui` and its `/styles.css` export. Earlier technical names, private/license/publication and future-phase statements below describe that phase only. See [current readiness](release-readiness.md) and [consumer evidence](consumer-integration.md). Original measurements and logs are preserved.
+
 ## Baseline and scope
 
 A clean existing `feat/clu-dialog-confirmation` branch matched the latest fetched `origin/master` at `89dad11062a50fd63e2e0116a0e2034033df781f`, merged P05 PR #5. The working tree had no user changes at the start. No commit, push, PR creation, merge or registry publication was performed.

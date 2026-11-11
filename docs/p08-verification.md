@@ -1,5 +1,7 @@
 # P08 verification — 2026-11-09
 
+Historical phase snapshot. P11 correction (2026-11-10, America/Los_Angeles): package imports in current consumer code use `@shaobangzhu/clu-ui` and its `/styles.css` export. Earlier technical names, private/license/publication and future-phase statements below describe that phase only. See [current readiness](release-readiness.md) and [consumer evidence](consumer-integration.md). Original measurements and logs are preserved.
+
 ## Outcome and baseline
 
 Local implementation and the complete clean-install pipeline passed on `ci/clu-storybook-quality-gates`, based on latest fetched origin/master `f617b4a630cda7ffc6f65adae36764e4141d5681` (P07 merge). The worktree was clean. The requested branch already existed at that same base when work resumed; no user changes were reset.

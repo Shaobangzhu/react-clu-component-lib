@@ -1,5 +1,7 @@
 # CLU rc.2 release candidate and publication contract
 
+P11 status correction (2026-11-10, America/Los_Angeles): P09/P10 DGI integration is now independently verified; the tagged GitHub prerelease exists. See [current consumer evidence](consumer-integration.md) and [readiness](release-readiness.md). The operation-specific statements and measurements below remain historical; they do not describe a new npm publication.
+
 Status: @shaobangzhu/clu-ui@0.1.0-rc.2 is publicly published under the owner-approved MIT license. Registry SHA-512 and independent consumers are verified; next and latest both point to rc.2. See [publication evidence](rc2-publication.md) and [source audit](npm-github-sync.md). The owner separately authorized the metadata/docs synchronization branch, PR and merge after passing checks. Git tags/Releases, Pages, DGI changes and another npm publication are outside that synchronization task.
 
 The procedure below preserves the original candidate/publication contract. It is not an instruction to publish rc.2 again. Any future publication requires a new version and separately approved artifact.

@@ -1,5 +1,7 @@
 # feat(design): establish CLU semantic tokens and isolated themes
 
+Historical phase snapshot. P11 correction (2026-11-10, America/Los_Angeles): package imports in current consumer code use `@shaobangzhu/clu-ui` and its `/styles.css` export. Earlier technical names, private/license/publication and future-phase statements below describe that phase only. See [current readiness](release-readiness.md) and [consumer evidence](consumer-integration.md). Original measurements and logs are preserved.
+
 ## Summary
 
 Establish the CLU semantic design-token system for data-dense operational interfaces, with explicitly scoped light/dark themes and a responsive Storybook foundation gallery.

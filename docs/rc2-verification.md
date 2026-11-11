@@ -1,5 +1,7 @@
 # CLU 0.1.0-rc.2 verification and release status
 
+P11 status correction (2026-11-10, America/Los_Angeles): P09/P10 DGI integration is now independently verified; the tagged GitHub prerelease exists. See [current consumer evidence](consumer-integration.md) and [readiness](release-readiness.md). The operation-specific statements and measurements below remain historical; they do not describe a new npm publication.
+
 Post-publication update: rc.2 is publicly available and downloaded registry SHA-512 plus independent registry-consumer/browser checks passed. Follow-up diagnosis matched the retained latest tag and deletion HTTP 400 to npm's required-latest/first-publication behavior. Both next and latest point to rc.2; the release remains a prerelease, and consumers pin the exact version. No further deletion/2FA attempt is needed. See [actual publication evidence and primary references](rc2-publication.md). The prepublication record below remains historical evidence.
 
 Local mandatory verification completed on 2026-11-09 on release/clu-0.1.0-rc.2, from freshly fetched merged origin/master bce772dce977e41bfe5a065b1d5e0a76ce14cca7 (PR #9). The initial worktree was clean. The owner approved @shaobangzhu/clu-ui, MIT, 0.1.0-rc.2, private=false and the public/next publication plan, and authorized publication if all mandatory checks pass. No GitHub push/merge/release/tag or DGI change is part of that authorization.

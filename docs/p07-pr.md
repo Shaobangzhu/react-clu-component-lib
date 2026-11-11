@@ -1,5 +1,7 @@
 # build(package): verify CLU ESM, declarations, CSS and independent consumption
 
+Historical phase snapshot. P11 correction (2026-11-10, America/Los_Angeles): package imports in current consumer code use `@shaobangzhu/clu-ui` and its `/styles.css` export. Earlier technical names, private/license/publication and future-phase statements below describe that phase only. See [current readiness](release-readiness.md) and [consumer evidence](consumer-integration.md). Original measurements and logs are preserved.
+
 ## Summary
 
 Make CLU's distribution reproducible and verify the actual tarball in a fresh React 19 application outside the repository.

@@ -1,6 +1,6 @@
 # Display primitives (P03)
 
-Import components and props from `react-clu-component-lib` only; internal source paths are not exported. Import `react-clu-component-lib/styles.css` once and place components inside an explicit `<div data-clu-theme="light">` or `dark` host. Styles are precompiled; consumers do not install Tailwind or scan CLU classes. Components do not assign themes or mutate the document.
+Import components and props from `@shaobangzhu/clu-ui` only; internal source paths are not exported. Import `@shaobangzhu/clu-ui/styles.css` once and place components inside an explicit `<div data-clu-theme="light">` or `dark` host. Styles are precompiled; consumers do not install Tailwind or scan CLU classes. Components do not assign themes or mutate the document.
 
 | Component | Contract and intentional omissions |
 | --- | --- |
