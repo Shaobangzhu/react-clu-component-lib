@@ -2,6 +2,13 @@
 
 Evidence collection began 2026-11-10; local verification completed 2026-11-11 (America/Los_Angeles). Base CLU master: **5328c8db5ff9394169c842ec43b63b40d24c11ce**. This is documentation/readiness work, not stable-release authorization.
 
+## Post-P11 update — portfolio CI security policy (2026-11-17 Pacific)
+
+PR #15's [initial CI run](https://github.com/Shaobangzhu/react-clu-component-lib/actions/runs/44249774053) failed **Dependency security**, so the aggregate Quality gate also failed. Seven other CI jobs succeeded. The npm audit showed **0 production vulnerabilities** and **10 moderate + 16 high affected development package entries** (including [GHSA-fc5q-39xc-vjpf](https://github.com/advisories/GHSA-fc5q-39xc-vjpf)). The findings were not caused by the README/SVG edits.
+
+At the owner's request, the **portfolio/demo CI** policy was subsequently adjusted: production audit **moderate+ is blocking**; full-tree development findings are **reported as warnings** and do **not block**; audit execution/registry errors still fail; all other CI jobs and Quality gate logic remain unchanged. The development advisory risk **remains open**, not fixed or suppressed; follow [issue #16](https://github.com/Shaobangzhu/react-clu-component-lib/issues/16) and the [current policy](ci-quality.md) before any production release. No dependency upgrade, lockfile change or npm release occurred in this policy adjustment.
+
+The original P11 evidence and audit measurements below are **historical snapshots**; they must not be used to claim that the full dependency tree is currently vulnerability-free. Check the newest PR-head GitHub Actions run for this policy change's actual result.
 ## Identity and source of truth
 
 - Canonical compiled distribution: [npm @shaobangzhu/clu-ui@0.1.0-rc.2](https://www.npmjs.com/package/@shaobangzhu/clu-ui/v/0.1.0-rc.2), MIT. npm latest and next both point to rc.2; neither tag establishes stable v1.

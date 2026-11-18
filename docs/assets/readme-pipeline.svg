@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="446" viewBox="0 0 1440 446" role="img" aria-labelledby="title desc">
+<title id="title">CLU UI: component to consumer delivery</title><desc id="desc">Author React components, preview in Storybook, pass GitHub Actions, publish manually to npm, then consume in DGI.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1727"/><stop offset="1" stop-color="#101d31"/></linearGradient><marker id="arr" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M1 1 L7 4 L1 7" stroke="#8296ac" stroke-width="1.5" fill="none"/></marker></defs>
+<rect width="1440" height="446" rx="20" fill="url(#bg)"/>
+<path d="M30 117 H1410" stroke="#243650"/>
+<text x="36" y="39" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#5eead4" letter-spacing="2.1">COMPONENT TO CONSUMER</text>
+<text x="36" y="79" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="29" font-weight="700" fill="#f4f8ff" >One library. Independent quality gates. A real downstream app.</text>
+<g>
+  <rect x="34" y="148" width="225" height="194" rx="17" fill="#142235" stroke="#2c4158" stroke-width="1.5"/>
+  <rect x="34" y="148" width="225" height="5" rx="2" fill="#5eead4"/>
+  <text x="54" y="183" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#5eead4" letter-spacing="1.1">01 · AUTHOR</text>
+  <text x="54" y="227" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="24" font-weight="700" fill="#f4f8ff" >React 19 + TS</text>
+  <text x="54" y="269" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#b9cee3" >19 public components</text>
+<text x="54" y="295" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#b9cee3" >Scoped light/dark CSS</text>
+<text x="54" y="321" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#b9cee3" >Reusable contracts</text>
+</g>
+<g>
+  <rect x="321" y="148" width="225" height="194" rx="17" fill="#142235" stroke="#2c4158" stroke-width="1.5"/>
+  <rect x="321" y="148" width="225" height="5" rx="2" fill="#b4a0ff"/>
+  <text x="341" y="183" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#b4a0ff" letter-spacing="1.1">02 · PREVIEW</text>
+  <text x="341" y="227" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="24" font-weight="700" fill="#f4f8ff" >Storybook</text>
+  <text x="341" y="269" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#b9cee3" >Component stories</text>
+<text x="341" y="295" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#b9cee3" >Interaction + axe</text>
+<text x="341" y="321" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#b9cee3" >Vitest + Playwright</text>
+</g>
+<g>
+  <rect x="608" y="148" width="225" height="194" rx="17" fill="#142235" stroke="#2c4158" stroke-width="1.5"/>
+  <rect x="608" y="148" width="225" height="5" rx="2" fill="#82b7ff"/>
+  <text x="628" y="183" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#82b7ff" letter-spacing="1.1">03 · PROTECT</text>
+  <text x="628" y="227" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="24" font-weight="700" fill="#f4f8ff" >GitHub Actions</text>
+  <text x="628" y="269" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#b9cee3" >9 jobs including gate</text>
+<text x="628" y="295" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#b9cee3" >PR + master checks</text>
+<text x="628" y="321" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#b9cee3" >Fail-closed policy</text>
+</g>
+<g>
+  <rect x="895" y="148" width="225" height="194" rx="17" fill="#142235" stroke="#2c4158" stroke-width="1.5"/>
+  <rect x="895" y="148" width="225" height="5" rx="2" fill="#f6c978"/>
+  <text x="915" y="183" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#f6c978" letter-spacing="1.1">04 · RELEASE</text>
+  <text x="915" y="227" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="24" font-weight="700" fill="#f4f8ff" >npm prerelease</text>
+  <text x="915" y="269" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#b9cee3" >0.1.0-rc.2 (public)</text>
+<text x="915" y="295" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#b9cee3" >ESM + types + CSS</text>
+<text x="915" y="321" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#b9cee3" >Manual approval</text>
+</g>
+<g>
+  <rect x="1182" y="148" width="225" height="194" rx="17" fill="#142235" stroke="#2c4158" stroke-width="1.5"/>
+  <rect x="1182" y="148" width="225" height="5" rx="2" fill="#7fe7ba"/>
+  <text x="1202" y="183" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#7fe7ba" letter-spacing="1.1">05 · ADOPT</text>
+  <text x="1202" y="227" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="24" font-weight="700" fill="#f4f8ff" >DGI consumer</text>
+  <text x="1202" y="269" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#b9cee3" >Exact npm dependency</text>
+<text x="1202" y="295" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#b9cee3" >4 application areas</text>
+<text x="1202" y="321" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#b9cee3" >Separate app CI</text>
+</g>
+<path d="M 268 244 H 309" stroke="#608098" stroke-width="2.5" fill="none"  marker-end="url(#arr)"/>
+<path d="M 555 244 H 596" stroke="#608098" stroke-width="2.5" fill="none"  marker-end="url(#arr)"/>
+<path d="M 842 244 H 883" stroke="#f6c978" stroke-width="2.5" fill="none" stroke-dasharray="6 5" marker-end="url(#arr)"/>
+<path d="M 1129 244 H 1170" stroke="#608098" stroke-width="2.5" fill="none"  marker-end="url(#arr)"/>
+<rect x="36" y="370" width="1368" height="51" rx="12" fill="#192b40" stroke="#2b425a"/>
+<text x="55" y="402" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#f6c978" letter-spacing="1.1">RELEASE BOUNDARY</text>
+<text x="220" y="403" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="17" font-weight="400" fill="#d0e0f0" >CI validates pull requests and master. Publication to npm is separately owner-approved, not automated.</text>
+</svg>

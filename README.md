@@ -1,100 +1,111 @@
-# CLU Component Library
+# CLU UI
 
-[![npm version](https://img.shields.io/npm/v/%40shaobangzhu%2Fclu-ui/latest)](https://www.npmjs.com/package/@shaobangzhu/clu-ui)
+**Reusable React components. Tested like a product. Published as a package.**
 
-[npm package](https://www.npmjs.com/package/@shaobangzhu/clu-ui) · [GitHub Releases](https://github.com/Shaobangzhu/react-clu-component-lib/releases) · [Source code](https://github.com/Shaobangzhu/react-clu-component-lib)
+[![CLU CI](https://github.com/Shaobangzhu/react-clu-component-lib/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/Shaobangzhu/react-clu-component-lib/actions/workflows/ci.yml)
+[![npm](https://img.shields.io/npm/v/%40shaobangzhu%2Fclu-ui?label=npm)](https://www.npmjs.com/package/@shaobangzhu/clu-ui)
+[![MIT](https://img.shields.io/badge/license-MIT-64748b)](LICENSE)
 
-CLU UI provides React 19 components, strict TypeScript declarations and isolated light/dark themes for data-dense operational applications. Its 19 public components cover display, native forms, semantic tables, controlled pagination and dialogs. The published rc.2 is used by DGI's Dashboard, Settings, History and Merchants; it is a prerelease, not stable v1.
+CLU UI is an **open-source React 19 + TypeScript component library** for data-dense dashboards and operational interfaces. It delivers **19 reusable components**, scoped light/dark design tokens, accessible interaction patterns, and a separately consumable npm package.
 
-[Local Storybook / component gallery](http://localhost:6006) · [CLU CI](https://github.com/Shaobangzhu/react-clu-component-lib/actions/workflows/ci.yml) · [Real DGI consumer evidence](docs/consumer-integration.md) · [Architecture](docs/architecture.md) · [Release readiness](docs/release-readiness.md) · [Changelog](CHANGELOG.md)
+**What makes this more than a UI exercise?** CLU has an independent build and test pipeline, browser-tested Storybook examples, an audited package boundary, a public npm prerelease, and an actual consumer: [Delivery Geo Intelligence (DGI)](https://github.com/Shaobangzhu/delivery-geo-intelligence).
 
-Implemented here: an ESM Vite library build with declarations and an explicit CSS export, strict TypeScript, ESLint, Vitest/React Testing Library, Tailwind CSS v4 build infrastructure, local/static Storybook, and scoped light/dark design tokens. [`@shaobangzhu/clu-ui@0.1.0-rc.2`](https://www.npmjs.com/package/@shaobangzhu/clu-ui/v/0.1.0-rc.2) is publicly available on npm under MIT. Both `next` and `latest` currently resolve to this prerelease; it is not a stable or v1 release. See [publication evidence](docs/rc2-publication.md) and the [npm-to-GitHub audit](docs/npm-github-sync.md). There is no public Storybook URL yet.
+[**Explore screenshots**](#component-showcase) · [**See the engineering workflow**](#engineering-workflow) · [**Inspect CI**](https://github.com/Shaobangzhu/react-clu-component-lib/actions/workflows/ci.yml) · [**View npm package**](https://www.npmjs.com/package/@shaobangzhu/clu-ui/v/0.1.0-rc.2) · [**See adoption evidence**](docs/consumer-integration.md)
 
-Install the immutable version explicitly:
+## At a glance
 
-```sh
+| Library | Quality evidence | Distribution |
+| --- | --- | --- |
+| **19 components** across display, forms, data and overlays | **83 unit tests**, **166 Storybook browser/a11y tests**, **12 reviewed visual baselines** | **`@shaobangzhu/clu-ui@0.1.0-rc.2`** on npm; adopted by a separate React application |
+| React 19, strict TypeScript, scoped light/dark CSS | **9 GitHub Actions jobs**, with an aggregate Quality gate | ESM + declarations + opt-in compiled CSS; React remains a peer dependency |
+
+*Quality counts are from the documented P11 verification snapshot (November 2026), not a claim that tests were rerun for this README edit. [Verification details](docs/release-readiness.md).*
+
+## Component showcase
+
+Real Chromium captures from the repository's **Storybook component reviews**, using synthetic demonstration data. The gallery includes light/dark themes, responsive layouts and interactive states; these screenshots are review evidence, not visual-regression goldens.
+
+| Display primitives · light | Data table · dark |
+| :---: | :---: |
+| ![CLU Storybook display review with reusable React UI primitives](docs/evidence/p03/light-desktop.jpg) | ![CLU Storybook data table in dark theme](docs/evidence/p05/table-dark-desktop.jpg) |
+| **Forms · light** | **Dialog · dark** |
+| ![CLU Storybook native form controls in light theme](docs/evidence/p04/light-desktop.jpg) | ![CLU Storybook native modal dialog in dark theme](docs/evidence/p06/dialog-dark-desktop.jpg) |
+
+[Light/dark token gallery](docs/p02-verification.md) · [Responsive mobile reviews](docs/p05-verification.md) · [Accessibility and visual-testing approach](docs/ci-quality.md)
+
+**Interactive Storybook:** Run `npm ci && npm run storybook` with Node 22.23.4 / npm 10.9.0, then open `http://localhost:6006`. A publicly hosted Storybook is **not yet available**; screenshots are provided so reviewers can inspect the project without a local setup.
+
+## Engineering workflow
+
+![Diagram tracing CLU React components through Storybook and automated quality checks, manually approved npm publication, and the DGI consumer](docs/assets/readme-pipeline.svg)
+
+- **Build once:** React 19 + TypeScript source is packaged as ESM, declaration files and namespaced CSS. Consumers do not need Tailwind installed.
+- **Validate independently:** Vitest / React Testing Library, Storybook interactions and axe checks, Playwright Chromium/keyboard/visual tests, and an external `npm pack` consumer check.
+- **Protect changes:** GitHub Actions runs on pull requests and `master` pushes; the **Quality gate** rejects failed, skipped or missing mandatory stages.
+- **Publish deliberately:** npm publication is an **owner-authorized manual step**, not an automatic GitHub Actions deployment. The tagged [v0.1.0-rc.2 GitHub prerelease](https://github.com/Shaobangzhu/react-clu-component-lib/releases/tag/v0.1.0-rc.2) records source history; npm is the compiled distribution channel.
+
+[Architecture details](docs/architecture.md) · [CI and quality operations](docs/ci-quality.md) · [Package/release verification](docs/npm-github-sync.md)
+
+## Repository map
+
+![Visual map of CLU source folders, Storybook documentation, test automation, packaging and consumer examples](docs/assets/readme-repo-map.svg)
+
+This is a standalone library repository, **not a monorepo with its consumer**. CLU owns reusable presentation and interaction contracts; DGI owns its GIS, API, delivery data and business rules. See [component contracts](docs/display-primitives.md) and [architecture boundaries](docs/architecture.md).
+
+## Quality engineering
+
+| Layer | Verified approach |
+| --- | --- |
+| Static checks | ESLint (warnings fail), strict TypeScript across source, stories and tests |
+| Unit & interaction | **83 Vitest/RTL tests**; **93.57% statement coverage** in the P11 snapshot |
+| Storybook / accessibility | **166 browser story tests** with blocking automated axe checks |
+| Visual & keyboard | **6 Playwright tests** and **12 desktop/mobile light/dark zero-diff baselines** on pinned Linux Chromium |
+| Package integrity | External packed consumer checks ESM, Bundler/NodeNext types, Vite production build, SSR, exports and one shared React |
+| CI gate | **6 parallel check jobs + component browser job + visual job + aggregate Quality gate** |
+
+All counts refer to the [recorded verification run](docs/release-readiness.md). Automated accessibility checks are **not** a WCAG certification or a substitute for full manual assistive-technology review. For this portfolio prerelease, **production dependency vulnerabilities rated moderate+ block CI**; development-tool findings are disclosed as non-blocking warnings. Known risks and the exact policy are documented in [CI quality](docs/ci-quality.md).
+
+## Install and use
+
+The public package is a **prerelease**, not stable v1. Install the exact version for reproducible consumption:
+
+```bash
 npm install --save-exact @shaobangzhu/clu-ui@0.1.0-rc.2
 ```
 
-React `^19.0.0` is required as a peer dependency. Browser applications also need ReactDOM 19; the verified consumer uses React/ReactDOM 19.3.1. Import `@shaobangzhu/clu-ui/styles.css` once and render CLU inside a `data-clu-theme="light"` or `"dark"` host. No Tailwind installation or source scanning is required. An unversioned npm install currently selects rc.2 through `latest`; use the exact version for reproducible consumption.
-
-The **npm Registry** is the canonical channel for the compiled package. **GitHub Releases** records source/version history, including the verified [v0.1.0-rc.2 prerelease](https://github.com/Shaobangzhu/react-clu-component-lib/releases/tag/v0.1.0-rc.2); its source archives are not the compiled npm distribution. **GitHub Packages** is a separate registry and is not required for this project. GitHub account linking alone does not configure Trusted Publishing.
-
-Use Node **22.23.4** and npm **10.9.0**, matching the shared DGI baseline. `.nvmrc`, `packageManager`, and engine requirements record this toolchain; `.npmrc` enforces compatible engines and saves exact dependency versions. Exact development dependencies and transitive resolutions are recorded in `package.json` and `package-lock.json`.
-
-```sh
-nvm install
-nvm use
-# If necessary, select npm 10.9.0 in your Node installation:
-npm install --global npm@10.9.0
-npm ci
-npm run quality:check
-npm run storybook
-```
-
-Storybook runs locally at http://localhost:6006. `npm run build-storybook` generates `storybook-static/` for local static serving. Automated browser, accessibility and visual checks run separately through `npm run quality:all`; desktop/mobile reviews and their limits are recorded in phase verification notes. Public hosting and its URL remain planned.
-
-| Command | Purpose |
-| --- | --- |
-| `npm run lint` | Type-aware ESLint and React Hooks checks; warnings fail |
-| `npm run typecheck` | Strict checks for source, config, stories, and tests |
-| `npm test` | Deterministic jsdom rendering, interaction, and portable-story tests |
-| `npm run build` | ESM library, declarations, and compiled CSS in `dist/` |
-| `npm run storybook` | Local Storybook development |
-| `npm run build-storybook` | Static Storybook production build |
-| `npm run package:verify` | Real archive checks and an external locked consumer: Bundler/NodeNext types, Vite, SSR and React deduplication |
-| `npm run quality:check` | Lint, types, tests, library, Storybook and package verification in sequence |
-| `npm run quality:all` | Complete local quality pipeline, including pinned Linux Chromium stories/a11y/visuals, security and failure-propagation probes |
-
-The actual tested versions, official compatibility references, and verification output are recorded in [P01 verification](docs/p01-verification.md).
-
-```text
-src/index.ts                        public entry; display, form, data and overlay APIs/types
-src/styles/index.css                compiled scoped tokens and opt-in focus styles
-src/internal/ScaffoldButton.*        internal proof, excluded from library output
-.storybook/                         React + Vite Storybook configuration
-tests/                             RTL interaction and portable-story tests
-```
-
-The package exposes `.` as ESM with types and `./styles.css` as opt-in compiled CSS. Consumers import the CSS explicitly and place components under a theme host; Tailwind is not a consumer build requirement. CSS side effects are declared so bundlers preserve an explicit CSS import. Theme variables are defined only on explicit `[data-clu-theme]` hosts, with scoped user-preference overrides and no reset. See the [public token contract](docs/design-tokens.md) and [P02 verification](docs/p02-verification.md). The internal scaffold demonstrates Tailwind compilation under a `clu-*` selector, using a reference-only import. No Preflight or default theme is injected into consumers.
-
-React 19 is both a peer and an exact development dependency. React, ReactDOM, and their subpaths (including JSX runtimes) are external in the library build. ReactDOM is development-only because the public entry does not import it. The internal scaffold is not exported or packaged; the public Button is documented below.
-
-[The v1 blueprint](plan.md) preserves the two-repository scope and all 11 delivery phases. P01 was merged in PR #1. [The P02 PR draft](docs/p02-pr.md) is local review material.
-
-- **CLU:** [Shaobangzhu/react-clu-component-lib](https://github.com/Shaobangzhu/react-clu-component-lib), base `master`. P01–P08 establish the foundation, tokens, components, package contract, and quality gates. Each phase starts from the latest merged `master` on its own branch and is reviewed before the next.
-- **First consumer, DGI:** [Shaobangzhu/delivery-geo-intelligence](https://github.com/Shaobangzhu/delivery-geo-intelligence), base `main`. P09/P10 merged in PRs #22/#23. Its exact npm rc.2 dependency, four page integrations and main/PR-head Quality gates are [independently verified](docs/consumer-integration.md). This CLU documentation PR does not modify DGI.
-- **Release readiness:** P11 audits real component, package, and consumer evidence. The owner-approved MIT npm rc.2 and its GitHub prerelease are published; registry bytes and independent consumers are verified. Public hosting and stable v1 approval remain separate steps.
-- **SCOC:** a future consumer outside v1 acceptance scope.
-
-The external implementation kit also contains `codex-prompts.md` and `prompts/P01.md` through `P11.md`. They are not included in this repository. The root blueprint records the execution plan; later phase prompts remain separate handoff materials.
-
-CLU owns reusable UI semantics and generic interactions. Delivery, GIS, finance, provider telemetry, APIs, and business logic stay in consumers. No consumer implementation is copied here. Further consumer coverage, admin enablement and hosted Storybook remain separate work. [The phase ledger](plan.md) preserves historical snapshots; [readiness](docs/release-readiness.md) separates verified adoption from remaining stable-release gates.
-
-**Maintainer:** [Chaoran Lu](https://github.com/Shaobangzhu)
-
-Review the token gallery under **Foundations / Semantic tokens** in Storybook. Interactive follows the local Theme toolbar; fixed Light/Dark and Compare stories support predictable review. Themes never mutate the document. For a bare consumer check, run `npm run build`, serve the repository with a static server, and open `examples/theme-smoke/`.
-
-Public display exports: Button, IconButton, Card, Badge, StatusIndicator, StatCard, Alert, Skeleton and EmptyState. See [API contracts and accessibility notes](docs/display-primitives.md), [P03 verification](docs/p03-verification.md) and [P03 PR draft](docs/p03-pr.md). Components require explicit CSS import and a theme host.
-
-Public form exports: Field, Input, Textarea, Select, Checkbox and SegmentedControl. Read the [native form API and accessibility contract](docs/form-controls.md), [P04 verification](docs/p04-verification.md) and [PR draft](docs/p04-pr.md). The Forms stories include a synthetic delivery metadata example; DGI integration and domain validation remain consumer work.
-
-Public data APIs: composable `Table` and controlled `Pagination`. See [data API contracts](docs/data-presentation.md), [P05 verification](docs/p05-verification.md) and [PR draft](docs/p05-pr.md). The Data stories include synthetic Delivery History and Merchant Summary examples. Page size, row slicing, filtering, sorting and page reconciliation remain application responsibilities.
-
-Public overlay exports: controlled `Dialog` and compositional `ConfirmDialog`. Read the [focus, dismissal and async confirmation contracts](docs/overlays.md), [P06 verification](docs/p06-verification.md) and [PR draft](docs/p06-pr.md). Overlays use native modal isolation; consuming applications own form state, business callbacks and successful closure.
-
-The [P07 package contract](docs/package-contract.md) documents exact local tarball install commands, the isolated consumer template, archive/source-map rules and the version/distribution gate. `npm pack` rebuilds first. [P07 evidence](docs/p07-verification.md) distinguishes automated package checks from rendered browser checks. DGI integration requires a registry artifact whose bytes match the tested candidate; local pack verification alone does not meet that gate.
-
-P08 adds local/CI component, accessibility, visual and security gates. Read [commands, baseline review and admin operations](docs/ci-quality.md), [original local evidence](docs/p08-verification.md) and [PR draft](docs/p08-pr.md). `npm run quality:all` uses the pinned Linux Docker browser environment. P08 merged in PR #8, and the prerelease preparation merged in PR #10. The [audited master CI run](https://github.com/Shaobangzhu/react-clu-component-lib/actions/runs/42780185648) passed at `b193cf0`; it does not validate later changes. Downloaded hosted artifact/fork-PR review and admin-only required-check enablement remain follow-ups; no Pages publication is enabled.
-
-Current prerelease: `@shaobangzhu/clu-ui@0.1.0-rc.2`, MIT, publicly published with both `next` and `latest` pointing to rc.2. Read [candidate decisions](docs/prerelease-candidate.md), [publication evidence](docs/rc2-publication.md) and [source correspondence](docs/npm-github-sync.md). The frozen private rc.1 remains historical evidence. Post-publication metadata/docs changes do not change the npm artifact; a future publication requires a new version and verified artifact.
-
-Consumers use only public exports and import the compiled CSS once:
-
 ```tsx
-import { Button, Input, SegmentedControl, Table, Pagination, Dialog } from '@shaobangzhu/clu-ui';
+import { Badge, Button, Card } from '@shaobangzhu/clu-ui';
 import '@shaobangzhu/clu-ui/styles.css';
-// Render CLU elements inside <section data-clu-theme="light"> or "dark".
+
+export function Example() {
+  return (
+    <section data-clu-theme="light">
+      <Card>
+        <Badge>Ready</Badge>
+        <Button>Continue</Button>
+      </Card>
+    </section>
+  );
+}
 ```
 
-For an application that also needs the verified React versions, use `npm install --save-exact @shaobangzhu/clu-ui@0.1.0-rc.2 react@19.3.1 react-dom@19.3.1`. See [MIT license](LICENSE).
+React `^19.0.0` is required as a peer dependency; browser apps provide ReactDOM. Import the CSS once and place components under `data-clu-theme="light"` or `"dark"`. See the [package contract](docs/package-contract.md).
+
+## Verified real-world adoption
+
+[**DGI**](https://github.com/Shaobangzhu/delivery-geo-intelligence) consumes the **published npm rc.2 artifact** through an exact dependency and lockfile, rather than importing CLU's source. Its **Dashboard, Settings, History and Merchants** integrations were reviewed and merged with separate application quality gates. CLU remains domain-agnostic; consumer-specific dates, pagination policies, providers and business rules stay inside DGI.
+
+[**Read the consumer integration evidence**](docs/consumer-integration.md) · [**Open the npm release**](https://www.npmjs.com/package/@shaobangzhu/clu-ui/v/0.1.0-rc.2)
+
+## Explore the documentation
+
+| Want to inspect… | Start here |
+| --- | --- |
+| Architecture and source/consumer boundaries | [Architecture](docs/architecture.md) |
+| Component APIs and design tokens | [Display](docs/display-primitives.md) · [Forms](docs/form-controls.md) · [Data](docs/data-presentation.md) · [Overlays](docs/overlays.md) · [Tokens](docs/design-tokens.md) |
+| Tests, quality gates and CI operations | [CI quality](docs/ci-quality.md) |
+| Package contract and verified publication | [Package contract](docs/package-contract.md) · [npm/GitHub audit](docs/npm-github-sync.md) |
+| Release decisions and limitations | [Release readiness](docs/release-readiness.md) · [Changelog](CHANGELOG.md) |
+| Fast technical interview walkthrough | [One-minute demo](docs/interview-demo.md) |
+
+**Maintainer:** [Chaoran Lu](https://github.com/Shaobangzhu) · **License:** [MIT](LICENSE) · **Current status:** Public `0.1.0-rc.2` prerelease; stable v1 not released.
