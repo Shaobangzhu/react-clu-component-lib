@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="568" viewBox="0 0 1440 568" role="img" aria-labelledby="title desc">
+<title id="title">CLU UI repository organization</title><desc id="desc">Four functional areas: source and exports, Storybook and docs, automated testing and CI, and build/package/consumer verification.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1727"/><stop offset="1" stop-color="#101d31"/></linearGradient></defs>
+<rect width="1440" height="568" rx="20" fill="url(#bg)"/>
+<text x="35" y="39" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#5eead4" letter-spacing="2">REPOSITORY MAP</text>
+<text x="35" y="83" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="28" font-weight="700" fill="#f4f8ff" >A small, purpose-built library — with clear engineering boundaries.</text>
+<text x="35" y="114" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="19" font-weight="600" fill="#9cbbda" >react-clu-component-lib/</text>
+<g>
+ <rect x="32" y="144" width="329" height="358" rx="18" fill="#152238" stroke="#304257"/>
+ <rect x="32" y="144" width="329" height="5" rx="2" fill="#5eead4"/>
+ <text x="52" y="187" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" fill="#f2f7ff" >Source &amp; public API</text>
+ <text x="52" y="215" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#5eead4" >19 reusable components</text>
+ <circle cx="54" cy="248" r="3" fill="#5eead4"/><text x="65" y="253" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#c7d9ed" >src/components/  ·  display (9)</text>
+<circle cx="54" cy="281" r="3" fill="#5eead4"/><text x="65" y="286" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#c7d9ed" >src/forms/  ·  inputs (6)</text>
+<circle cx="54" cy="314" r="3" fill="#5eead4"/><text x="65" y="319" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#c7d9ed" >src/data/  ·  table, paging (2)</text>
+<circle cx="54" cy="347" r="3" fill="#5eead4"/><text x="65" y="352" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#c7d9ed" >src/overlays/  ·  dialogs (2)</text>
+<circle cx="54" cy="380" r="3" fill="#5eead4"/><text x="65" y="385" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#c7d9ed" >src/foundations/  ·  tokens</text>
+<circle cx="54" cy="413" r="3" fill="#5eead4"/><text x="65" y="418" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#c7d9ed" >src/styles/  ·  scoped CSS</text>
+<circle cx="54" cy="446" r="3" fill="#5eead4"/><text x="65" y="451" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#c7d9ed" >src/index.ts  ·  public exports</text>
+</g>
+<g>
+ <rect x="391" y="144" width="329" height="358" rx="18" fill="#152238" stroke="#304257"/>
+ <rect x="391" y="144" width="329" height="5" rx="2" fill="#b4a0ff"/>
+ <text x="411" y="187" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" fill="#f2f7ff" >Storybook &amp; docs</text>
+ <text x="411" y="215" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#b4a0ff" >Isolated, inspectable UI</text>
+ <circle cx="413" cy="248" r="3" fill="#b4a0ff"/><text x="424" y="253" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#c7d9ed" >.storybook/</text>
+<circle cx="413" cy="281" r="3" fill="#b4a0ff"/><text x="424" y="286" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#c7d9ed" >src/**/*.stories.tsx</text>
+<circle cx="413" cy="314" r="3" fill="#b4a0ff"/><text x="424" y="319" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#c7d9ed" >docs/evidence/  ·  captures</text>
+<circle cx="413" cy="347" r="3" fill="#b4a0ff"/><text x="424" y="352" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#c7d9ed" >docs/*.md  ·  contracts</text>
+<circle cx="413" cy="380" r="3" fill="#b4a0ff"/><text x="424" y="385" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#c7d9ed" >docs/interview-demo.md</text>
+<circle cx="413" cy="413" r="3" fill="#b4a0ff"/><text x="424" y="418" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#c7d9ed" >CHANGELOG.md</text>
+<circle cx="413" cy="446" r="3" fill="#b4a0ff"/><text x="424" y="451" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#c7d9ed" >plan.md</text>
+</g>
+<g>
+ <rect x="750" y="144" width="329" height="358" rx="18" fill="#152238" stroke="#304257"/>
+ <rect x="750" y="144" width="329" height="5" rx="2" fill="#82b7ff"/>
+ <text x="770" y="187" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" fill="#f2f7ff" >Quality &amp; CI</text>
+ <text x="770" y="215" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#82b7ff" >Deterministic verification</text>
+ <circle cx="772" cy="248" r="3" fill="#82b7ff"/><text x="783" y="253" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#c7d9ed" >tests/  ·  unit / RTL</text>
+<circle cx="772" cy="281" r="3" fill="#82b7ff"/><text x="783" y="286" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#c7d9ed" >tests/visual/baselines/</text>
+<circle cx="772" cy="314" r="3" fill="#82b7ff"/><text x="783" y="319" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#c7d9ed" >.github/workflows/ci.yml</text>
+<circle cx="772" cy="347" r="3" fill="#82b7ff"/><text x="783" y="352" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#c7d9ed" >.ci/  ·  pinned browser</text>
+<circle cx="772" cy="380" r="3" fill="#82b7ff"/><text x="783" y="385" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#c7d9ed" >scripts/quality-gate.mjs</text>
+<circle cx="772" cy="413" r="3" fill="#82b7ff"/><text x="783" y="418" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#c7d9ed" >scripts/verify-package.mjs</text>
+<circle cx="772" cy="446" r="3" fill="#82b7ff"/><text x="783" y="451" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#c7d9ed" >vitest / playwright configs</text>
+</g>
+<g>
+ <rect x="1109" y="144" width="329" height="358" rx="18" fill="#152238" stroke="#304257"/>
+ <rect x="1109" y="144" width="329" height="5" rx="2" fill="#f6c978"/>
+ <text x="1129" y="187" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" fill="#f2f7ff" >Build &amp; consumers</text>
+ <text x="1129" y="215" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#f6c978" >Independent distribution</text>
+ <circle cx="1131" cy="248" r="3" fill="#f6c978"/><text x="1142" y="253" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#c7d9ed" >package.json  ·  npm exports</text>
+<circle cx="1131" cy="281" r="3" fill="#f6c978"/><text x="1142" y="286" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#c7d9ed" >package-lock.json</text>
+<circle cx="1131" cy="314" r="3" fill="#f6c978"/><text x="1142" y="319" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#c7d9ed" >vite.config.ts  ·  ESM build</text>
+<circle cx="1131" cy="347" r="3" fill="#f6c978"/><text x="1142" y="352" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#c7d9ed" >examples/consumer-smoke/</text>
+<circle cx="1131" cy="380" r="3" fill="#f6c978"/><text x="1142" y="385" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#c7d9ed" >examples/theme-smoke/</text>
+<circle cx="1131" cy="413" r="3" fill="#f6c978"/><text x="1142" y="418" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#c7d9ed" >dist/  ·  generated output</text>
+<circle cx="1131" cy="446" r="3" fill="#f6c978"/><text x="1142" y="451" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" fill="#c7d9ed" >npm rc.2  →  DGI (external)</text>
+</g>
+<text x="37" y="540" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#9cb8d4" >CLU owns generic UI and package contracts; DGI remains a separate downstream application repository.</text>
+</svg>
