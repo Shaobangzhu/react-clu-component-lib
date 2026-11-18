@@ -29,6 +29,8 @@ jobs:
           - {name: 'Unit and coverage', command: 'test:coverage'}
           - {name: 'Package contract', command: 'package:verify'}
           - {name: 'Storybook build', command: 'build-storybook'}
+          # Demo policy: production moderate+ blocks; full development audit is report-only.
+          # Audit infrastructure errors remain fatal inside scripts/security-check.mjs.
           - {name: 'Dependency security', command: 'security:check'}
           - {name: 'Failure propagation', command: 'quality:probe'}
     steps:
@@ -41,7 +43,7 @@ jobs:
           cache: npm
       - run: npm install --global npm@10.9.0
       - run: npm ci
-      - name: Run blocking stage
+      - name: Run quality or security stage
         env:
           CHECK_COMMAND: ${{ matrix.command }}
         run: |

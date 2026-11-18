@@ -63,7 +63,7 @@ This is a standalone library repository, **not a monorepo with its consumer**. C
 | Package integrity | External packed consumer checks ESM, Bundler/NodeNext types, Vite production build, SSR, exports and one shared React |
 | CI gate | **6 parallel check jobs + component browser job + visual job + aggregate Quality gate** |
 
-All counts refer to the [recorded verification run](docs/release-readiness.md). Automated accessibility checks are **not** a WCAG certification or a substitute for full manual assistive-technology review. Security policy and known development-tool advisories are documented in [CI quality](docs/ci-quality.md).
+All counts refer to the [recorded verification run](docs/release-readiness.md). Automated accessibility checks are **not** a WCAG certification or a substitute for full manual assistive-technology review. For this portfolio prerelease, **production dependency vulnerabilities rated moderate+ block CI**; development-tool findings are disclosed as non-blocking warnings. Known risks and the exact policy are documented in [CI quality](docs/ci-quality.md).
 
 ## Install and use
 
