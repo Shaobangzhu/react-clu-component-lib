@@ -8,6 +8,7 @@ async function walk(directory) {
     if(item.name==='upload'||item.name==='html'||item.name==='candidates')continue;
     const path=join(directory,item.name);
     if(item.isSymbolicLink())throw new Error('Artifact symlinks forbidden');
+    if(path===join(root,'qep','unit.xml'))continue;
     if(item.isDirectory()){await walk(path);continue;}
     if(!/\.(?:png|xml|json|log|txt)$/.test(item.name))continue;
     const bytes=await readFile(path);if(bytes.length>25*1024*1024)throw new Error('Artifact too large');

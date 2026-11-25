@@ -21,6 +21,12 @@ The browser wrappers require an installed/running Docker engine. They stage only
 
 Coverage applies to src/components, forms, data and overlays, excluding stories and internal/gallery scaffolds. Aggregate floors: lines/statements 90%, functions 85%, branches 80%. Coverage is a regression signal, not a claim about all behaviors or accessibility. Browser and story assertions have separate counts from unit coverage.
 
+## Opt-in CLU unit JUnit report
+
+From the CLU repository root, run `QEP_REPORTING=1 npm test` to add Vitest's built-in JUnit reporter alongside the default console reporter. Only the exact value `1` enables this report. With the flag unset or set to any other value, a run leaves any existing report untouched.
+
+Vitest creates or overwrites the Git-ignored `artifacts/qep/unit.xml`. The report contains testcase results and may contain assertion failure details. Test console output is omitted from the XML, and the report is excluded from CI artifact uploads. Vitest still exits nonzero on test failure. This flag applies to the CLU unit configuration, including `npm run test:coverage` when opted in.
+
 ## Storybook and accessibility
 
 Storybook core/addon-a11y/addon-vitest are pinned at 10.6.5; Vitest/browser/provider/coverage at 4.1.12, Playwright/test at 1.64.1. The established React-Vite adapter remains 10.3.6: testing 10.6.5 exposed incompatible declarations under the existing strict TypeScript 5.9.3/exactOptionalPropertyTypes contract. Its official peer range accepts the installed core. No legacy peer bypass or skipLibCheck was used. See package-lock.json for the actual graph.
